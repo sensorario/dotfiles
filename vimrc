@@ -8,3 +8,5 @@ Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
 filetype plugin indent on    " required
+
+colorscheme zellner
