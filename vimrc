@@ -3,8 +3,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'gmarik/Vundle.vim' " vim bundle manager
+Plugin 'kien/ctrlp.vim'    " finder ...
+Plugin 'fugitive.vim'      " git integration
 call vundle#end()
 
 filetype plugin indent on    " required
