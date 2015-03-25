@@ -10,7 +10,7 @@ call vundle#end()
 
 filetype plugin indent on    " required
 
-colorscheme zellner
+colorscheme delek
 
 set tabstop=4
 set softtabstop=4
