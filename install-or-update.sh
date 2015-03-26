@@ -6,3 +6,5 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 vim +PluginInstall! +qall > /dev/null 2>&1
+
+cp -Rf $PWD/snippets ~/.vim/snippets
