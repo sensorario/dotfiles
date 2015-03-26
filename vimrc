@@ -15,15 +15,18 @@ filetype plugin indent on    " required
 
 colorscheme delek
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
 set expandtab
-set nopaste
+set foldlevel=1
+set foldlevelstart=4
+set foldmethod=indent
 set ignorecase
-set nu
 set list listchars=tab:»·,trail:·
+set nopaste
+set nu
+set shiftwidth=4
 set showbreak=↪
+set softtabstop=4
+set tabstop=4
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
