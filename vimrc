@@ -6,6 +6,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim' " vim bundle manager
 Plugin 'kien/ctrlp.vim'    " finder ...
 Plugin 'fugitive.vim'      " git integration
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 call vundle#end()
 
 filetype plugin indent on    " required

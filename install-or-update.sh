@@ -1,6 +1,5 @@
 #!/bin/bash
 cd "$(dirname "$0")"
-git pull origin master
 rm -rf ~/.vim
 cp -f $PWD/vimrc ~/.vimrc
 if [ ! -d ~/.vim/bundle/vundle ]; then
