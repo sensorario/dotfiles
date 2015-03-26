@@ -17,7 +17,7 @@ colorscheme delek
 
 set expandtab
 set foldlevel=1
-set foldlevelstart=4
+set foldlevelstart=42
 set foldmethod=indent
 set ignorecase
 set list listchars=tab:»·,trail:·
