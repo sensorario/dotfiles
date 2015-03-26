@@ -15,6 +15,8 @@ filetype plugin indent on    " required
 
 colorscheme delek
 
+set colorcolumn=120
+set cursorline
 set expandtab
 set foldlevel=1
 set foldlevelstart=42
