@@ -23,7 +23,6 @@ set foldlevelstart=42
 set foldmethod=indent
 set ignorecase
 set list listchars=tab:»·,trail:·
-set nopaste
 set nu
 set shiftwidth=4
 set showbreak=↪
