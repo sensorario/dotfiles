@@ -1,30 +1,7 @@
 snippet dump
-	error_log(var_export(${1}, true));
+	error_log(__LINE__ . ' ' . __FILE__ . ' ' .  var_export(${1}, true));
 
-snippet privvar
-	private ${1};
-
-snippet privfun
-	private function ${1}()
-	{
-		${2}
-	}
-
-snippet pubfun
-	public function ${1}()
-	{
-		${2}
-	}
-
-snippet if
-	if (${1}) {
-		${2}
-	}
-
-snippet switch
-	switch (${1}) {
-		case '${3}':
-			break;
-		default:
-			${2};
-	}
+snippet throw
+	throw new RuntimeException(
+		'${1}'
+	);
