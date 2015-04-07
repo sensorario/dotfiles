@@ -1,8 +1,7 @@
-snippet dumpverbose
-	error_log(__LINE__ . __FILE__ . var_export(${1}, true));
+snippet dump
+	error_log(__LINE__ . ' ' . __FILE__ . ' ' .  var_export(${1}, true));
 
-snippet dumpline
-	error_log(__LINE__ . var_export(${1}, true));
-
-snippet dumpstring
-	error_log(var_export(${1}, true));
+snippet throw
+	throw new RuntimeException(
+		'${1}'
+	);
