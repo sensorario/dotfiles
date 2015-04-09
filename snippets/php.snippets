@@ -1,5 +1,14 @@
 snippet dump
-	error_log(__LINE__ . ' ' . __FILE__ . ' ' .  var_export(${1}, true));
+	error_log(
+		var_export(${1}, true)
+	);
+
+snippet dumpverbose
+	error_log(
+		__LINE__ . ' ' .
+		__FILE__ . ' ' .
+		var_export(${1}, true)
+	);
 
 snippet throw
 	throw new RuntimeException(
