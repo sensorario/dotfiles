@@ -8,11 +8,11 @@ snippet assertTrue
 		${1},
 		${2}
 	);
+snippet export
+	var_export(${1}, true)
 snippet dump
-	error_log(
-		var_export(${1}, true)
-	);
-snippet dumpverbose
+	var_dump(${1}, true)
+snippet verbose
 	error_log(
 		__LINE__ . ' ' .
 		__FILE__ . ' ' .
