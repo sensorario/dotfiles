@@ -28,8 +28,7 @@ set shiftwidth=4
 set showbreak=↪
 set softtabstop=4
 set tabstop=4
-set nobackup
-set nowritebackup
+set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
