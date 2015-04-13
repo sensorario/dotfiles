@@ -29,6 +29,8 @@ set showbreak=↪
 set softtabstop=4
 set tabstop=4
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
+set exrc
+set secure
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -38,13 +40,3 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
-
-function! RunPhpUnit()
-    let l:filename = expand('%')
-    if l:filename !~# 'Test\.php$'
-        let l:filename=substitute(l:filename, '\.php$', 'Test.php', '')
-    endif
-    let l:filename=substitute(l:filename, 'code\/classes', 'spec\/unit', '')
-    return ':!vendor/bin/phpunit ' . l:filename . "\<CR>"
-endfunction
-:noremap <expr> <leader>t RunPhpUnit()
