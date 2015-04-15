@@ -9,6 +9,7 @@ Plugin 'fugitive.vim'                 " git integration
 Plugin 'MarcWeber/vim-addon-mw-utils' " add your local vimrc
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'          " add snippets to your vim
+Plugin 'scrooloose/nerdtree'          " tree of files and folders
 call vundle#end()
 
 filetype plugin indent on             " required
