@@ -1,0 +1,33 @@
+#!/bin/bash
+clear
+
+echo "Defining colors ..."
+information=`tput setaf 2`
+question=`tput setaf 3`
+alert=`tput setaf 1`
+reset=`tput sgr0`
+echo "Colors defined ..."
+
+
+echo ""
+echo "${alert}Pay attention, this script aims to Auto-push branches on remote${reset}"
+
+echo ""
+echo "${information}Branch is $current_branch ...${reset}"
+
+echo ""
+echo "${information}Retrieving current branch information ...${reset}"
+
+current_branch=$(git symbolic-ref -q HEAD)
+current_branch=${current_branch##refs/heads/}
+current_branch=${current_branch:-HEAD}
+echo ""
+echo "${information}Branch is $current_branch ...${reset}"
+
+
+if [ $current_branch != 'master' ]; then
+    git push origin $current_branch;
+else
+    echo ""
+    echo "${information}Update master!!!${reset}"
+fi
