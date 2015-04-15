@@ -13,9 +13,6 @@ echo ""
 echo "${alert}Pay attention, this script aims to Auto-push branches on remote${reset}"
 
 echo ""
-echo "${information}Branch is $current_branch ...${reset}"
-
-echo ""
 echo "${information}Retrieving current branch information ...${reset}"
 
 current_branch=$(git symbolic-ref -q HEAD)
