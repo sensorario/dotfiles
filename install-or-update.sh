@@ -1,7 +1,7 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
-# Vim
+# overwrite plugins
 rm -rf ~/.vim
 cp -f $PWD/vimrc ~/.vimrc
 if [ ! -d ~/.vim/bundle/vundle ]; then
@@ -9,7 +9,8 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
 fi
 vim +PluginInstall! +qall > /dev/null 2>&1
 
+# overwrite snippets
 cp -Rf $PWD/snippets ~/.vim/snippets
 
-# Tmux
+# overwrite tmux configuration
 cp -f $PWD/tmux.conf ~/.tmux.conf
