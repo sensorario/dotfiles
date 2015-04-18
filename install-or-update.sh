@@ -9,8 +9,7 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
 fi
 vim +PluginInstall! +qall > /dev/null 2>&1
 
-# overwrite snippets
-cp -Rf $PWD/snippets ~/.vim/snippets
+. install-snippets.sh
 
 # overwrite tmux configuration
 cp -f $PWD/tmux.conf ~/.tmux.conf
