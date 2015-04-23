@@ -34,6 +34,7 @@ set nu
 set secure
 set shiftwidth=4
 set showbreak=↪
+set smartindent
 set softtabstop=4
 set tabstop=4
 
