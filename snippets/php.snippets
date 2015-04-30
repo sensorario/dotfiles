@@ -9,10 +9,6 @@ snippet class
 	}
 snippet bash
 	#!/bin/bash
-snippet items
-	'${1}' => [
-		'${2}',
-	],
 snippet item
 	'${1}' => ${2},
 snippet foreach
@@ -29,6 +25,8 @@ snippet export
 	var_export(${1}, true);
 snippet dump
 	var_dump(${1}, true);
+snippet error_log
+	error_log(${1});
 snippet throw
 	throw new RuntimeException(
 		'${1}'
