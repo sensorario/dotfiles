@@ -1,9 +1,20 @@
+snippet php
+	<?php
+snippet class
+	namespace ${1};
+
+	final class ${1}
+	{
+		// do something
+	}
+snippet bash
+	#!/bin/bash
 snippet items
 	'${1}' => [
 		'${2}',
 	],
 snippet item
-	'${1}' => '${2}',
+	'${1}' => ${2},
 snippet foreach
 	foreach (${1:array} in ${2:key} => ${3:value}) {
 		${4}
@@ -11,28 +22,13 @@ snippet foreach
 snippet const
 	const ${1} = "${2}";
 snippet assertEquals
-	$this->assertEquals(
-		${1},
-		${2}
-	);
+	$this->assertEquals(${1}, ${2});
 snippet assertTrue
-	$this->assertTrue(
-		${1},
-		${2}
-	);
+	$this->assertTrue(${1});
 snippet export
 	var_export(${1}, true);
-
 snippet dump
 	var_dump(${1}, true);
-
-snippet verbose
-	error_log(
-		__LINE__ . ' ' .
-		__FILE__ . ' ' .
-		var_export(${1}, true)
-	);
-
 snippet throw
 	throw new RuntimeException(
 		'${1}'
