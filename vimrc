@@ -50,3 +50,12 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+
+map <Leader>s :sort<CR>
+
+function! NewspaperMetaphore()
+    let g:newspaper='!grep function % | grep -v private'
+    exec g:newspaper
+endfunction
+
+map <F12> :call NewspaperMetaphore()<CR>
