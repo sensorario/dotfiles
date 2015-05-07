@@ -54,7 +54,7 @@ inoremap <Right> <NOP>
 map <Leader>s :sort<CR>
 
 function! NewspaperMetaphore()
-    let g:newspaper='!grep function % | grep -v private'
+    let g:newspaper='!clear; grep "public function" %'
     exec g:newspaper
 endfunction
 
