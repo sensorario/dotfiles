@@ -54,8 +54,12 @@ inoremap <Right> <NOP>
 map <Leader>s :sort<CR>
 
 function! NewspaperMetaphore()
-    let g:newspaper='!clear; grep "public function" %'
-    exec g:newspaper
+    exec '!clear; grep "public function" %'
+endfunction
+
+function! SortAllUseStatements()
+    exec ':0;/^use /;/^\(use \)\@!/-1:sort'
 endfunction
 
 map <F12> :call NewspaperMetaphore()<CR>
+map <F2>  :call SortAllUseStatements()<CR>
