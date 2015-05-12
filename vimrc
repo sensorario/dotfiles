@@ -22,6 +22,12 @@ colorscheme delek
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
+" airline
+set laststatus=2
+let g:airline#extensions#tabline#left_sepne#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
 set colorcolumn=120
 set cursorline
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
