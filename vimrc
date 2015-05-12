@@ -41,6 +41,7 @@ set tabstop=4
 
 " replace current word
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
+nnoremap <Leader>R :%s/\<<C-r><C-w>\>//gcI<Left><Left><Left><Left>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
