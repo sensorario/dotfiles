@@ -17,7 +17,7 @@ call vundle#end()
 
 filetype plugin indent on             " required
 
-colorscheme darkblue
+colorscheme desert
 
 " ctrlp configuraation
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
