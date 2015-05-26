@@ -79,10 +79,12 @@ inoremap <Right> <NOP>
 map <Leader>s :sort<CR>
 
 function! NewspaperMetaphore()
+    " todo: use awk to hide non method name words
     exec '!clear; grep "public function" %'
 endfunction
 
 function! SortAllUseStatements()
+    " todo: check if current file is a php file
     exec ':0;/^use /;/^\(use \)\@!/-1:sort'
 endfunction
 
