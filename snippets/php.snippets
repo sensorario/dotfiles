@@ -33,3 +33,8 @@ snippet throw
 	throw new RuntimeException(
 		'${1}'
 	);
+snippet expext
+	$this->${1}->expects($this->${2})
+		->method('${3}')
+		->with(${4})
+		->will(${5});
