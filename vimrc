@@ -13,6 +13,7 @@ Plugin 'scrooloose/nerdtree'          " tree of files and folders
 Plugin 'tommcdo/vim-lion'             " align equals
 Plugin 'bling/vim-airline'
 Plugin 'shawncplus/phpcomplete.vim'
+Bundle 'vim-php/vim-composer'
 call vundle#end()
 
 filetype plugin indent on             " required
