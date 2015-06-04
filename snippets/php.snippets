@@ -1,5 +1,14 @@
 snippet php
 	<?php
+snippet dataprov
+	/**
+	 * @dataProvider ${1}
+	 */
+snippet test
+	public function test${1}()
+	{
+		${2}
+	}
 snippet pubfun
 	public function ${1}()
 	{
@@ -9,28 +18,33 @@ snippet it
 	if (${1}) {
 		// do something
 	}
-snippet bash
-	#!/bin/bash
 snippet item
 	'${1}' => ${2},
 snippet const
 	const ${1} = "${2}";
 snippet assertEquals
-	$this->assertEquals(${1}, ${2});
+	$this->assertEquals(
+		${1},
+		${2}
+	);
 snippet assertTrue
 	$this->assertTrue(${1});
 snippet varexport
-	var_export(${1}, true);
+	var_export(${1}, true)
 snippet vardump
-	var_dump(${1}, true);
-snippet error_log
-	error_log(${1});
+	var_dump(${1}, true)
+snippet errorlog
+	error_log(${1})
 snippet throw
-	throw new RuntimeException(
-		'${1}'
+	throw new ${1}(
+		'${2}'
 	);
 snippet expext
 	$this->${1}->expects($this->${2})
 		->method('${3}')
 		->with(${4})
 		->will(${5});
+snippet forach
+	foreach ($${1} as $key => $value) {
+		${2}
+	}
