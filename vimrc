@@ -81,6 +81,12 @@ let g:phpcomplete_mappings = {
 " replace current word
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <Leader>R :%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left><Left>
+nnoremap <Leader>s :sort<CR>
+
+" function keyboard mapping
+nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
+map      <F2>      :call SortAllUseStatements()<CR>
+map      <F12>     :call NewspaperMetaphore()<CR>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -90,8 +96,6 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
-
-map <Leader>s :sort<CR>
 
 function! NewspaperMetaphore()
     " todo: use awk to hide non method name words
@@ -103,5 +107,7 @@ function! SortAllUseStatements()
     exec ':0;/^use /;/^\(use \)\@!/-1:sort'
 endfunction
 
-map <F12> :call NewspaperMetaphore()<CR>
-map <F2>  :call SortAllUseStatements()<CR>
+" ComposerKnowWhereCurrentFileIs
+function! g:VimComposerCustomBehavior(currentWord)
+    exec "normal \<c-p>" . a:currentWord
+endfunction
