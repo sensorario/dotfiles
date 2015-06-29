@@ -63,6 +63,7 @@ set showbreak=↪
 set smartindent
 set softtabstop=4
 set tabstop=4
+set hlsearch
 
 " replace current word
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
