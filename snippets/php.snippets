@@ -1,5 +1,7 @@
 snippet php
 	<?php
+snippet privattr
+	private $${1};
 snippet dataprov
 	/**
 	 * @dataProvider ${1}
@@ -22,19 +24,17 @@ snippet item
 	'${1}' => ${2},
 snippet const
 	const ${1} = "${2}";
-snippet assertEquals
+snippet assTrue
+	$this->assertTrue(${1});
+snippet assFalse
+	$this->assertFalse(${1});
+snippet assEquals
 	$this->assertEquals(
 		${1},
 		${2}
 	);
-snippet assertTrue
-	$this->assertTrue(${1});
-snippet varexport
-	var_export(${1}, true)
-snippet vardump
-	var_dump(${1}, true)
-snippet errorlog
-	error_log(${1})
+snippet phplog
+	error_log(var_export(${1}, true));
 snippet throw
 	throw new ${1}(
 		'${2}'
