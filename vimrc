@@ -65,6 +65,20 @@ set softtabstop=4
 set tabstop=4
 set hlsearch
 
+" phpcomplete
+let g:phpcomplete_relax_static_constraint = 1
+let g:phpcomplete_complete_for_unknown_classes = 1
+let g:phpcomplete_search_tags_for_variables = 1
+let g:phpcomplete_min_num_of_chars_for_namespace_completion = 3
+let g:phpcomplete_parse_docblock_comments = 1
+let g:phpcomplete_cache_taglists = 1
+let g:phpcomplete_enhance_jump_to_definition = 1
+let g:phpcomplete_mappings = {
+   \ 'jump_to_def': '<C-]>',
+   \ 'jump_to_def_split': '<C-W><C-]>',
+   \ 'jump_to_def_vsplit': '<C-W><C-\>',
+   \}
+
 " replace current word
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <Leader>R :%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left><Left>
