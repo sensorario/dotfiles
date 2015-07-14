@@ -6,6 +6,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'            " vim bundle manager
 Plugin 'kien/ctrlp.vim'               " finder ...
 Plugin 'fugitive.vim'                 " git integration
+Plugin 'MarcWeber/vim-addon-mw-utils' " add your local vimrc
 Plugin 'garbas/vim-snipmate'          " add snippets to your vim
 Plugin 'scrooloose/nerdtree'          " tree of files and folders
 Plugin 'tommcdo/vim-lion'             " align equals
