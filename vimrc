@@ -6,13 +6,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'            " vim bundle manager
 Plugin 'kien/ctrlp.vim'               " finder ...
 Plugin 'fugitive.vim'                 " git integration
-Plugin 'MarcWeber/vim-addon-mw-utils' " add your local vimrc
-Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'          " add snippets to your vim
 Plugin 'scrooloose/nerdtree'          " tree of files and folders
 Plugin 'tommcdo/vim-lion'             " align equals
-Plugin 'bling/vim-airline'
-Plugin 'shawncplus/phpcomplete.vim'
 Bundle 'vim-php/vim-composer'
 call vundle#end()
 
@@ -23,28 +19,6 @@ colorscheme desert
 " ctrlp configuraation
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
-" airline
-set laststatus=2
-let g:airline#extensions#tabline#left_sepne#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
 
 set colorcolumn=120
 set cursorline
@@ -64,20 +38,6 @@ set smartindent
 set softtabstop=4
 set tabstop=4
 set hlsearch
-
-" phpcomplete
-let g:phpcomplete_relax_static_constraint = 1
-let g:phpcomplete_complete_for_unknown_classes = 1
-let g:phpcomplete_search_tags_for_variables = 1
-let g:phpcomplete_min_num_of_chars_for_namespace_completion = 3
-let g:phpcomplete_parse_docblock_comments = 1
-let g:phpcomplete_cache_taglists = 1
-let g:phpcomplete_enhance_jump_to_definition = 1
-let g:phpcomplete_mappings = {
-   \ 'jump_to_def': '<C-]>',
-   \ 'jump_to_def_split': '<C-W><C-]>',
-   \ 'jump_to_def_vsplit': '<C-W><C-\>',
-   \}
 
 " replace current word
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
@@ -100,7 +60,7 @@ inoremap <Right> <NOP>
 
 function! NewspaperMetaphore()
     " todo: use awk to hide non method name words
-    exec '!clear; grep "public function" %'
+    exec '!clear; grep "function" % | grep -v private'
 endfunction
 
 function! SortAllUseStatements()
