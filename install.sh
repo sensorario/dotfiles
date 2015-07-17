@@ -21,4 +21,4 @@ fi
 vim -c 'PluginInstall' -c 'qa!'
 
 
-sudo cp -f $PWD/tmux.conf ~/.tmux.conf
+cp -f $PWD/tmux.conf ~/.tmux.conf
