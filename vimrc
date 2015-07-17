@@ -21,7 +21,6 @@ colorscheme desert
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-set colorcolumn=120
 set cursorline
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 set expandtab

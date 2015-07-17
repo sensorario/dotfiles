@@ -1,14 +1,24 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
-# overwrite plugins
+
+clear
+
+
 rm -rf ~/.vim
+
+
 if [ ! -d ~/.vim/bundle/vundle ]; then
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
-sudo vim +PluginInstall! +qall > /dev/null 2>&1
 
-. install-snippets.sh
+
 . install-vimrc.sh
+. install-snippets.sh
+. install-bash_aliases.sh
 
-cp -f $PWD/tmux.conf ~/.tmux.conf
+
+vim -c 'PluginInstall' -c 'qa!'
+
+
+sudo cp -f $PWD/tmux.conf ~/.tmux.conf
