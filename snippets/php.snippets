@@ -1,27 +1,22 @@
-snippet php
-	<?php
-snippet privattr
-	private $${1};
-snippet dataprov
-	/**
-	 * @dataProvider ${1}
-	 */
 snippet test
-	public function test${1}()
+	<?php
+
+	namespace Test/${1};
+
+	use PHPUnit_Framework_TestCase;
+
+	class ${2} extends PHPUnit_Framework_TestCase
 	{
-		${2}
+		public function setUp()
+		{
+			$this->${3} = new ${4};
+		}
 	}
 snippet pubfun
 	public function ${1}()
 	{
-		// do something
+		${2}
 	}
-snippet it
-	if (${1}) {
-		// do something
-	}
-snippet item
-	'${1}' => ${2},
 snippet const
 	const ${1} = "${2}";
 snippet assTrue
@@ -29,10 +24,9 @@ snippet assTrue
 snippet assFalse
 	$this->assertFalse(${1});
 snippet assEquals
-	$this->assertEquals(
-		${1},
-		${2}
-	);
+	$this->assertEquals(${1}, ${2});
+snippet assSame
+	$this->assertSame(${1}, ${2});
 snippet phplog
 	error_log(var_export(${1}, true));
 snippet throw
@@ -44,7 +38,3 @@ snippet expext
 		->method('${3}')
 		->with(${4})
 		->will(${5});
-snippet forach
-	foreach ($${1} as $key => $value) {
-		${2}
-	}
