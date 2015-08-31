@@ -16,7 +16,7 @@ call vundle#end()
 
 filetype plugin indent on             " required
 
-colorscheme desert
+colorscheme darkblue
 
 " ctrlp configuraation
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -42,8 +42,9 @@ set hlsearch
 
 " replace current word
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
-nnoremap <Leader>R :%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left><Left>
+nnoremap <Leader>R :!for i in `grep -Rl <C-r><C-w> src/`; do sed -i 's/<C-r><C-w>/<C-r><C-w>/g' $i; done;<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap <Leader>s :sort<CR>
+nnoremap <Leader>t :!./runtests<CR>
 
 " function keyboard mapping
 nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
