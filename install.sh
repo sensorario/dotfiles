@@ -13,9 +13,9 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
 fi
 
 
-. install-vimrc.sh
-. install-snippets.sh
-. install-bash_aliases.sh
+. ./install-vimrc.sh
+. ./install-snippets.sh
+. ./install-bash_aliases.sh
 
 
 vim -c 'PluginInstall' -c 'qa!'
