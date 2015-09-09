@@ -47,6 +47,9 @@ nnoremap <Leader>s :sort<CR>
 nnoremap <Leader>t :!./runtests<CR>
 nnoremap <Leader>T :tabe<CR>
 nnoremap <Leader>m :!mv % 
+nnoremap <Leader>f :!grep -Rn <C-r><C-w> src/ --color -U4<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
+nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;
 
 " function keyboard mapping
 nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
