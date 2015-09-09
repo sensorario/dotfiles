@@ -41,6 +41,7 @@ set tabstop=4
 set hlsearch
 set textwidth=80
 set scrolloff=42
+set colorcolumn=80
 
 " replace current word
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
