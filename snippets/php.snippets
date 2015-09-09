@@ -1,7 +1,7 @@
 snippet test
 	<?php
 
-	namespace Test/${1};
+	namespace ${1};
 
 	use PHPUnit_Framework_TestCase;
 
@@ -17,6 +17,37 @@ snippet pubfun
 	{
 		${2}
 	}
+snippet valueobject
+	<?php
+
+	namespace ${1};
+
+	class ${2}
+	{
+		private $params;
+
+		private function __construct(array $params)
+		{
+			${3}
+		}
+
+		public static function withAttributes(array $params)
+		{
+			return new self($params);
+		}
+	}
+snippet php
+	<?php
+
+	namespace ${1};
+
+	class ${2}
+	{
+		private function __construct()
+		{
+			${3}
+		}
+	}
 snippet const
 	const ${1} = "${2}";
 snippet assTrue
@@ -29,12 +60,20 @@ snippet assSame
 	$this->assertSame(${1}, ${2});
 snippet phplog
 	error_log(var_export(${1}, true));
-snippet throw
-	throw new ${1}(
-		'${2}'
+snippet runtime
+	throw new RuntimeException(
+		'${1}'
 	);
 snippet expext
 	$this->${1}->expects($this->${2})
 		->method('${3}')
 		->with(${4})
 		->will(${5});
+snippet todo
+	/** @todo ${1} */
+snippet var
+	/** @var ${1} */
+snippet if
+	if (${1}) {
+		${2};
+	}

@@ -13,6 +13,7 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
 fi
 
 
+. ./install-gitconfig.sh
 . ./install-vimrc.sh
 . ./install-snippets.sh
 . ./install-bash_aliases.sh
