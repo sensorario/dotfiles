@@ -29,7 +29,7 @@ set exrc
 set foldlevel=1
 set foldmethod=indent
 set ignorecase
-set list listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·,eol:$
 set nu
 set secure
 set shiftwidth=4
