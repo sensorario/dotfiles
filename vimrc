@@ -44,16 +44,37 @@ set colorcolumn=80
 set textwidth=80
 set scrolloff=42
 
+" Replace
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+" Replace in a path
 nnoremap <Leader>R :!for i in `grep -Rl <C-r><C-w> src/`; do sed -i 's/<C-r><C-w>/<C-r><C-w>/g' $i; done;<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+" Sort
 nnoremap <Leader>s :sort<CR>
+
+" Run all tests
 nnoremap <Leader>t :!./runtests<CR>
+
+" Open new tab
 nnoremap <Leader>T :tabe<CR>
+
+" Move current file
 nnoremap <Leader>m :!mv % 
+
+" Copy current file
 nnoremap <Leader>c :!cp % 
+
+" Find current word in all file in a path
 nnoremap <Leader>f :!grep -Rn <C-r><C-w> src/ --color -U4<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+" Show all files that contains current word
 nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
+
+" Extract content of next function inside a variable
 nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;
+
+" Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
 
 " function keyboard mapping
@@ -71,6 +92,7 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
 function! NewspaperMetaphore()
+    " todo: dont call this method when out from a php file
     " todo: use awk to hide non method name words
     exec '!clear; grep "function" % | grep -v private'
 endfunction
