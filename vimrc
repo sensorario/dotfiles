@@ -26,8 +26,6 @@ set cursorline
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 set expandtab
 set exrc
-set foldlevel=1
-set foldmethod=indent
 set ignorecase
 set list listchars=tab:»·,trail:·,eol:$
 set nu
@@ -43,6 +41,10 @@ set statusline=%f
 set colorcolumn=80
 set textwidth=80
 set scrolloff=42
+
+" Folding
+set foldlevel=20
+set foldmethod=indent
 
 " Replace
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
@@ -83,8 +85,9 @@ map      <F2>      :call SortAllUseStatements()<CR>
 map      <F12>     :call NewspaperMetaphore()<CR>
 
 " tab navigation
-nnoremap <C-h>   :tabprevious<CR>
-nnoremap <C-l>   :tabnext<CR>
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap t     :tabnext<CR>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
