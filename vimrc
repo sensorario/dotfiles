@@ -82,6 +82,10 @@ nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
 map      <F2>      :call SortAllUseStatements()<CR>
 map      <F12>     :call NewspaperMetaphore()<CR>
 
+" tab navigation
+nnoremap <C-h>   :tabprevious<CR>
+nnoremap <C-l>   :tabnext<CR>
+
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
