@@ -5,7 +5,7 @@ snippet test
 
 	use PHPUnit_Framework_TestCase;
 
-	class ${2} extends PHPUnit_Framework_TestCase
+	final class ${2} extends PHPUnit_Framework_TestCase
 	{
 		public function setUp()
 		{
@@ -22,7 +22,7 @@ snippet valueobject
 
 	namespace ${1};
 
-	class ${2}
+	final class ${2}
 	{
 		private $params;
 
@@ -41,7 +41,7 @@ snippet php
 
 	namespace ${1};
 
-	class ${2}
+	final class ${2}
 	{
 		private function __construct()
 		{
