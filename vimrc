@@ -27,7 +27,7 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 set expandtab
 set exrc
 set ignorecase
-set list listchars=tab:»·,trail:·,eol:$
+set list listchars=tab:»·,trail:·
 set nu
 set secure
 set shiftwidth=4
@@ -74,7 +74,7 @@ nnoremap <Leader>f :!grep -Rn <C-r><C-w> src/ --color -U4<Left><Left><Left><Left
 nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
 
 " Extract content of next function inside a variable
-nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;
+nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:'<,'>s/variable//g<Left><Left>
 
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
