@@ -36,7 +36,7 @@ set smartindent
 set softtabstop=4
 set tabstop=4
 set hlsearch
-set ls=1
+set laststatus=2
 set statusline=%f
 set colorcolumn=80
 set textwidth=80
