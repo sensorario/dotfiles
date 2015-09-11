@@ -74,7 +74,7 @@ nnoremap <Leader>f :!grep -Rn <C-r><C-w> src/ --color -U4<Left><Left><Left><Left
 nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
 
 " Extract content of next function inside a variable
-nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:'<,'>s/variable//g<Left><Left>
+nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
 
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
