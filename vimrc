@@ -113,13 +113,13 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
 function! NewspaperMetaphore()
-    " todo: dont call this method when out from a php file
-    " todo: use awk to hide non method name words
+    " @todo: dont call this method when out from a php file
+    " @todo: use awk to hide non method name words
     exec '!clear; grep "function" % | grep -v private'
 endfunction
 
 function! SortAllUseStatements()
-    " todo: check if current file is a php file
+    " @todo: check if current file is a php file
     exec ':0;/^use /;/^\(use \)\@!/-1:sort'
 endfunction
 
