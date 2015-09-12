@@ -74,7 +74,16 @@ nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
 nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
 
 " Clone a project from github
-nnoremap <Leader>g :!git clone git@github.com:sensorario/
+nnoremap <Leader>g :call StartPHPPRoject()<CR>
+
+function! StartPHPPRoject()
+    let project_name = input('Enter project name: ')
+    exec '!composer create-project sensorario/starter ' . project_name . ' 1.0.0'
+    exec '!cd ' . project_name
+    exec 'e ' . project_name . '/README.md'
+    exec 'NERDTree ' . project_name
+    exec 'set autochdir'
+endfunction
 
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
