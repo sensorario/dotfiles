@@ -58,9 +58,6 @@ nnoremap <Leader>s :sort<CR>
 " Run all tests
 nnoremap <Leader>t :!./runtests<CR>
 
-" Open new tab
-nnoremap <Leader>T :tabe<CR>
-
 " Move current file
 nnoremap <Leader>m :!mv % 
 
@@ -76,23 +73,31 @@ nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
 " Extract content of next function inside a variable
 nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
 
+" Clone a project from github
+nnoremap <Leader>g :!git clone git@github.com:sensorario/
+
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
 
 " function keyboard mapping
 nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
-map      <F2>      :call SortAllUseStatements()<CR>
-map      <F12>     :call NewspaperMetaphore()<CR>
 
 " tab navigation
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 nnoremap t     :tabnext<CR>
 
+" ...
+map      <F2>      :call SortAllUseStatements()<CR>
+map      <F12>     :call NewspaperMetaphore()<CR>
+
+" Disable arrows in normal mode
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" disable arrows in insert mode
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
