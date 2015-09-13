@@ -74,7 +74,7 @@ nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
 " Extract content of next function inside a variable
 nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
 
-" Clone a project from github
+" Start new PHP Project
 nnoremap <Leader>g :call StartPHPPRoject()<CR>
 
 function! StartPHPPRoject()
