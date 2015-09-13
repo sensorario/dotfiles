@@ -38,7 +38,6 @@ set softtabstop=4
 set tabstop=4
 set hlsearch
 set laststatus=2
-set statusline=%f
 set colorcolumn=80
 set textwidth=80
 set scrolloff=42
