@@ -46,8 +46,14 @@ set scrolloff=42
 set foldlevel=20
 set foldmethod=indent
 
+" Sort all uses
+map <F1> :call SortAllUseStatements()<CR>
+
 " Replace
-nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+nnoremap <F2> :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+" Replace with confirmation
+nnoremap <Leader>R :%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left>
 
 " Replace in a path
 nnoremap <Leader>R :!for i in `grep -Rl <C-r><C-w> src/`; do sed -i 's/<C-r><C-w>/<C-r><C-w>/g' $i; done;<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
@@ -90,6 +96,7 @@ endfunction
 
 command! SymfonyDownloadInstaller :call InstallSymfonyInstaller()<CR>
 function! InstallSymfonyInstaller()
+    exec '!clear'
     exec '!sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony'
     exec '!sudo chmod a+x /usr/local/bin/symfony'
 endfunction
@@ -106,7 +113,6 @@ nnoremap <C-l> :tabnext<CR>
 nnoremap t     :tabnext<CR>
 
 " ...
-map      <F2>      :call SortAllUseStatements()<CR>
 map      <F12>     :call NewspaperMetaphore()<CR>
 
 " Disable arrows in normal mode
