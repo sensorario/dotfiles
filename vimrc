@@ -19,10 +19,7 @@ filetype plugin indent on             " required
 
 colorscheme default
 
-" ctrlp configuraation
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
 set cursorline
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 set expandtab
@@ -41,10 +38,14 @@ set laststatus=2
 set colorcolumn=80
 set textwidth=80
 set scrolloff=42
-
-" Folding
 set foldlevel=20
 set foldmethod=indent
+
+" Open vimrc file ...
+nnoremap <Leader><Leader> :tabe ~/.vimrc
+
+" function keyboard mapping
+nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
 
 " Sort all uses
 map <F1> :call SortAllUseStatements()<CR>
@@ -85,28 +86,6 @@ nnoremap <Leader>g :!git clone git@github.com:sensorario/
 " Start new PHP Project
 nnoremap <Leader>P :call StartPHPPRoject()<CR>
 
-function! StartPHPPRoject()
-    let project_name = input('Enter project name: ')
-    exec '!composer create-project sensorario/starter ' . project_name . ' 1.0.0'
-    exec '!cd ' . project_name
-    exec 'e ' . project_name . '/README.md'
-    exec 'NERDTree ' . project_name
-    exec 'set autochdir'
-endfunction
-
-command! SymfonyDownloadInstaller :call InstallSymfonyInstaller()<CR>
-function! InstallSymfonyInstaller()
-    exec '!clear'
-    exec '!sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony'
-    exec '!sudo chmod a+x /usr/local/bin/symfony'
-endfunction
-
-" Open vimrc file ...
-nnoremap <Leader><Leader> :tabe ~/.vimrc
-
-" function keyboard mapping
-nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
-
 " tab navigation
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
@@ -127,18 +106,42 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
+" ComposerKnowWhereCurrentFileIs
+function! g:VimComposerCustomBehavior(currentWord)
+    exec "normal \<c-p>" . a:currentWord
+endfunction
+
+" Show method names to verify the newspaper metaphore
+command! Newspaper :call NewspaperMetaphore()<CR>
 function! NewspaperMetaphore()
     " @todo: dont call this method when out from a php file
     " @todo: use awk to hide non method name words
     exec '!clear; grep "function" % | grep -v private'
 endfunction
 
+command! SortUseStatements :call SortAllUseStatements()<CR>
 function! SortAllUseStatements()
     " @todo: check if current file is a php file
     exec ':0;/^use /;/^\(use \)\@!/-1:sort'
 endfunction
 
-" ComposerKnowWhereCurrentFileIs
-function! g:VimComposerCustomBehavior(currentWord)
-    exec "normal \<c-p>" . a:currentWord
+" Create new PHP Project
+command! CreateNewPHPProject :call StartPHPPRoject<CR>
+function! StartPHPPRoject()
+    let project_name = input('Enter project name: ')
+    exec '!composer create-project sensorario/starter ' . project_name . ' 1.0.0'
+    exec '!cd ' . project_name
+    exec 'e ' . project_name . '/README.md'
+    exec 'NERDTree ' . project_name
+    exec 'set autochdir'
 endfunction
+
+command! SymfonyDownloadInstaller :call InstallSymfonyInstaller()<CR>
+function! InstallSymfonyInstaller()
+    exec '!clear'
+    exec '!sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony'
+    exec '!sudo chmod a+x /usr/local/bin/symfony'
+endfunction
+
+" ctrlp configuraation
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
