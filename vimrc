@@ -89,6 +89,12 @@ function! StartPHPPRoject()
     exec 'set autochdir'
 endfunction
 
+command! DownloadSymfonyInstaller :call InstallSymfonyInstaller()<CR>
+function! InstallSymfonyInstaller()
+    exec '!sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony'
+    exec '!sudo chmod a+x /usr/local/bin/symfony'
+endfunction
+
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
 
