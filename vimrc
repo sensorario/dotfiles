@@ -12,6 +12,7 @@ Plugin 'garbas/vim-snipmate'          " add snippets to your vim
 Plugin 'scrooloose/nerdtree'          " tree of files and folders
 Plugin 'tommcdo/vim-lion'             " align equals
 Bundle 'vim-php/vim-composer'
+Plugin 'bling/vim-airline'
 call vundle#end()
 
 filetype plugin indent on             " required
