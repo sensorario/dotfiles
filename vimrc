@@ -88,7 +88,7 @@ function! StartPHPPRoject()
     exec 'set autochdir'
 endfunction
 
-command! DownloadSymfonyInstaller :call InstallSymfonyInstaller()<CR>
+command! SymfonyDownloadInstaller :call InstallSymfonyInstaller()<CR>
 function! InstallSymfonyInstaller()
     exec '!sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony'
     exec '!sudo chmod a+x /usr/local/bin/symfony'
