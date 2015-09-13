@@ -74,8 +74,11 @@ nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
 " Extract content of next function inside a variable
 nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
 
+" Git clone a project from github.com
+nnoremap <Leader>g :!git clone git@github.com:sensorario/
+
 " Start new PHP Project
-nnoremap <Leader>g :call StartPHPPRoject()<CR>
+nnoremap <Leader>P :call StartPHPPRoject()<CR>
 
 function! StartPHPPRoject()
     let project_name = input('Enter project name: ')
