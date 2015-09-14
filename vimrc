@@ -65,6 +65,9 @@ nnoremap <Leader>s :sort<CR>
 " Run all tests
 nnoremap <Leader>t :!./runtests<CR>
 
+" Run filtered test
+nnoremap <Leader>T :!vendor/bin/phpunit --filter 
+
 " Move current file
 nnoremap <Leader>m :!mv % 
 
