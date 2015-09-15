@@ -12,10 +12,24 @@ snippet test
 			$this->${3} = new ${4};
 		}
 	}
+snippet assert
+	public function test${1}()
+	{
+		$expected = ${2};
+
+		$real = ${3};
+
+		$this->assertEquals(
+			$expected,
+			$real
+		);
+	}
 snippet pubfun
 	public function ${1}()
 	{
-		${2}
+		$return = ${2};
+
+		return $return;
 	}
 snippet valueobject
 	<?php
