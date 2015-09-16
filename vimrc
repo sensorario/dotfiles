@@ -47,7 +47,7 @@ nnoremap <Leader><Leader> :tabe ~/.vimrc
 nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
 
 " Sort all uses
-map <F1> :call SortAllUseStatements()<CR>
+map <F3> :call SortAllUseStatements()<CR>
 
 " Replace
 nnoremap <F2> :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
