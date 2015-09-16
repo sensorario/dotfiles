@@ -34,7 +34,6 @@ set smartindent
 set softtabstop=4
 set tabstop=4
 set hlsearch
-set laststatus=2
 set colorcolumn=80
 set textwidth=80
 set scrolloff=42
@@ -90,9 +89,8 @@ nnoremap <Leader>g :!git clone git@github.com:sensorario/
 nnoremap <Leader>P :call StartPHPPRoject()<CR>
 
 " tab navigation
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
-nnoremap t     :tabnext<CR>
+nnoremap T :tabprevious<CR>
+nnoremap t :tabnext<CR>
 
 " ...
 map      <F12>     :call NewspaperMetaphore()<CR>
@@ -146,6 +144,11 @@ function! InstallSymfonyInstaller()
     exec '!sudo chmod a+x /usr/local/bin/symfony'
 endfunction
 
+command! Todo :call ShowMeTodoInCurrentFile()<CR>
+function! ShowMeTodoInCurrentFile()
+    exec '!clear; grep -R "@todo" % --color'
+endfunction
+
 command! SymfonyNewProject :call StartNewSymfonyLtsProject()<CR>
 function! StartNewSymfonyLtsProject()
     exec '!symfony new ' . input('Project name: ')
@@ -153,3 +156,14 @@ endfunction
 
 " ctrlp configuraation
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+" alwais show status line on all windows
+set laststatus=2
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep='▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.branch = '⎇ '
+let g:airline_powerline_fonts = 1
