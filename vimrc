@@ -159,11 +159,13 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " alwais show status line on all windows
 set laststatus=2
-
+set encoding=utf-8
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+let g:Powerline_symbols = 'fancy'
 let g:airline_left_sep='▶'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.branch = '⎇ '
-let g:airline_powerline_fonts = 1
+let g:airline_right_sep='◀'
+let g:airline_symbols.branch='⎇ '
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
