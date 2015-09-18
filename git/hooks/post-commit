@@ -12,6 +12,16 @@ echo "Colors defined ..."
 echo ""
 echo "${alert}Pay attention, this script aims to Auto-push branches on remote${reset}"
 
+
+
+
+echo "       .__  __    .__                   __"
+echo "  ____ |__|/  |_  |  |__   ____   ____ |  | __  ______"
+echo " / ___\\|  \\   __\\ |  |  \\ /  _ \\ /  _ \\|  |/ / /  ___/"
+echo "/ /_/  >  ||  |   |   Y  (  <_> |  <_> )    <  \\___ \\"
+echo "\\___  /|__||__|   |___|  /\____/ \____/|__|_ \/____  >"
+echo "/_____/                 \\/                   \\/     \\/"
+
 echo ""
 echo "${information}Retrieving current branch information ...${reset}"
 
