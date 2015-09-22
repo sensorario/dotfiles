@@ -39,7 +39,7 @@ set textwidth=80
 set scrolloff=42
 set foldlevel=20
 set foldmethod=indent
-set t_Co=255
+set linespace=0
 
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
@@ -161,13 +161,17 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " alwais show status line on all windows
 set laststatus=2
+let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:Powerline_symbols = 'fancy'
-let g:airline_left_sep='▶'
-let g:airline_right_sep='◀'
+let g:airline_symbols.space = "\ua0"
+let g:airline_left_sep="\ue0b0"
+let g:airline_right_sep="\ue0b2"
 let g:airline_symbols.branch='⎇ '
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
+set guifont=PowerlineSymbols.otf:h8
