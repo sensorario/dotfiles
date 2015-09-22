@@ -7,4 +7,7 @@ cp ~/.vimrc vimrc
 printf "\nCopying tmux configuration"
 cp ~/.tmux.conf tmux.conf
 
+printf "\nCopying tmux configuration"
+cp ~/.tmux.conf tmux.conf
+
 printf "\n\n"

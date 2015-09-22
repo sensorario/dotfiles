@@ -89,8 +89,10 @@ nnoremap <Leader>g :!git clone git@github.com:sensorario/
 nnoremap <Leader>P :call StartPHPPRoject()<CR>
 
 " tab navigation
-nnoremap T :tabprevious<CR>
-nnoremap t :tabnext<CR>
+nnoremap T :tabNext<CR>
+
+" buffer navigation
+nnoremap t :bNext<CR>
 
 " ...
 map      <F12>     :call NewspaperMetaphore()<CR>
@@ -117,7 +119,7 @@ command! Newspaper :call NewspaperMetaphore()<CR>
 function! NewspaperMetaphore()
     " @todo: dont call this method when out from a php file
     " @todo: use awk to hide non method name words
-    exec '!clear; grep "function" % | grep -v private'
+    exec '!clear; grep "function" % | grep -v private | grep -v "*"'
 endfunction
 
 command! SortUseStatements :call SortAllUseStatements()<CR>
