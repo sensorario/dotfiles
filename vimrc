@@ -39,6 +39,7 @@ set textwidth=80
 set scrolloff=42
 set foldlevel=20
 set foldmethod=indent
+set t_Co=255
 
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
