@@ -131,12 +131,11 @@ endfunction
 " Create new PHP Project
 command! CreateNewPHPProject :call StartPHPPRoject()<CR>
 function! StartPHPPRoject()
+    exec "!curl -Ss https://getcomposer.org/installer | php"
     let project_name = input('Enter project name: ')
-    exec '!composer create-project sensorario/starter ' . project_name . ' 1.0.0'
-    exec '!cd ' . project_name
-    exec 'e ' . project_name . '/README.md'
-    exec 'NERDTree ' . project_name
-    exec 'set autochdir'
+    exec '!php composer.phar create-project sensorario/starter ' . project_name . ' 1.0.0'
+    exec '!mv composer.phar ' . project_name . '/'
+    exec 'qa'
 endfunction
 
 command! SymfonyDownloadInstaller :call InstallSymfonyInstaller()<CR>
