@@ -129,7 +129,7 @@ function! SortAllUseStatements()
 endfunction
 
 " Create new PHP Project
-command! CreateNewPHPProject :call StartPHPPRoject<CR>
+command! CreateNewPHPProject :call StartPHPPRoject()<CR>
 function! StartPHPPRoject()
     let project_name = input('Enter project name: ')
     exec '!composer create-project sensorario/starter ' . project_name . ' 1.0.0'
