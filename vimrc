@@ -89,10 +89,10 @@ nnoremap <Leader>g :!git clone git@github.com:sensorario/
 " Start new PHP Project
 nnoremap <Leader>P :call StartPHPPRoject()<CR>
 
-" tab navigation
-nnoremap T :tabNext<CR>
+" Go to previous buffer
+nnoremap T :bprevious<CR>
 
-" buffer navigation
+" Go to next buffer
 nnoremap t :bNext<CR>
 
 " ...
