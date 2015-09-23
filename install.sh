@@ -16,10 +16,10 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
 fi
 
 
-. ./install-gitconfig.sh
-. ./install-vimrc.sh
-. ./install-snippets.sh
-. ./install-bash_aliases.sh
+. ./update-gitconfig.sh
+. ./update-vimrc.sh
+. ./update-snippets.sh
+. ./update-bash_aliases.sh
 
 
 vim -c 'PluginInstall' -c 'qa!'
