@@ -4,10 +4,11 @@
 [color]
     status = auto
     diff = auto
+    branch = auto
 [alias]
-	co = commit -v
+	co = commit -av
 	st = status
-	d = diff --color
-	b = branch --color
+	d = diff
+	b = branch
 	tree = log --oneline --color --decorate --all --graph
 	a = add .
