@@ -12,4 +12,8 @@ cp ~/.tmux.conf tmux.conf
 
 printf "\nCopying git configuration"
 cp ~/.gitconfig gitconfig
+
+printf "\nCopying bash_aliases configuration"
+cp ~/.bash_aliases bash_aliases
+
 printf "\n\n"
