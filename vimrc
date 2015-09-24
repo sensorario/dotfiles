@@ -175,3 +175,7 @@ let g:airline_symbols.branch='⎇ '
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 set guifont=PowerlineSymbols.otf:h8
+
+set number
+set numberwidth=4
+set relativenumber
