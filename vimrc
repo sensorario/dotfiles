@@ -13,6 +13,7 @@ Plugin 'scrooloose/nerdtree'          " tree of files and folders
 Plugin 'tommcdo/vim-lion'             " align equals
 Bundle 'vim-php/vim-composer'
 Plugin 'bling/vim-airline'
+Plugin 'sensorario/vim-create'
 call vundle#end()
 
 filetype plugin indent on             " required
@@ -129,31 +130,9 @@ function! SortAllUseStatements()
     exec ':0;/^use /;/^\(use \)\@!/-1:sort'
 endfunction
 
-" Create new PHP Project
-command! CreateNewPHPProject :call StartPHPPRoject()<CR>
-function! StartPHPPRoject()
-    exec "!curl -Ss https://getcomposer.org/installer | php"
-    let project_name = input('Enter project name: ')
-    exec '!php composer.phar create-project sensorario/starter ' . project_name . ' 1.0.0'
-    exec '!mv composer.phar ' . project_name . '/'
-    exec 'qa'
-endfunction
-
-command! SymfonyDownloadInstaller :call InstallSymfonyInstaller()<CR>
-function! InstallSymfonyInstaller()
-    exec '!clear'
-    exec '!sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony'
-    exec '!sudo chmod a+x /usr/local/bin/symfony'
-endfunction
-
 command! Todo :call ShowMeTodoInCurrentFile()<CR>
 function! ShowMeTodoInCurrentFile()
     exec '!clear; grep -R "@todo" % --color'
-endfunction
-
-command! SymfonyNewProject :call StartNewSymfonyLtsProject()<CR>
-function! StartNewSymfonyLtsProject()
-    exec '!symfony new ' . input('Project name: ')
 endfunction
 
 " ctrlp configuraation
@@ -175,7 +154,3 @@ let g:airline_symbols.branch='⎇ '
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 set guifont=PowerlineSymbols.otf:h8
-
-set number
-set numberwidth=4
-set relativenumber
