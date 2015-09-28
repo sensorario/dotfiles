@@ -1,14 +1,15 @@
 [user]
-	name = Simone Gentili
-	email = sensorario@gmail.com
+    name = Simone Gentili
+    email = sensorario@gmail.com
 [color]
     status = auto
     diff = auto
     branch = auto
 [alias]
-	co = commit -av
-	st = status
-	d = diff
-	b = branch
-	tree = log --oneline --color --decorate --all --graph
-	a = add .
+    cav = commit -av
+    co = commit
+    st = status
+    d = diff --color
+    b = branch --color
+    tree = log --oneline --color --decorate --all --graph
+    abort = reset --hard
