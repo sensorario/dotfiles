@@ -65,9 +65,6 @@ nnoremap <Leader>s :sort<CR>
 " Run all tests
 nnoremap <Leader>t :!./runtests<CR>
 
-" Run filtered test
-nnoremap <Leader>T :!vendor/bin/phpunit --filter 
-
 " Move current file
 nnoremap <Leader>m :!mv % 
 
@@ -88,6 +85,21 @@ nnoremap <Leader>g :!git clone git@github.com:sensorario/
 
 " Start new PHP Project
 nnoremap <Leader>P :call StartPHPPRoject()<CR>
+
+
+
+" Run PHPUnit from vim!!!
+nnoremap <expr> <leader>u RunPHPUnitTest()
+function! RunPHPUnitTest()
+    let l:filename = expand('%')
+    if -1 == match(l:filename,'Test\.php')
+        let l:filename=substitute(l:filename, 'src', 'test', '')
+        let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
+    endif
+    return ':!vendor/bin/phpunit ' . l:filename . "\<CR>"
+endfunction
+
+
 
 " Go to previous buffer
 nnoremap T :bprevious<CR>
