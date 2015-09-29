@@ -18,7 +18,8 @@ call vundle#end()
 
 filetype plugin indent on             " required
 
-colorscheme default
+colorscheme mustang
+syntax on
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set cursorline
