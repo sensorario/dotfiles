@@ -170,3 +170,7 @@ endfunction
 
 " Run complete test suite
 nnoremap <Leader>t :!./runtests<CR>
+
+function! DeleteAllMergedBranch()
+    exec ':!git branch --merged | grep -v master | xargs -n 1 git branch -d'
+endfunction
