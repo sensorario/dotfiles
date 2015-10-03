@@ -5,6 +5,8 @@
     status = auto
     diff = auto
     branch = auto
+[branch "master"]
+    mergeoptions = --no-ff
 [alias]
     cav = commit -av
     co = commit
