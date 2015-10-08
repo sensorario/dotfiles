@@ -64,9 +64,6 @@ nnoremap <Leader>R :!for i in `grep -Rl <C-r><C-w> .{src,test}/`; do sed -i 's/<
 " Sort
 nnoremap <Leader>s :sort<CR>
 
-" Run all tests
-nnoremap <Leader>t :!./runtests<CR>
-
 " Move current file
 nnoremap <Leader>m :!mv % 
 
@@ -87,21 +84,6 @@ nnoremap <Leader>g :!git clone git@github.com:sensorario/
 
 " Start new PHP Project
 nnoremap <Leader>P :call StartPHPPRoject()<CR>
-
-
-
-" Run PHPUnit from vim!!!
-nnoremap <expr> <leader>u RunPHPUnitTest()
-function! RunPHPUnitTest()
-    let l:filename = expand('%')
-    if -1 == match(l:filename,'Test\.php')
-        let l:filename=substitute(l:filename, 'src', 'test', '')
-        let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
-    endif
-    return ':!vendor/bin/phpunit ' . l:filename . "\<CR>"
-endfunction
-
-
 
 " Go to previous buffer
 nnoremap T :bprevious<CR>
@@ -149,7 +131,7 @@ function! ShowMeTodoInCurrentFile()
 endfunction
 
 " ctrlp configuraation
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|output)$'
 
 " alwais show status line on all windows
 set laststatus=2
@@ -166,4 +148,29 @@ let g:airline_right_sep="\ue0b2"
 let g:airline_symbols.branch='⎇ '
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
-set guifont=PowerlineSymbols.otf:h8
+
+
+" Run phpunit test for current file
+nnoremap <expr> <leader>u RunPHPUnitTest()
+function! RunPHPUnitTest()
+    let l:filename = expand('%')
+    if -1 == match(l:filename,'Test\.php')
+        let l:filename=substitute(l:filename, 'src', 'test', '')
+        let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
+    endif
+    return ':!vendor/bin/phpunit ' . l:filename . "\<CR>"
+endfunction
+
+" Run filtered test
+nnoremap <Leader>T :!vendor/bin/phpunit --filter 
+function! RunFilteredTests()
+    let l:filter = input('Filter test with ... ')
+    exec ':!vendor/bin/phpunit --filter ' . l:filter . "\<CR>"
+endfunction
+
+" Run complete test suite
+nnoremap <Leader>t :!./runtests<CR>
+
+function! DeleteAllMergedBranch()
+    exec ':!git branch --merged | grep -v master | xargs -n 1 git branch -d'
+endfunction
