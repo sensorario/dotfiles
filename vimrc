@@ -174,3 +174,10 @@ nnoremap <Leader>t :!./runtests<CR>
 function! DeleteAllMergedBranch()
     exec ':!git branch --merged | grep -v master | xargs -n 1 git branch -d'
 endfunction
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+
+augroup pencil
+    autocmd!
+    autocmd FileType md   call pencil#init()
+    autocmd FileType text call pencil#init({'wrap': 'hard'})
+augroup END
