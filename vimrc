@@ -14,6 +14,7 @@ Plugin 'tommcdo/vim-lion'             " align equals
 Bundle 'vim-php/vim-composer'
 Plugin 'bling/vim-airline'
 Plugin 'sensorario/vim-create'
+Plugin 'reedes/vim-pencil'
 call vundle#end()
 
 filetype plugin indent on             " required
@@ -37,7 +38,6 @@ set softtabstop=4
 set tabstop=4
 set hlsearch
 set colorcolumn=80
-set textwidth=80
 set scrolloff=42
 set foldlevel=20
 set foldmethod=indent
@@ -174,10 +174,11 @@ nnoremap <Leader>t :!./runtests<CR>
 function! DeleteAllMergedBranch()
     exec ':!git branch --merged | grep -v master | xargs -n 1 git branch -d'
 endfunction
-let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 
+" vim-pencil plugin configuration
+let g:pencil#wrapModeDefault = 'soft'
 augroup pencil
     autocmd!
     autocmd FileType md   call pencil#init()
-    autocmd FileType text call pencil#init({'wrap': 'hard'})
+    autocmd FileType text call pencil#init()
 augroup END
