@@ -14,6 +14,7 @@ Plugin 'tommcdo/vim-lion'             " align equals
 Bundle 'vim-php/vim-composer'
 Plugin 'bling/vim-airline'
 Plugin 'sensorario/vim-create'
+Plugin 'reedes/vim-pencil'
 call vundle#end()
 
 filetype plugin indent on             " required
@@ -174,3 +175,11 @@ command! DeleteAllMergeBranch :call DeleteAllMergedBranchFunction()
 function! DeleteAllMergedBranchFunction()
     exec ':!git branch --merged | grep -v master | xargs -n 1 git branch -d'
 endfunction
+
+" vim-pencil plugin configuration
+let g:pencil#wrapModeDefault = 'soft'
+augroup pencil
+    autocmd!
+    autocmd FileType md   call pencil#init()
+    autocmd FileType text call pencil#init()
+augroup END
