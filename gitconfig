@@ -15,3 +15,5 @@
     b = branch --color
     tree = log --oneline --color --decorate --all --graph
     abort = reset --hard
+    merge = "merge --no-ff"
+    pull = "pull --no-ff"
