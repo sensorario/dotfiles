@@ -5,8 +5,6 @@
     status = auto
     diff = auto
     branch = auto
-[branch "master"]
-    mergeoptions = --no-ff
 [alias]
     cav = commit -av
     co = commit
@@ -14,6 +12,9 @@
     d = diff --color
     b = branch --color
     tree = log --oneline --color --decorate --all --graph
+    t = log --oneline --color --decorate --all --graph
     abort = reset --hard
-    merge = "merge --no-ff"
-    pull = "pull --no-ff"
+    merge = merge --no-ff
+    pull = pull --no-ff
+[merge]
+	ff = false
