@@ -6,8 +6,7 @@
     diff = auto
     branch = auto
 [alias]
-    cav = commit -av
-    co = commit
+    co = commit -av
     st = status
     d = diff --color
     b = branch --color
