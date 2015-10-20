@@ -158,20 +158,21 @@ function! RunPHPUnitTest()
         let l:filename=substitute(l:filename, 'src', 'test', '')
         let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
     endif
-    return ':!vendor/bin/phpunit ' . l:filename . "\<CR>"
+    return ':!php ./bin/phpunit ' . l:filename . "\<CR>"
 endfunction
 
 " Run filtered test
 nnoremap <Leader>T :!vendor/bin/phpunit --filter 
 function! RunFilteredTests()
     let l:filter = input('Filter test with ... ')
-    exec ':!vendor/bin/phpunit --filter ' . l:filter . "\<CR>"
+    exec ':!php ./bin/phpunit --filter ' . l:filter . "\<CR>"
 endfunction
 
 " Run complete test suite
 nnoremap <Leader>t :!./runtests<CR>
 
-function! DeleteAllMergedBranch()
+command! DeleteAllMergeBranch :call DeleteAllMergedBranchFunction()
+function! DeleteAllMergedBranchFunction()
     exec ':!git branch --merged | grep -v master | xargs -n 1 git branch -d'
 endfunction
 
