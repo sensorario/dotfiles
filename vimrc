@@ -37,7 +37,7 @@ set smartindent
 set softtabstop=4
 set tabstop=4
 set hlsearch
-set colorcolumn=80
+set colorcolumn=120
 set scrolloff=42
 set foldlevel=20
 set foldmethod=indent
