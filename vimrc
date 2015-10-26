@@ -68,6 +68,9 @@ nnoremap <Leader>s :sort<CR>
 " Move current file
 nnoremap <Leader>m :!mv % 
 
+" Move current file
+nnoremap <Leader>o :e ++enc=latin1 
+
 " Copy current file
 nnoremap <Leader>c :!cp % 
 
