@@ -161,7 +161,11 @@ function! RunPHPUnitTest()
         let l:filename=substitute(l:filename, 'src', 'test', '')
         let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
     endif
-    return ':!php ./vendor/bin/phpunit ' . l:filename . "\<CR>"
+    if filereadable('./vendor/bin/phpunit')
+        return ':!php ./vendor/bin/phpunit ' . l:filename . "\<CR>"
+    else
+        return ':!php ./bin/phpunit ' . l:filename . "\<CR>"
+    endif
 endfunction
 
 " Run filtered test
