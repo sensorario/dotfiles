@@ -161,14 +161,18 @@ function! RunPHPUnitTest()
         let l:filename=substitute(l:filename, 'src', 'test', '')
         let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
     endif
-    return ':!php ./bin/phpunit ' . l:filename . "\<CR>"
+    if filereadable('./vendor/bin/phpunit')
+        return ':!php ./vendor/bin/phpunit ' . l:filename . "\<CR>"
+    else
+        return ':!php ./bin/phpunit ' . l:filename . "\<CR>"
+    endif
 endfunction
 
 " Run filtered test
 nnoremap <Leader>T :!vendor/bin/phpunit --filter 
 function! RunFilteredTests()
     let l:filter = input('Filter test with ... ')
-    exec ':!php ./bin/phpunit --filter ' . l:filter . "\<CR>"
+    exec ':!php ./vendor/bin/phpunit --filter ' . l:filter . "\<CR>"
 endfunction
 
 " Run complete test suite
