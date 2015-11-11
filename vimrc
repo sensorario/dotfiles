@@ -19,7 +19,7 @@ call vundle#end()
 
 filetype plugin indent on             " required
 
-colorscheme mustang
+colorscheme delek
 syntax on
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
