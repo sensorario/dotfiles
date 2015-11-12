@@ -15,6 +15,7 @@ Bundle 'vim-php/vim-composer'
 Plugin 'bling/vim-airline'
 Plugin 'sensorario/vim-create'
 Plugin 'reedes/vim-pencil'
+Bundle 'kristijanhusak/vim-multiple-cursors'
 call vundle#end()
 
 filetype plugin indent on             " required
