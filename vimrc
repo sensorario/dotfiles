@@ -45,6 +45,7 @@ set foldlevel=20
 set foldmethod=indent
 set linespace=0
 set nowrap
+set mouse=a
 
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
