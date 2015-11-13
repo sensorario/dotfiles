@@ -10,9 +10,9 @@ snippet pubfun
 		return ${2};
 	}
 snippet const
-	const ${1} = "${2}";
+	const ${1} = '${2}';
 snippet export
-	var_export(${1});
+	var_export($${1});
 snippet phplog
 	error_log(var_export(${1}, true));
 snippet runtime
