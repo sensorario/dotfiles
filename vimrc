@@ -15,11 +15,13 @@ Bundle 'vim-php/vim-composer'
 Plugin 'bling/vim-airline'
 Plugin 'sensorario/vim-create'
 Plugin 'reedes/vim-pencil'
+Bundle 'kristijanhusak/vim-multiple-cursors'
+Plugin 'evidens/vim-twig'
 call vundle#end()
 
 filetype plugin indent on             " required
 
-colorscheme mustang
+colorscheme delek
 syntax on
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -43,6 +45,7 @@ set foldlevel=20
 set foldmethod=indent
 set linespace=0
 set nowrap
+set mouse=a
 
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc

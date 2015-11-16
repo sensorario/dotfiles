@@ -1,91 +1,18 @@
-snippet <?php
-	<?php ${1} ?>
-snippet test
-	<?php
-
-	namespace ${1};
-
-	use PHPUnit_Framework_TestCase;
-
-	final class ${2} extends PHPUnit_Framework_TestCase
-	{
-		public function setUp()
-		{
-			$this->${3} = new ${4};
-		}
-	}
-snippet comment
-	/** ${1} */
 snippet dockblock
 	/**
 	 * ${1}
 	 */
 snippet dataprovider
-	/**
-	 * @dataProvider ${1}
-	 */
-snippet assert
-	public function test${1}()
-	{
-		$expected = ${2};
-
-		$real = ${3};
-
-		$this->assertEquals(
-			$expected,
-			$real
-		);
-	}
+	/** @dataProvider ${1} */
 snippet pubfun
 	public function ${1}()
 	{
-		$return = ${2};
-
-		return $return;
-	}
-snippet valueobject
-	<?php
-
-	namespace ${1};
-
-	final class ${2}
-	{
-		private $params;
-
-		private function __construct(array $params)
-		{
-			${3}
-		}
-
-		public static function withAttributes(array $params)
-		{
-			return new self($params);
-		}
-	}
-snippet php
-	<?php
-
-	namespace ${1};
-
-	final class ${2}
-	{
-		private function __construct()
-		{
-			${3}
-		}
+		return ${2};
 	}
 snippet const
-	const ${1} = "${2}";
-snippet assTrue
-	$this->assertTrue(${1});
-snippet assFalse
-	$this->assertFalse(${1});
-snippet assEquals
-	$this->assertEquals(${1}, ${2});
-snippet assSame
-	$this->assertSame(${1}, ${2});
+	const ${1} = '${2}';
 snippet export
-	var_export(${1});
+	var_export($${1});
 snippet phplog
 	error_log(var_export(${1}, true));
 snippet runtime
@@ -93,15 +20,13 @@ snippet runtime
 		'${1}'
 	);
 snippet expext
-	$this->${1}->expects($this->${2})
+	$this->${1}->expects($this->${2}())
 		->method('${3}')
 		->with(${4})
 		->will(\$this->returnValue(${5}));
+snippet deprecate
+	/** @deprecate */
 snippet todo
 	/** @todo ${1} */
 snippet var
 	/** @var ${1} */
-snippet if
-	if (${1}) {
-		${2};
-	}
