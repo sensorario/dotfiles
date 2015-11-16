@@ -17,6 +17,7 @@ Plugin 'sensorario/vim-create'
 Plugin 'sensorario/vim-flow'
 Plugin 'reedes/vim-pencil'
 Bundle 'kristijanhusak/vim-multiple-cursors'
+Plugin 'evidens/vim-twig'
 call vundle#end()
 
 filetype plugin indent on             " required
