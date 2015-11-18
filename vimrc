@@ -128,8 +128,8 @@ endfunction
 command! Newspaper :call NewspaperMetaphore()<CR>
 function! NewspaperMetaphore()
     " @todo: dont call this method when out from a php file
-    " @todo: use awk to hide non method name words
-    exec '!clear; grep "function" % | grep -v private | grep -v "*"'
+    let newspaper_command = ":!clear; grep function ".expand('%')." | grep -v private | grep -v '*' | awk '{print \" ".expand('%:r')."::\"$3}'"
+    exe newspaper_command
 endfunction
 
 command! SortUseStatements :call SortAllUseStatements()<CR>
