@@ -41,12 +41,17 @@ set softtabstop=4
 set tabstop=4
 set hlsearch
 set colorcolumn=120
-set scrolloff=42
+
+" this keep current line centered on the screen
+" set scrolloff=42
+
 set foldlevel=20
 set foldmethod=indent
 set linespace=0
 set nowrap
+
 set mouse=a
+set ttymouse=xterm2
 
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
