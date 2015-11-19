@@ -1,5 +1,3 @@
-# My dots
+# Sensorario's dotfiles
 
-## start new php project
-
-    $ vim -c 'CreateNewPHPProject'
+There are *sensorario*'s dotfiles!
