@@ -29,11 +29,14 @@ Bundle 'kristijanhusak/vim-multiple-cursors'
 
 Plugin 'evidens/vim-twig'
 
+Plugin 'altercation/vim-colors-solarized'
+
 call vundle#end()
 
 filetype plugin indent on             " required
 
-colorscheme mustang
+colorscheme solarized
+set background=dark 
 syntax on
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -193,7 +196,7 @@ endfunction
 nnoremap <Leader>T :!vendor/bin/phpunit --filter 
 function! RunFilteredTests()
     let l:filter = input('Filter test with ... ')
-    exec ':!php ./vendor/bin/phpunit --filter ' . l:filter . "\<CR>"
+    exec ':!php ./bin/phpunit --filter ' . l:filter . "\<CR>"
 endfunction
 
 " Run complete test suite
