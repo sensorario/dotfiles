@@ -35,10 +35,6 @@ call vundle#end()
 
 filetype plugin indent on             " required
 
-colorscheme solarized
-set background=dark 
-syntax on
-
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set cursorline
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
@@ -217,3 +213,7 @@ augroup pencil
     autocmd FileType md   call pencil#init()
     autocmd FileType text call pencil#init()
 augroup END
+
+colorscheme solarized
+set background=dark
+syntax on
