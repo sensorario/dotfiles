@@ -136,7 +136,7 @@ endfunction
 command! Newspaper :call NewspaperMetaphore()<CR>
 function! NewspaperMetaphore()
     " @todo: dont call this method when out from a php file
-    let newspaper_command = ":!clear; grep function ".expand('%')." | grep -v private | grep -v '*' | awk '{print \" ".expand('%:r')."::\"$3}'"
+    let newspaper_command = ":!clear; awk '/function/,/\\)/' %"
     exe newspaper_command
 endfunction
 
