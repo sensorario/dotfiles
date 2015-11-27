@@ -86,7 +86,7 @@ nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left>
 " Replace in a path
 " Move path list inside a configurable variable
 " @todo move this inside a sensorario/vim-php ?
-nnoremap <Leader>R :!for i in `grep -Rl <C-r><C-w> src/ test/ scripts/`; do sed -i 's/<C-r><C-w>/<C-r><C-w>/g' $i; done;<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap <Leader>R :!for i in `grep -Rl <C-r><C-w> src/`; do sed -i 's/<C-r><C-w>/<C-r><C-w>/g' $i; done;<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 " Move current file
 nnoremap <Leader>o :e ++enc=latin1 
