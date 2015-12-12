@@ -6,11 +6,11 @@
     diff = auto
     branch = auto
 [alias]
-    co = commit -av
+    ap = add -p
+    co = commit -v
     st = status
     d = diff --color
     b = branch --color
-    tree = log --oneline --color --decorate --all --graph
     t = log --oneline --color --decorate --all --graph
     abort = reset --hard
     merge = merge --no-ff
