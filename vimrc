@@ -3,34 +3,22 @@ set nocompatible                      " be iMproved, required
 filetype off                          " required
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
-
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'fugitive.vim'
-
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-
 Plugin 'scrooloose/nerdtree'
-
 Plugin 'tommcdo/vim-lion'
-
 Bundle 'vim-php/vim-composer'
-
 Plugin 'bling/vim-airline'
-
 Plugin 'sensorario/vim-create'
 Plugin 'sensorario/vim-flow'
-
 Plugin 'reedes/vim-pencil'
-
 Bundle 'kristijanhusak/vim-multiple-cursors'
-
 Plugin 'evidens/vim-twig'
-
 Plugin 'altercation/vim-colors-solarized'
-
 call vundle#end()
 
 filetype plugin indent on             " required
@@ -44,12 +32,12 @@ set ignorecase
 
 " this does not work in mac environment
 " @todo create new version of dotfiles for MacOsX?
-set list listchars=tab:»·,trail:·
+" set list listchars=tab:»·,trail:·
 
 set nu
 set secure
 set shiftwidth=4
-set showbreak=↪
+" set showbreak=↪
 set smartindent
 set softtabstop=4
 set tabstop=4

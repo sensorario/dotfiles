@@ -1,6 +1,7 @@
 #!/bin/bash
 # @todo add colors
 # @todo add progress bar
+set -x
 
 cd "$(dirname "$0")"
 
@@ -8,7 +9,7 @@ cd "$(dirname "$0")"
 clear
 
 
-rm -rf ~/.vim
+rm -rf ~/.vim;
 
 
 if [ ! -d ~/.vim/bundle/vundle ]; then
@@ -23,7 +24,8 @@ fi
 . ./update-colorscheme.sh
 
 
-vim -c 'PluginInstall' -c 'qa!'
+vim -c 'PluginInstall' -c 'qa!';
 
+cd ~/.vim/bundle/vim-create; git checkout 1.0.0; cd -;
 
-cp -f $PWD/tmux.conf ~/.tmux.conf
+cp -f $PWD/tmux.conf ~/.tmux.conf;
