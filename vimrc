@@ -202,6 +202,6 @@ augroup pencil
     autocmd FileType text call pencil#init()
 augroup END
 
-colorscheme solarized
+colorscheme mustang
 set background=dark
 syntax on

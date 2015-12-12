@@ -1,7 +1,6 @@
 #!/bin/bash
 # @todo add colors
 # @todo add progress bar
-set -x
 
 cd "$(dirname "$0")"
 
