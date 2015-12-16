@@ -88,6 +88,7 @@ nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
 
 " Extract content of next function inside a variable
 " @todo move this inside a sensorario/vim-php ?
+" @todo this works only for php!! go has no parenthesis
 nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
 
 " Git clone a project from github.com
@@ -186,6 +187,7 @@ endfunction
 
 " Run complete test suite
 " @todo move this inside a sensorario/vim-php ?
+" @todo check if this file exists, show a message instead
 nnoremap <Leader>t :!./runtests<CR>
 
 " @todo move this inside a sensorario/vim-git-collection ?
@@ -198,7 +200,6 @@ endfunction
 let g:pencil#wrapModeDefault = 'soft'
 augroup pencil
     autocmd!
-    autocmd FileType php  call pencil#init()
     autocmd FileType md   call pencil#init()
     autocmd FileType text call pencil#init()
 augroup END
