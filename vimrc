@@ -19,6 +19,7 @@ Plugin 'reedes/vim-pencil'
 Bundle 'kristijanhusak/vim-multiple-cursors'
 Plugin 'evidens/vim-twig'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'fatih/vim-go'
 call vundle#end()
 
 filetype plugin indent on             " required
