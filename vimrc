@@ -190,6 +190,10 @@ endfunction
 " @todo check if this file exists, show a message instead
 nnoremap <Leader>t :!./runtests<CR>
 
+" Run complete test suite
+" @todo move this inside a sensorario/vim-php ?
+nnoremap <Leader>e :!php %<CR>
+
 " @todo move this inside a sensorario/vim-git-collection ?
 command! DeleteAllMergeBranch :call DeleteAllMergedBranchFunction()
 function! DeleteAllMergedBranchFunction()
