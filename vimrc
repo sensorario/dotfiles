@@ -46,7 +46,7 @@ set hlsearch
 set colorcolumn=120
 
 " this keep current line centered on the screen
-" set scrolloff=42
+set scrolloff=5
 
 set foldlevel=20
 set foldmethod=indent
@@ -208,6 +208,6 @@ augroup pencil
     autocmd FileType text call pencil#init()
 augroup END
 
-colorscheme mustang
+colorscheme delek
 set background=dark
 syntax on
