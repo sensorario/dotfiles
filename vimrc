@@ -20,6 +20,7 @@ Bundle 'kristijanhusak/vim-multiple-cursors'
 Plugin 'evidens/vim-twig'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
+Plugin 'othree/html5.vim'
 call vundle#end()
 
 filetype plugin indent on             " required
