@@ -21,6 +21,7 @@ Plugin 'evidens/vim-twig'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
 Plugin 'othree/html5.vim'
+Plugin 'valloric/MatchTagAlways'
 call vundle#end()
 
 filetype plugin indent on             " required
@@ -44,7 +45,7 @@ set smartindent
 set softtabstop=4
 set tabstop=4
 set hlsearch
-set colorcolumn=120
+set colorcolumn=121
 
 " this keep current line centered on the screen
 set scrolloff=5
@@ -212,3 +213,10 @@ augroup END
 colorscheme delek
 set background=dark
 syntax on
+
+
+" Plugin 'valloric/MatchTagAlways' Configuration
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'tmpl' : 1,
+    \}
