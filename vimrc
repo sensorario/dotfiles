@@ -54,10 +54,6 @@ set foldlevel=20
 set foldmethod=indent
 set linespace=0
 
-set mouse=a
-set ttymouse=xterm2
-
-
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
 
