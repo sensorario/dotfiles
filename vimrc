@@ -18,7 +18,6 @@ Plugin 'sensorario/vim-flow'
 Plugin 'reedes/vim-pencil'
 Bundle 'kristijanhusak/vim-multiple-cursors'
 Plugin 'evidens/vim-twig'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
 Plugin 'othree/html5.vim'
 Plugin 'valloric/MatchTagAlways'
@@ -40,7 +39,7 @@ set ignorecase
 set nu
 set secure
 set shiftwidth=4
-" set showbreak=↪
+set showbreak=↪
 set smartindent
 set softtabstop=4
 set tabstop=4
