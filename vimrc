@@ -45,6 +45,7 @@ set softtabstop=4
 set tabstop=4
 set hlsearch
 set colorcolumn=121
+set rnu
 
 " this keep current line centered on the screen
 set scrolloff=5
