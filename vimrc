@@ -191,12 +191,13 @@ nnoremap <Leader>t :!./runtests<CR>
 
 " Run complete test suite
 " @todo move this inside a sensorario/vim-php ?
-nnoremap <Leader>e :!php %<CR>
+nnoremap <Leader>e :!php -d display_errors %<CR>
 
 " @todo move this inside a sensorario/vim-git-collection ?
-command! DeleteAllMergeBranch :call DeleteAllMergedBranchFunction()
+command! DeleteAllMergedBranch :call DeleteAllMergedBranchFunction()
 function! DeleteAllMergedBranchFunction()
     exec ':!git branch --merged | grep -v master | xargs -n 1 git branch -d'
+    exec ':!git fetch -a --prune'
 endfunction
 
 " vim-pencil plugin configuration
@@ -207,7 +208,7 @@ augroup pencil
     autocmd FileType text call pencil#init()
 augroup END
 
-colorscheme delek
+colorscheme murphy
 set background=dark
 syntax on
 
