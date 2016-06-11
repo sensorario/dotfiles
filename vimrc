@@ -21,6 +21,7 @@ Plugin 'evidens/vim-twig'
 Plugin 'fatih/vim-go'
 Plugin 'othree/html5.vim'
 Plugin 'valloric/MatchTagAlways'
+Plugin 'gabrielelana/vim-markdown'
 call vundle#end()
 
 filetype plugin indent on             " required
