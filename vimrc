@@ -143,7 +143,7 @@ function! ShowMeTodoInCurrentFile()
 endfunction
 
 " ctrlp configuraation
-let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|output)$'
+let g:ctrlp_custom_ignore = '\v[\/](vendor|\.git|\.hg|\.svn|output)$'
 
 " alwais show status line on all windows
 set laststatus=2
