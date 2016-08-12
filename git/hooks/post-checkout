@@ -1,4 +1,4 @@
 #!/bin/sh
 
 figlet checkout
-git branch --merged | grep -v "\*" | xargs -n 1 git branch -D
+git branch --merged | grep -v "master" | grep -v "\*" | xargs -n 1 git branch -D
