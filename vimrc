@@ -143,7 +143,7 @@ function! ShowMeTodoInCurrentFile()
 endfunction
 
 " ctrlp configuraation
-let g:ctrlp_custom_ignore = '\v[\/](vendor|\.git|\.hg|\.svn|output)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|output)$'
 
 " alwais show status line on all windows
 set laststatus=2
@@ -163,8 +163,9 @@ let g:airline#extensions#tabline#enabled=1
 
 " Run phpunit test for current file
 " @todo check  if phpunit is installed or not
-nnoremap <expr> <leader>u RunPHPUnitTest()
-function! RunPHPUnitTest()
+nnoremap <expr> <leader>u RunPHPUnitTests()
+command! RunUnitTestsCommand :call RunPHPUnitTests()
+function! RunPHPUnitTests()
     let l:filename = expand('%')
     if -1 == match(l:filename,'Test\.php')
         let l:filename=substitute(l:filename, 'src', 'test', '')

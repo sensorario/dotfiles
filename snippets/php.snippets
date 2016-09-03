@@ -16,7 +16,7 @@ snippet export
 snippet phplog
 	error_log(var_export(${1}, true));
 snippet runtime
-	throw new RuntimeException(
+	throw new \RuntimeException(
 		'${1}'
 	);
 snippet expext
@@ -38,3 +38,5 @@ snippet @ret
 	@return ${1}
 snippet var
 	/** @var ${1} */
+snippet service
+	/** service ${1} */

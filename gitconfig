@@ -5,6 +5,8 @@
     status = auto
     diff = auto
     branch = auto
+[commit]
+    template = ~/.gitmessage
 [alias]
     ap = add -p
     co = commit -v
@@ -12,6 +14,7 @@
     d = diff --color
     b = branch --color
     t = log --oneline --color --decorate --all --graph
+    tt = log --color --decorate --all --graph
     abort = reset --hard
     merge = merge --no-ff
     pull = pull --no-ff
