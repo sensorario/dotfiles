@@ -5,9 +5,17 @@ snippet dockblock
 snippet dataprovider
 	/** @dataProvider ${1} */
 snippet pubfun
+	/**
+	 * {$inherit}
+	 */
 	public function ${1}()
 	{
 		return ${2};
+	}
+snippet test
+	public function test${1}()
+	{
+		\$this->markTestIncomplete();
 	}
 snippet const
 	const ${1} = '${2}';
@@ -17,7 +25,7 @@ snippet phplog
 	error_log(var_export(${1}, true));
 snippet runtime
 	throw new \RuntimeException(
-		'${1}'
+		'Oops!'
 	);
 snippet expext
 	$this->${1}->expects($this->${2}())
@@ -37,6 +45,17 @@ snippet @war
 snippet @ret
 	@return ${1}
 snippet var
-	/** @var ${1} */
-snippet service
-	/** service ${1} */
+	/**
+	 *
+	 *
+	 * @var ${1}
+	 */
+snippet mock
+	$this->${1} = $this
+	    ->getMockBuilder('${2}')
+		->disableOriginalConstructor()
+		->getMock();
+snippet foreach
+	foreach (\$${1} as \$itemKey => \$itemValue) {
+		
+	}
