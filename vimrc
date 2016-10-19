@@ -90,6 +90,9 @@ nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
 " @todo this works only for php!! go has no parenthesis
 nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
 
+nnoremap <Leader>] vi[c$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
+nnoremap <Leader>( vi(c$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
+
 " Git clone a project from github.com
 " Create VimClone command?
 nnoremap <Leader>g :!git clone git@github.com:sensorario/
@@ -143,7 +146,7 @@ function! ShowMeTodoInCurrentFile()
 endfunction
 
 " ctrlp configuraation
-let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|output)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|output|vendor|var|sass|bin|app|web)$'
 
 " alwais show status line on all windows
 set laststatus=2
@@ -185,10 +188,18 @@ function! RunFilteredTests()
     exec ':!php ./bin/phpunit --filter ' . l:filter . "\<CR>"
 endfunction
 
+" Run Behat
+command! RunBehat :call RunBehatFunction()
+function! RunBehatFunction()
+    exec 'pwd'
+    exec ':!php ./vendor/bin/behat' . "\<CR>"
+endfunction
+
 " Run complete test suite
 " @todo move this inside a sensorario/vim-php ?
 " @todo check if this file exists, show a message instead
 nnoremap <Leader>t :!./runtests<CR>
+nnoremap <Leader>u :!./rununits<CR>
 
 " Run complete test suite
 " @todo move this inside a sensorario/vim-php ?
@@ -209,8 +220,8 @@ augroup pencil
     autocmd FileType text call pencil#init()
 augroup END
 
-colorscheme murphy
-set background=dark
+colorscheme morning
+" set background=dark
 syntax on
 
 
