@@ -16,6 +16,9 @@ cp ~/.gitconfig gitconfig
 printf "\nCopying bash_aliases configuration"
 cp ~/.bash_aliases bash_aliases
 
+printf "\nCopying profile"
+cp ~/.profile profile
+
 printf "\nCopying snippets"
 cp -Rf ~/.vim/snippets/* ./snippets/
 
