@@ -1,12 +1,12 @@
 [user]
 	name = Simone Gentili
 	email = sensorario@gmail.com
+
 [color]
     status = auto
     diff = auto
     branch = auto
-[commit]
-    template = ~/.gitmessage
+
 [alias]
     ap = add -p
     co = commit -v
