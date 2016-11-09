@@ -22,6 +22,7 @@ Plugin 'fatih/vim-go'
 Plugin 'othree/html5.vim'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'gabrielelana/vim-markdown'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 
 filetype plugin indent on             " required
