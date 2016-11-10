@@ -23,9 +23,11 @@ Plugin 'othree/html5.vim'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 
 filetype plugin indent on             " required
+filetype plugin on             " required for nerdcommenter
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set cursorline
