@@ -1,6 +1,46 @@
-set nocompatible                      " be iMproved, required
+set ai                  " set auto-indenting on for programming
+set backspace=indent,eol,start  " make that backspace key work the way it should
+set colorcolumn=121
+set cursorline
+set dir=~/.vimswap//,/var/tmp//,/tmp//,.
+set expandtab
+set exrc
+set foldlevel=20
+set foldmethod=indent
+set hlsearch            " highlight searches
+set ignorecase          " ignore case when searching
+set incsearch           " do incremental searching
+set linespace=0
+set list listchars=tab:»·,trail:·
+set nobackup            " do not keep a backup file
+set nocompatible        " use vim defaults
+set novisualbell        " turn off visual bell
+set nu
+set number              " show line numbers
+set rnu
+set ruler               " show the current row and column
+set runtimepath=$VIMRUNTIME     " turn off user scripts, https://github.com/igrigorik/vimgolf/issues/129
+set scrolloff=3         " keep 3 lines when scrolling
+set secure
+set shiftwidth=4
+set showbreak=↪
+set showcmd             " display incomplete commands
+set showmatch           " jump to matches when entering regexp
+set smartcase           " no ignorecase if Uppercase char present
+set smartindent
+set softtabstop=4
+set tabstop=4
+set visualbell t_vb=    " turn off error beep/flash
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
-filetype off                          " required
+syntax on               " turn syntax highlighting on by default
+filetype on             " detect type of file
+filetype indent on      " load indent file for specific file type
+filetype plugin indent on             " required
+filetype plugin on             " required for nerdcommenter
+
+" filetype off                          " required
+
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
@@ -26,37 +66,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 
-filetype plugin indent on             " required
-filetype plugin on             " required for nerdcommenter
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set cursorline
-set dir=~/.vimswap//,/var/tmp//,/tmp//,.
-set expandtab
-set exrc
-set ignorecase
-
-" this does not work in mac environment
-" @todo create new version of dotfiles for MacOsX?
-" set list listchars=tab:»·,trail:·
-
-set nu
-set secure
-set shiftwidth=4
-set showbreak=↪
-set smartindent
-set softtabstop=4
-set tabstop=4
-set hlsearch
-set colorcolumn=121
-set rnu
-
-" this keep current line centered on the screen
-set scrolloff=5
-
-set foldlevel=20
-set foldmethod=indent
-set linespace=0
 
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
@@ -224,9 +234,6 @@ augroup pencil
 augroup END
 
 colorscheme morning
-" set background=dark
-syntax on
-
 
 " Plugin 'valloric/MatchTagAlways' Configuration
 let g:mta_filetypes = {
