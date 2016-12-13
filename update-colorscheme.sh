@@ -2,4 +2,4 @@
 # @todo add colors
 echo ""
 echo "Overriding colorscheme"
-cp -rf $PWD/colors ~/.vim/colors
+cp -rf $PWD/vim/colors ~/.vim/colors

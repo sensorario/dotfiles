@@ -11,7 +11,7 @@ set hlsearch            " highlight searches
 set ignorecase          " ignore case when searching
 set incsearch           " do incremental searching
 set linespace=0
-set list listchars=tab:»·,trail:·
+" set list listchars=tab:»·,trail:·
 set nobackup            " do not keep a backup file
 set nocompatible        " use vim defaults
 set novisualbell        " turn off visual bell
