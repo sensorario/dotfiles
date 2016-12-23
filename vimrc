@@ -11,7 +11,7 @@ set hlsearch            " highlight searches
 set ignorecase          " ignore case when searching
 set incsearch           " do incremental searching
 set linespace=0
-" set list listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·
 set nobackup            " do not keep a backup file
 set nocompatible        " use vim defaults
 set novisualbell        " turn off visual bell
@@ -93,10 +93,10 @@ nnoremap <Leader>R :!for i in `grep -Rl <C-r><C-w> src/`; do sed -i 's/<C-r><C-w
 nnoremap <Leader>o :e ++enc=latin1 
 
 " Find current word in all file in a path
-nnoremap <Leader>f :!grep -Rn <C-r><C-w> src/ --color -U4<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+" nnoremap <Leader>f :!grep -Rn <C-r><C-w> src/ --color -U4<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 " Show all files that contains current word
-nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
+" nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
 
 " Extract content of next function inside a variable
 " @todo move this inside a sensorario/vim-php ?
@@ -212,7 +212,7 @@ endfunction
 " @todo move this inside a sensorario/vim-php ?
 " @todo check if this file exists, show a message instead
 nnoremap <Leader>t :!./runtests<CR>
-nnoremap <Leader>u :!./rununits<CR>
+" nnoremap <Leader>u :!./rununits<CR>
 
 " Run complete test suite
 " @todo move this inside a sensorario/vim-php ?
@@ -233,7 +233,7 @@ augroup pencil
     autocmd FileType text call pencil#init()
 augroup END
 
-colorscheme morning
+colorscheme mustang
 
 " Plugin 'valloric/MatchTagAlways' Configuration
 let g:mta_filetypes = {
