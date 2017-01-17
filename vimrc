@@ -64,6 +64,7 @@ Plugin 'valloric/MatchTagAlways'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'craigmery/vim-autotag'
 call vundle#end()
 
 
@@ -245,3 +246,24 @@ let g:mta_filetypes = {
     \ 'html' : 1,
     \ 'tmpl' : 1,
     \}
+
+" Enable mouse
+command! EnableMouse :call EnableMouseFunction()
+function! EnableMouseFunction()
+    let command = ":set mouse=a"
+    exe command
+endfunction
+
+" Disable mouse
+command! DisavleMouse :call DisavleMouseFunction()
+function! DisavleMouseFunction()
+    let command = ":set mouse="
+    exe command
+endfunction
+
+" Show git tree
+command! ShowGitTree :call ShowGitTreeFunction()
+function! ShowGitTreeFunction()
+    let command = ":!git t"
+    exe command
+endfunction

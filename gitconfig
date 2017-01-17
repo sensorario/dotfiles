@@ -18,5 +18,9 @@
     abort = reset --hard
     merge = merge --no-ff
     pull = pull --no-ff
+
+[branch "master"]
+        mergeoptions = --no-ff
+
 [core]
 	editor = /usr/bin/vim
