@@ -2,6 +2,7 @@ set ai                  " set auto-indenting on for programming
 set backspace=indent,eol,start  " make that backspace key work the way it should
 set colorcolumn=121
 set cursorline
+set cursorcolumn
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 set expandtab
 set exrc
@@ -64,7 +65,6 @@ Plugin 'valloric/MatchTagAlways'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'craigmery/vim-autotag'
 call vundle#end()
 
 
@@ -142,7 +142,7 @@ endfunction
 command! Newspaper :call NewspaperMetaphore()<CR>
 function! NewspaperMetaphore()
     " @todo: dont call this method when out from a php file
-    let newspaper_command = ":!clear; awk '/function/,/\\)/' %"
+    let newspaper_command = ":!clear; cat % | grep class; echo ''; echo 'METHODS:'; echo ''; awk '/function/,/\\)/' %"
     exe newspaper_command
 endfunction
 
@@ -190,7 +190,7 @@ command! RunUnitTestsCommand :call RunPHPUnitTests()
 function! RunPHPUnitTests()
     let l:filename = expand('%')
     if -1 == match(l:filename,'Test\.php')
-        let l:filename=substitute(l:filename, 'src', 'test', '')
+        let l:filename=substitute(l:filename, 'src', 'tests', '') " symfony3 folder
         let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
     endif
     if filereadable('./vendor/bin/phpunit')
@@ -267,3 +267,6 @@ function! ShowGitTreeFunction()
     let command = ":!git t"
     exe command
 endfunction
+
+let g:autotagTagsFile = ".git/tags"
+set tags=tags
