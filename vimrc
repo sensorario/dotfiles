@@ -13,6 +13,7 @@ set ignorecase          " ignore case when searching
 set incsearch           " do incremental searching
 set linespace=0
 set list listchars=tab:»·,trail:·
+set mouse=a
 set nobackup            " do not keep a backup file
 set nocompatible        " use vim defaults
 set novisualbell        " turn off visual bell
@@ -65,6 +66,7 @@ Plugin 'valloric/MatchTagAlways'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'craigemery/vim-autotag'
 call vundle#end()
 
 
@@ -194,9 +196,9 @@ function! RunPHPUnitTests()
         let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
     endif
     if filereadable('./vendor/bin/phpunit')
-        return ':!php ./vendor/bin/phpunit ' . l:filename . "\<CR>"
+        return ':!clear; php ./vendor/bin/phpunit --color ' . l:filename . "\<CR>"
     else
-        return ':!php ./bin/phpunit ' . l:filename . "\<CR>"
+        return ':!clear; php ./bin/phpunit ' . l:filename . "\<CR>"
     endif
 endfunction
 
@@ -255,8 +257,8 @@ function! EnableMouseFunction()
 endfunction
 
 " Disable mouse
-command! DisavleMouse :call DisavleMouseFunction()
-function! DisavleMouseFunction()
+command! DisableMouse :call DisableMouseFunction()
+function! DisableMouseFunction()
     let command = ":set mouse="
     exe command
 endfunction
@@ -270,3 +272,6 @@ endfunction
 
 let g:autotagTagsFile = ".git/tags"
 set tags=tags
+
+let NERDTreeShowBookmarks=1
+autocmd VimEnter * NERDTree
