@@ -43,8 +43,6 @@ snippet @ret
 	@return ${1}
 snippet var
 	/**
-	 *
-	 *
 	 * @var ${1}
 	 */
 snippet mock
@@ -58,3 +56,12 @@ snippet foreach
 	}
 snippet dump
 	var_dump(\$${1});
+snippet try
+	try {
+		${1}
+		exit 0;
+	} catch(\RuntimeException $exception) {
+		exit 1;
+	}
+snippet logger
+	$this->logger->info('${1}');

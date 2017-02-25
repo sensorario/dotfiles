@@ -1,0 +1,8 @@
+snippet test
+	func Test${1}(t *testing.T) {
+		if ${2} {
+			t.Error("${3}")
+		}
+	}
+snippet todo
+	/** @todo: ${1} */

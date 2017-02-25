@@ -1,6 +1,6 @@
 [user]
-	name = Simone Gentili
-	email = sensorario@gmail.com
+    name = Simone Gentili
+    email = sensorario@gmail.com
 
 [color]
     status = auto
@@ -19,8 +19,12 @@
     merge = merge --no-ff
     pull = pull --no-ff
 
-[branch "master"]
-        mergeoptions = --no-ff
-
 [core]
-	editor = /usr/bin/vim
+    editor = /usr/bin/vim
+	excludesfile = /Users/sensorario/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

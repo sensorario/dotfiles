@@ -163,7 +163,7 @@ endfunction
 
 " ctrlp configuraation
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|app|web)$',
+    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|web)$',
     \ 'file': '\v\.(exe|so|dll)$',
     \ 'doc': '\v\.(md|rst)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
@@ -202,12 +202,6 @@ function! RunPHPUnitTests()
     endif
 endfunction
 
-" Run filtered test
-nnoremap <Leader>T :!vendor/bin/phpunit --filter 
-function! RunFilteredTests()
-    let l:filter = input('Filter test with ... ')
-    exec ':!php ./bin/phpunit --filter ' . l:filter . "\<CR>"
-endfunction
 
 " Run Behat
 command! RunBehat :call RunBehatFunction()
@@ -220,7 +214,15 @@ endfunction
 " @todo move this inside a sensorario/vim-php ?
 " @todo check if this file exists, show a message instead
 nnoremap <Leader>t :!./runtests<CR>
-" nnoremap <Leader>u :!./rununits<CR>
+" Run filtered test
+autocmd FileType php nnoremap<buffer> <Leader>t :call PhpTests()<cr>
+autocmd FileType go nnoremap<buffer> <Leader>t :call GoTest()<cr>
+function! PhpTests()
+    exec ':!./vendor/bin/phpunit --stop-on-failure'
+endfunction
+function! GoTest()
+    exec ':GoTest'
+endfunction
 
 " Run complete test suite
 " @todo move this inside a sensorario/vim-php ?
@@ -274,4 +276,4 @@ let g:autotagTagsFile = ".git/tags"
 set tags=tags
 
 let NERDTreeShowBookmarks=1
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
