@@ -18,6 +18,7 @@ cp ~/.bash_aliases bash_aliases
 
 printf "\nCopying profile"
 cp ~/.profile profile
+cp ~/.bash_profile bash_profile
 
 printf "\nCopying snippets"
 cp -Rf ~/.vim/snippets/* ./snippets/
