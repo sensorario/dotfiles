@@ -5,7 +5,7 @@ if [ -f ~/.bash_customer ]; then
 fi
 
 alias ll='ls -l'
-alias la='ls -la'
+alias la='ls -latr'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
