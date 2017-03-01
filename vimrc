@@ -1,6 +1,6 @@
 set ai                  " set auto-indenting on for programming
 set backspace=indent,eol,start  " make that backspace key work the way it should
-set colorcolumn=121
+
 set cursorline
 set cursorcolumn
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
@@ -277,3 +277,7 @@ set tags=tags
 
 let NERDTreeShowBookmarks=1
 "autocmd VimEnter * NERDTree
+
+" color limit column
+set colorcolumn=121
+hi colorcolumn ctermbg=10
