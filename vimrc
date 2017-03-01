@@ -279,5 +279,5 @@ let NERDTreeShowBookmarks=1
 "autocmd VimEnter * NERDTree
 
 " color limit column
-set colorcolumn=121
+set colorcolumn=81
 hi colorcolumn ctermbg=10
