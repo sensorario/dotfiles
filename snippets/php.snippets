@@ -9,6 +9,32 @@ snippet pubfun
 	{
 		return ${2};
 	}
+snippet accessors
+	public function set${1}($value)
+	{
+		\$this->${2} = $value;
+
+		return \$this;
+	}
+
+	public function get${3}()
+	{
+		if (\$this->${4}) {
+			return \$this->${4};
+		}
+
+		throw new \RuntimeException(
+			'Oops! ${5}'
+		);
+	}
+snippet assertEquals
+	\$expectedvalue = '';
+	\$value = '';
+
+	\$this->assertEquals(
+		\$expectedvalue,
+		\$value
+	);
 snippet test
 	public function test${1}()
 	{
