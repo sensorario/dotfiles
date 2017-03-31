@@ -33,6 +33,8 @@ set smartindent
 set softtabstop=4
 set tabstop=4
 set visualbell t_vb=    " turn off error beep/flash
+
+set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 syntax on               " turn syntax highlighting on by default
