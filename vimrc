@@ -67,6 +67,7 @@ Plugin 'gabrielelana/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'craigemery/vim-autotag'
+Bundle 'stephpy/vim-php-cs-fixer'
 call vundle#end()
 
 
@@ -215,11 +216,17 @@ endfunction
 " @todo check if this file exists, show a message instead
 nnoremap <Leader>t :!./runtests<CR>
 " Run filtered test
+"
 autocmd FileType php nnoremap<buffer> <Leader>t :call PhpTests()<cr>
-autocmd FileType go nnoremap<buffer> <Leader>t :call GoTest()<cr>
 function! PhpTests()
     exec ':!./vendor/bin/phpunit --stop-on-failure'
 endfunction
+
+autocmd FileType go nnoremap<buffer> <Leader>b :call GoBuild()<cr>
+function! GoBuild()
+    exec ':GoBuild'
+endfunction
+autocmd FileType go nnoremap<buffer> <Leader>t :call GoTest()<cr>
 function! GoTest()
     exec ':GoTest'
 endfunction
@@ -281,3 +288,13 @@ let NERDTreeShowBookmarks=1
 " color limit column
 set colorcolumn=81
 hi colorcolumn ctermbg=10
+
+
+" code fixer
+let g:php_cs_fixer_config = "default"                  " options: --config
+let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_level = "symfony"                   " options: --level (default:symfony)
+let g:php_cs_fixer_php_path = "php"               " Path to PHP
+let g:php_cs_fixer_rules = "@PSR2"          " options: --rules (default:@PSR2)
+let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
