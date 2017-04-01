@@ -213,12 +213,6 @@ function! RunBehatFunction()
     exec ':!php ./vendor/bin/behat' . "\<CR>"
 endfunction
 
-" Run complete test suite
-" @todo move this inside a sensorario/vim-php ?
-" @todo check if this file exists, show a message instead
-nnoremap <Leader>t :!./runtests<CR>
-" Run filtered test
-"
 autocmd FileType php nnoremap<buffer> <Leader>t :call PhpTests()<cr>
 function! PhpTests()
     exec ':!./vendor/bin/phpunit --stop-on-failure'
@@ -231,6 +225,11 @@ endfunction
 autocmd FileType go nnoremap<buffer> <Leader>t :call GoTest()<cr>
 function! GoTest()
     exec ':GoTest'
+endfunction
+
+autocmd FileType javascript nnoremap<buffer> <Leader>t :call JsTest()<cr>
+function! JsTest()
+    exec ':!npm test'
 endfunction
 
 " Run complete test suite
