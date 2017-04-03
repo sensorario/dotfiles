@@ -13,7 +13,7 @@ parse_committer_name() {
 
 # Show branch name and other info
 # export PS1="\u@ \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-export PS1="\$(parse_committer_name) \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\[\e[1;31m\]\$(parse_committer_name)\[\033[00m\] \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 export PATH="/usr/local/mysql/bin:$PATH"
 
