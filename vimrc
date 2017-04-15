@@ -166,7 +166,7 @@ endfunction
 
 " ctrlp configuraation
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|web)$',
+    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|node_modules|web)$',
     \ 'file': '\v\.(exe|so|dll)$',
     \ 'doc': '\v\.(md|rst)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
@@ -213,11 +213,13 @@ function! RunBehatFunction()
     exec ':!php ./vendor/bin/behat' . "\<CR>"
 endfunction
 
+" Php files configuration
 autocmd FileType php nnoremap<buffer> <Leader>t :call PhpTests()<cr>
 function! PhpTests()
     exec ':!./vendor/bin/phpunit --stop-on-failure'
 endfunction
 
+" Go files configurations
 autocmd FileType go nnoremap<buffer> <Leader>b :call GoBuild()<cr>
 function! GoBuild()
     exec ':GoBuild'
@@ -227,6 +229,7 @@ function! GoTest()
     exec ':GoTest'
 endfunction
 
+" Javascript files configuration
 autocmd FileType javascript nnoremap<buffer> <Leader>t :call JsTest()<cr>
 function! JsTest()
     exec ':!npm test'
