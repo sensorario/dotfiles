@@ -12,6 +12,7 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
+cp -f $PWD/gitignore_global ~/.gitignore_global;
 
 . ./update-gitconfig.sh
 . ./update-vimrc.sh
