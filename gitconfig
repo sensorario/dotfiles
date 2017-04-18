@@ -18,6 +18,7 @@
     abort = reset --hard
     merge = merge --no-ff
     pull = pull --no-ff
+    ll = log --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d' --graph
 
 [core]
     editor = /usr/bin/vim
