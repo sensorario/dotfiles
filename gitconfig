@@ -8,17 +8,18 @@
     branch = auto
 
 [alias]
-    ap = add -p
-    co = commit -v
-    st = status
-    d = diff --color
-    b = branch --color
-    t = log --oneline --color --decorate --all --graph
-    tt = log --color --decorate --all --graph
     abort = reset --hard
+    amend = commit --amend
+    ap = add -p
+    b = branch --color
+    co = commit -v
+    d = diff --color
+    ll = log --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d' --graph
     merge = merge --no-ff
     pull = pull --no-ff
-    ll = log --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d' --graph
+    st = status
+    t = log --oneline --color --decorate --all --graph
+    tt = log --color --decorate --all --graph
 
 [core]
     editor = /usr/bin/vim

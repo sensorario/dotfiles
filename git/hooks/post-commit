@@ -33,7 +33,7 @@ echo "${information}Branch is $current_branch ...${reset}"
 
 
 if [ $current_branch != 'master' ]; then
-    git push origin $current_branch;
+    git push origin $current_branch -f;
 else
     echo ""
     echo "${information}Update master!!!${reset}"
