@@ -80,6 +80,7 @@ nnoremap <Leader><Leader> :tabe ~/.vimrc
 " function keyboard mapping
 nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
 
+
 " Sort all uses
 " @todo move this inside a sensorario/vim-php ?
 map <F3> :call SortAllUseStatements()<CR>
@@ -217,6 +218,11 @@ endfunction
 autocmd FileType php nnoremap<buffer> <Leader>t :call PhpTests()<cr>
 function! PhpTests()
     exec ':!./vendor/bin/phpunit --stop-on-failure'
+endfunction
+nnoremap <Leader>f :call g:TestOnlyThisFunction()<CR>
+function! g:TestOnlyThisFunction()
+    let g:currentWord = expand('<cword>')
+    exec ':!./vendor/bin/phpunit --filter=' . g:currentWord
 endfunction
 
 " Go files configurations
