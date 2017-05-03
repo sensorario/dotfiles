@@ -199,8 +199,8 @@ function! RunPHPUnitTests()
         let l:filename=substitute(l:filename, 'src', 'tests', '') " symfony3 folder
         let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
     endif
-    if filereadable('./vendor/bin/phpunit')
-        return ':!clear; php ./vendor/bin/phpunit --color ' . l:filename . "\<CR>"
+    if filereadable('./bin/phpunit')
+        return ':!clear; php ./bin/phpunit --color ' . l:filename . "\<CR>"
     else
         return ':!clear; php ./bin/phpunit ' . l:filename . "\<CR>"
     endif
@@ -211,18 +211,19 @@ endfunction
 command! RunBehat :call RunBehatFunction()
 function! RunBehatFunction()
     exec 'pwd'
-    exec ':!php ./vendor/bin/behat' . "\<CR>"
+    exec ':!php ./bin/behat' . "\<CR>"
 endfunction
 
 " Php files configuration
 autocmd FileType php nnoremap<buffer> <Leader>t :call PhpTests()<cr>
 function! PhpTests()
-    exec ':!./vendor/bin/phpunit --stop-on-failure'
+    exec ':!./bin/phpunit --stop-on-failure'
 endfunction
-nnoremap <Leader>f :call g:TestOnlyThisFunction()<CR>
-function! g:TestOnlyThisFunction()
+nnoremap <Leader>f :call g:TestOnlyCurrenfFunction()<CR>
+function! g:TestOnlyCurrenfFunction()
+    exec 'normal [[2w'
     let g:currentWord = expand('<cword>')
-    exec ':!./vendor/bin/phpunit --filter=' . g:currentWord
+    exec ':!./bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
 endfunction
 
 " Go files configurations
