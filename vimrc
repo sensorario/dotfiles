@@ -4,7 +4,7 @@ set backspace=indent,eol,start  " make that backspace key work the way it should
 set cursorline
 set cursorcolumn
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
-
+set expandtab
 set exrc
 set foldlevel=20
 set foldmethod=indent
