@@ -4,6 +4,7 @@ set backspace=indent,eol,start  " make that backspace key work the way it should
 set cursorline
 set cursorcolumn
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
+
 set exrc
 set foldlevel=20
 set foldmethod=indent
@@ -310,11 +311,9 @@ let g:php_cs_fixer_verbose = 0                " Return the output of command if 
 
 fun! ExtractMethod() range
 	let g:selection = s:get_visual_selection()
-	"exec ":normal! dd"
 	exec ":set paste"
     exec ":normal! Gko\<esc>o\<esc>Spublic function xxxxxxx() {\n" . g:selection . "\n}\<esc>"
     exec ":normal! V%=\<cr>"
-    "exec ":%s\/xxxxxxx\/\<C-r>\<C-w>\/gI\<Left>\<Left>\<Left>"
 endfun
 function! s:get_visual_selection()
 	let [lnum1, col1] = getpos("'<")[1:2]
