@@ -4,7 +4,6 @@ set backspace=indent,eol,start  " make that backspace key work the way it should
 set cursorline
 set cursorcolumn
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
-set expandtab
 set exrc
 set foldlevel=20
 set foldmethod=indent
@@ -308,3 +307,21 @@ let g:php_cs_fixer_level = "symfony"          " options: --level (default:symfon
 let g:php_cs_fixer_php_path = "php"           " Path to PHP
 let g:php_cs_fixer_rules = "@PSR2"            " options: --rules (default:@PSR2)
 let g:php_cs_fixer_verbose = 0                " Return the output of command if 1, else an inline information.
+
+fun! ExtractMethod() range
+	let g:selection = s:get_visual_selection()
+	"exec ":normal! dd"
+	exec ":set paste"
+    exec ":normal! Gko\<esc>o\<esc>Spublic function xxxxxxx() {\n" . g:selection . "\n}\<esc>"
+    exec ":normal! V%=\<cr>"
+    "exec ":%s\/xxxxxxx\/\<C-r>\<C-w>\/gI\<Left>\<Left>\<Left>"
+endfun
+function! s:get_visual_selection()
+	let [lnum1, col1] = getpos("'<")[1:2]
+	let [lnum2, col2] = getpos("'>")[1:2]
+	let lines = getline(lnum1, lnum2)
+	let lines[-1] = lines[-1][: col2 - 2]
+	let lines[0] = lines[0][col1 - 1:]
+	return join(lines, "\n")
+endfunction
+vnoremap <Leader>r :call ExtractMethod()<cr>
