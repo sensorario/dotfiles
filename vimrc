@@ -202,7 +202,7 @@ function! RunPHPUnitTests()
     if filereadable('./bin/phpunit')
         return ':!clear; php ./bin/phpunit --color ' . l:filename . "\<CR>"
     else
-        return ':!clear; php ./bin/phpunit ' . l:filename . "\<CR>"
+        return ':!clear; php ./vendor/bin/phpunit --color ' . l:filename . "\<CR>"
     endif
 endfunction
 
@@ -217,13 +217,21 @@ endfunction
 " Php files configuration
 autocmd FileType php nnoremap<buffer> <Leader>t :call PhpTests()<cr>
 function! PhpTests()
-    exec ':!./bin/phpunit --stop-on-failure'
+    if filereadable('./bin/phpunit')
+        exec ':!./bin/phpunit --stop-on-failure'
+    else
+        exec ':!./vendor/bin/phpunit --stop-on-failure'
+    endif
 endfunction
 nnoremap <Leader>f :call g:TestOnlyCurrenfFunction()<CR>
 function! g:TestOnlyCurrenfFunction()
-    exec 'normal [[2w'
+    exec 'normal [[2w<c-o>'
     let g:currentWord = expand('<cword>')
-    exec ':!./bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
+    if filereadable('./bin/phpunit')
+        exec ':!./bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
+    else
+        exec ':!./vendor/bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
+    endif
 endfunction
 
 " Go files configurations

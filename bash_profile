@@ -19,3 +19,9 @@ export PATH="/usr/local/mysql/bin:$PATH"
 
 # Golang configuration
 export GOPATH="$HOME/work"
+
+# Composer
+PATH=$PATH:$HOME/.composer/vendor/bin
+
+# Python
+export PYTHONPATH=$PYTHONPATH:/usr/local/bin/
