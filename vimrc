@@ -189,23 +189,6 @@ let g:airline_symbols.branch='⎇ '
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
-" Run phpunit test for current file
-" @todo check  if phpunit is installed or not
-nnoremap <expr> <leader>u RunPHPUnitTests()
-command! RunUnitTestsCommand :call RunPHPUnitTests()
-function! RunPHPUnitTests()
-    let l:filename = expand('%')
-    if -1 == match(l:filename,'Test\.php')
-        let l:filename=substitute(l:filename, 'src', 'tests', '') " symfony3 folder
-        let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
-    endif
-    if filereadable('./bin/phpunit')
-        return ':!clear; php ./bin/phpunit --color ' . l:filename . "\<CR>"
-    else
-        return ':!clear; php ./vendor/bin/phpunit --color ' . l:filename . "\<CR>"
-    endif
-endfunction
-
 
 " Run Behat
 command! RunBehat :call RunBehatFunction()
@@ -223,14 +206,38 @@ function! PhpTests()
         exec ':!./vendor/bin/phpunit --stop-on-failure'
     endif
 endfunction
+
 nnoremap <Leader>f :call g:TestOnlyCurrenfFunction()<CR>
 function! g:TestOnlyCurrenfFunction()
     exec 'normal [[2w<c-o>'
     let g:currentWord = expand('<cword>')
     if filereadable('./bin/phpunit')
-        exec ':!./bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
+        let g:lastExecutedTest = ':!./bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
     else
-        exec ':!./vendor/bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
+        let g:lastExecutedTest = ':!./vendor/bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
+    endif
+    exec g:lastExecutedTest
+endfunction
+
+nnoremap <Leader>l :call g:RepeatLastTestFunction()<CR>
+function! g:RepeatLastTestFunction()
+    exec g:lastExecutedTest
+endfunction
+
+" Run phpunit test for current file
+" @todo check  if phpunit is installed or not
+nnoremap <expr> <leader>u RunPHPUnitTests()
+command! RunUnitTestsCommand :call RunPHPUnitTests()
+function! RunPHPUnitTests()
+    let l:filename = expand('%')
+    if -1 == match(l:filename,'Test\.php')
+        let l:filename=substitute(l:filename, 'src', 'tests', '') " symfony3 folder
+        let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
+    endif
+    if filereadable('./bin/phpunit')
+        return ':!clear; php ./bin/phpunit --color ' . l:filename . "\<CR>"
+    else
+        return ':!clear; php ./vendor/bin/phpunit --color ' . l:filename . "\<CR>"
     endif
 endfunction
 
@@ -318,17 +325,20 @@ let g:php_cs_fixer_rules = "@PSR2"            " options: --rules (default:@PSR2)
 let g:php_cs_fixer_verbose = 0                " Return the output of command if 1, else an inline information.
 
 fun! ExtractMethod() range
-	let g:selection = s:get_visual_selection()
-	exec ":set paste"
-    exec ":normal! Gko\<esc>o\<esc>Spublic function xxxxxxx() {\n" . g:selection . "\n}\<esc>"
-    exec ":normal! V%=\<cr>"
+    let g:selection = s:get_visual_selection()
+    exec ":normal! Gko\<esc>o\<esc>Spublic function ()\<esc>"
+    exec ":normal! o{\<esc>"
+    exec ":set paste"
+    exec ":normal! o" . g:selection . "\<esc>"
+    exec ":set nopaste"
+    exec ":normal! o}\<esc>%k2w"
 endfun
 function! s:get_visual_selection()
-	let [lnum1, col1] = getpos("'<")[1:2]
-	let [lnum2, col2] = getpos("'>")[1:2]
-	let lines = getline(lnum1, lnum2)
-	let lines[-1] = lines[-1][: col2 - 2]
-	let lines[0] = lines[0][col1 - 1:]
-	return join(lines, "\n")
+    let [lnum1, col1] = getpos("'<")[1:2]
+    let [lnum2, col2] = getpos("'>")[1:2]
+    let lines = getline(lnum1, lnum2)
+    let lines[-1] = lines[-1][: col2 - 2]
+    let lines[0] = lines[0][col1 - 1:]
+    return join(lines, "\n")
 endfunction
 vnoremap <Leader>r :call ExtractMethod()<cr>

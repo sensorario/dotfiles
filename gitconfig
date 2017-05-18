@@ -20,6 +20,7 @@
     st = status
     t = log --oneline --color --decorate --all --graph
     tt = log --color --decorate --all --graph
+	check-whitespace = git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
 
 [core]
     editor = /usr/bin/vim
