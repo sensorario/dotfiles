@@ -14,7 +14,7 @@
     b = branch --color
     co = commit -v
     d = diff --color
-    ll = log --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d' --graph
+    ll = log --date=short --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d' --all --graph
     merge = merge --no-ff
     pull = pull --no-ff
     st = status
