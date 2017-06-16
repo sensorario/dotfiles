@@ -212,9 +212,9 @@ function! g:TestOnlyCurrenfFunction()
     exec 'normal [[2w<c-o>'
     let g:currentWord = expand('<cword>')
     if filereadable('./bin/phpunit')
-        let g:lastExecutedTest = ':!./bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
+        let g:lastExecutedTest = ':!php ./bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
     else
-        let g:lastExecutedTest = ':!./vendor/bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
+        let g:lastExecutedTest = ':!php ./vendor/bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
     endif
     exec g:lastExecutedTest
 endfunction
