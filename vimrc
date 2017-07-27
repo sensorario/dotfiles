@@ -167,9 +167,10 @@ endfunction
 
 " ctrlp configuraation
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|node_modules|web)$',
+    \ 'dir': '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|node_modules|web)$',
     \ 'file': '\v\.(exe|so|dll)$',
     \ 'doc': '\v\.(md|rst)$',
+    \ 'coverage': '\v[\/](html)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
 
@@ -264,7 +265,7 @@ nnoremap <Leader>e :!php -d display_errors %<CR>
 " @todo move this inside a sensorario/vim-git-collection ?
 command! DeleteAllMergedBranch :call DeleteAllMergedBranchFunction()
 function! DeleteAllMergedBranchFunction()
-    exec ':!git branch --merged | grep -v master | xargs -n 1 git branch -d'
+    exec ':!git checkout master | git branch --merged | grep -v testing | xargs -n 1 git branch -d'
     exec ':!git fetch -a --prune'
 endfunction
 
