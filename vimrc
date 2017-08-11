@@ -12,7 +12,6 @@ set hlsearch            " highlight searches
 set ignorecase          " ignore case when searching
 set incsearch           " do incremental searching
 set linespace=0
-set list listchars=tab:»·,trail:·
 set mouse=a
 set nobackup            " do not keep a backup file
 set nocompatible        " use vim defaults
@@ -36,6 +35,10 @@ set visualbell t_vb=    " turn off error beep/flash
 
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+" show tabs and tailing spaces
+autocmd FileType php set list listchars=tab:»·,trail:·
+autocmd FileType go set list listchars=tab:»·,trail:·
 
 syntax on               " turn syntax highlighting on by default
 filetype on             " detect type of file
@@ -91,30 +94,20 @@ nnoremap <F2> :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 " Replace with confirmation
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left>
 
-" Replace in a path
 " Move path list inside a configurable variable
-" @todo move this inside a sensorario/vim-php ?
 nnoremap <Leader>R :!for i in `grep -Rl <C-r><C-w> src/`; do sed -i 's/<C-r><C-w>/<C-r><C-w>/g' $i; done;<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 " Move current file
 nnoremap <Leader>o :e ++enc=latin1 
 
-" Find current word in all file in a path
-" nnoremap <Leader>f :!grep -Rn <C-r><C-w> src/ --color -U4<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-
-" Show all files that contains current word
-" nnoremap <Leader>F :!grep -Rnl <C-r><C-w> src/
-
 " Extract content of next function inside a variable
-" @todo move this inside a sensorario/vim-php ?
-" @todo this works only for php!! go has no parenthesis
-nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
+autocmd FileType php nnoremap <Leader>v 0f(vibc$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
+autocmd FileType go nnoremap <Leader>v 0f(vibcv<ESC>Ovariable<SPACE>:=<SPACE><ESC>pA;<ESC>:%s/v//g<Left><Left>
 
 nnoremap <Leader>] vi[c$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
 nnoremap <Leader>( vi(c$variable<ESC>O$variable<SPACE>=<SPACE><ESC>pA;<ESC>:%s/variable//g<Left><Left>
 
 " Git clone a project from github.com
-" Create VimClone command?
 nnoremap <Leader>g :!git clone git@github.com:sensorario/
 
 " Go to previous buffer
@@ -210,7 +203,7 @@ endfunction
 
 nnoremap <Leader>f :call g:TestOnlyCurrenfFunction()<CR>
 function! g:TestOnlyCurrenfFunction()
-    exec 'normal [[2w<c-o>'
+    exec 'normal [[2w'
     let g:currentWord = expand('<cword>')
     if filereadable('./bin/phpunit')
         let g:lastExecutedTest = ':!php ./bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
@@ -218,6 +211,7 @@ function! g:TestOnlyCurrenfFunction()
         let g:lastExecutedTest = ':!php ./vendor/bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
     endif
     exec g:lastExecutedTest
+    exec 'normal <c-o>'
 endfunction
 
 nnoremap <Leader>l :call g:RepeatLastTestFunction()<CR>
@@ -265,7 +259,7 @@ nnoremap <Leader>e :!php -d display_errors %<CR>
 " @todo move this inside a sensorario/vim-git-collection ?
 command! DeleteAllMergedBranch :call DeleteAllMergedBranchFunction()
 function! DeleteAllMergedBranchFunction()
-    exec ':!git checkout master | git branch --merged | grep -v testing | xargs -n 1 git branch -d'
+    exec ':!git checkout testing | git branch --merged | grep -v testing | xargs -n 1 git branch -d'
     exec ':!git fetch -a --prune'
 endfunction
 
