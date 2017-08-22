@@ -337,3 +337,19 @@ function! s:get_visual_selection()
     return join(lines, "\n")
 endfunction
 vnoremap <Leader>r :call ExtractMethod()<cr>
+
+
+
+
+
+
+
+inoremap <F5> <C-R>=CustomComplete()<CR>
+func! CustomComplete()
+    let l:methods = split(
+                \ system("cat " . expand('%') . " | grep function | sed  's/(/ /g' | awk '{print $3}'"),
+                \ '\n'
+                \)
+    call complete(col('.'), l:methods)
+    return ''
+endfunc
