@@ -1,6 +1,5 @@
 set ai                  " set auto-indenting on for programming
 set backspace=indent,eol,start  " make that backspace key work the way it should
-
 set cursorline
 set cursorcolumn
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
@@ -32,7 +31,6 @@ set smartindent
 set softtabstop=4
 set tabstop=4
 set visualbell t_vb=    " turn off error beep/flash
-
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
@@ -40,14 +38,13 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 autocmd FileType php set list listchars=tab:»·,trail:·
 autocmd FileType go set list listchars=tab:»·,trail:·
 
-syntax on               " turn syntax highlighting on by default
-filetype on             " detect type of file
-filetype indent on      " load indent file for specific file type
-filetype plugin indent on             " required
-filetype plugin on             " required for nerdcommenter
+syntax on                 " turn syntax highlighting on by default
+filetype on               " detect type of file
+filetype indent on        " load indent file for specific file type
+filetype plugin indent on " required
+filetype plugin on        " required for nerdcommenter
 
-" filetype off                          " required
-
+" Vundle plugins
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
@@ -85,7 +82,6 @@ nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
 
 
 " Sort all uses
-" @todo move this inside a sensorario/vim-php ?
 map <F3> :call SortAllUseStatements()<CR>
 
 " Replace
@@ -116,7 +112,6 @@ nnoremap T :bprevious<CR>
 " Go to next buffer
 nnoremap t :bnext<CR>
 
-" @todo move this inside a sensorario/vim-php ?
 map      <F12>     :call NewspaperMetaphore()<CR>
 
 " Disable arrows in normal mode
@@ -137,25 +132,20 @@ function! g:VimComposerCustomBehavior(currentWord)
 endfunction
 
 " Show method names to verify the newspaper metaphore
-" @todo move this inside a sensorario/vim-php ?
 command! Newspaper :call NewspaperMetaphore()<CR>
 function! NewspaperMetaphore()
-    " @todo: dont call this method when out from a php file
     let newspaper_command = ":!clear; cat % | grep class; echo ''; echo 'METHODS:'; echo ''; awk '/function/,/\\)/' %"
     exe newspaper_command
 endfunction
 
-" @todo move this inside a sensorario/vim-php ?
 command! SortUseStatements :call SortAllUseStatements()<CR>
 function! SortAllUseStatements()
-    " @todo: check if current file is a php file
     exec ':0;/^use /;/^\(use \)\@!/-1:sort'
 endfunction
 
-" @todo move this inside a sensorario/vim-php ?
 command! Todo :call ShowMeTodoInCurrentFile()<CR>
 function! ShowMeTodoInCurrentFile()
-    exec '!clear; grep -R "@todo" % --color'
+    exec '!clear; grep -nR "@todo" % --color'
 endfunction
 
 " ctrlp configuraation
@@ -220,7 +210,6 @@ function! g:RepeatLastTestFunction()
 endfunction
 
 " Run phpunit test for current file
-" @todo check  if phpunit is installed or not
 nnoremap <expr> <leader>u RunPHPUnitTests()
 command! RunUnitTestsCommand :call RunPHPUnitTests()
 function! RunPHPUnitTests()
@@ -230,9 +219,9 @@ function! RunPHPUnitTests()
         let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
     endif
     if filereadable('./bin/phpunit')
-        return ':!clear; php ./bin/phpunit --color ' . l:filename . "\<CR>"
+        return ':!clear; php ./bin/phpunit --color ' . l:filename . " --testdox\<CR>"
     else
-        return ':!clear; php ./vendor/bin/phpunit --color ' . l:filename . "\<CR>"
+        return ':!clear; php ./vendor/bin/phpunit --color ' . l:filename . " --testdox\<CR>"
     endif
 endfunction
 
@@ -253,10 +242,8 @@ function! JsTest()
 endfunction
 
 " Run complete test suite
-" @todo move this inside a sensorario/vim-php ?
 nnoremap <Leader>e :!php -d display_errors %<CR>
 
-" @todo move this inside a sensorario/vim-git-collection ?
 command! DeleteAllMergedBranch :call DeleteAllMergedBranchFunction()
 function! DeleteAllMergedBranchFunction()
     exec ':!git checkout testing | git branch --merged | grep -v testing | xargs -n 1 git branch -d'
@@ -337,12 +324,6 @@ function! s:get_visual_selection()
     return join(lines, "\n")
 endfunction
 vnoremap <Leader>r :call ExtractMethod()<cr>
-
-
-
-
-
-
 
 inoremap <F5> <C-R>=CustomComplete()<CR>
 func! CustomComplete()
