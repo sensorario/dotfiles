@@ -44,7 +44,11 @@ snippet phplog
 	error_log(var_export(${1}, true));
 snippet runtime
 	throw new \RuntimeException(
-		'Oops!'
+		'Oops! ${1}'
+	);
+snippet logic
+	throw new \LogicException(
+		'Mmm! ${1}'
 	);
 snippet expext
 	$this->${1}->expects($this->${2}())
