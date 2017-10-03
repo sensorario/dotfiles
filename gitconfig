@@ -8,19 +8,27 @@
     branch = auto
 
 [alias]
-    abort = reset --hard
     amend = commit --amend
+    amenda = !git add . -A && git commit --amend --no-edit
     ap = add -p
     b = branch --color
+    ba = branch -a --color
+    check-whitespace = git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
+    ck = checkout
     co = commit -v
+    cob = checkout -b
     d = diff --color
+    fixup = commit --amend --no-edit
+    g = grep --break --heading --line-number number
+    last = log -1 HEAD
     ll = log --date=short --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d' --all --graph
     merge = merge --no-ff
     pull = pull --no-ff
-    st = status
+    st = status -sb
     t = log --oneline --color --decorate --all --graph
     tt = log --color --decorate --all --graph
-    check-whitespace = git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
+    undo = reset HEAD^ --mixed
+    save = !git add . -A && git commit -m 'WIP'
 
 [core]
     editor = /usr/bin/vim

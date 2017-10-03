@@ -46,3 +46,5 @@ git config --global core.editor /usr/bin/vim
 │       └── mustang.vim
 └── vimrc
 ```
+
+   …..
