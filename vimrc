@@ -72,14 +72,11 @@ Plugin 'craigemery/vim-autotag'
 Bundle 'stephpy/vim-php-cs-fixer'
 call vundle#end()
 
-
-
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
 
 " function keyboard mapping
 nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
-
 
 " Sort all uses
 map <F3> :call SortAllUseStatements()<CR>

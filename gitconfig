@@ -12,7 +12,6 @@
     amend = commit --amend
     ap = add -p
     b = branch --color
-    ba = branch -a --color
     co = commit -v
     d = diff --color
     ll = log --date=short --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d' --all --graph
