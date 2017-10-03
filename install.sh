@@ -1,12 +1,10 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
-
 clear
-
+figlet install
 
 rm -rf ~/.vim;
-
 
 if [ ! -d ~/.vim/bundle/vundle ]; then
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle

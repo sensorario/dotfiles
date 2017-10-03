@@ -1,10 +1,4 @@
 #!/bin/bash
-
-# upgrade neovim
-# pip3 install --upgrade neovim
-#brew upgrade neovim
-
-# remove old configuration
 rm -rf ~/.config;
 
 # recreate folders
