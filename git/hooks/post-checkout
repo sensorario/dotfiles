@@ -1,5 +1,7 @@
-#!/bin/sh
+#!/bin/bash
+clear
 
-figlet checkout
-git branch --merged | grep -v "master" | grep -v "\*" | xargs -n 1 git branch -D
+figlet post-checkout
+
+git branch --merged | grep -v "master" | grep -v "testing" | grep -v "develop" | grep -v "\*" | xargs -n 1 git branch -D
 git fetch -a --prune

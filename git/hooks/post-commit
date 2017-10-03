@@ -1,6 +1,8 @@
 #!/bin/bash
 clear
 
+figlet post-commit
+
 echo "Defining colors ..."
 information=`tput setaf 2`
 question=`tput setaf 3`
@@ -8,32 +10,20 @@ alert=`tput setaf 1`
 reset=`tput sgr0`
 echo "Colors defined ..."
 
-
 echo ""
 echo "${alert}Pay attention, this script aims to Auto-push branches on remote${reset}"
 
-
-
-
-echo "       .__  __    .__                   __"
-echo "  ____ |__|/  |_  |  |__   ____   ____ |  | __  ______"
-echo " / ___\\|  \\   __\\ |  |  \\ /  _ \\ /  _ \\|  |/ / /  ___/"
-echo "/ /_/  >  ||  |   |   Y  (  <_> |  <_> )    <  \\___ \\"
-echo "\\___  /|__||__|   |___|  /\____/ \____/|__|_ \/____  >"
-echo "/_____/                 \\/                   \\/     \\/"
-
-echo ""
 echo "${information}Retrieving current branch information ...${reset}"
 
-current_branch=$(git symbolic-ref -q HEAD)
-current_branch=${current_branch##refs/heads/}
-current_branch=${current_branch:-HEAD}
+currentBranch=$(git symbolic-ref -q HEAD)
+currentBranch=${currentBranch##refs/heads/}
+currentBranch=${currentBranch:-HEAD}
 echo ""
-echo "${information}Branch is $current_branch ...${reset}"
+echo "${information}Branch is $currentBranch ...${reset}"
 
 
-if [ $current_branch != 'master' ]; then
-    git push origin $current_branch -f;
+if [ $currentBranch != 'master' ] || [ $currentBranch != 'testing' ] || [ $currentBranch != 'develop' ]; then
+    git push origin $currentBranch -f;
 else
     echo ""
     echo "${information}Update master!!!${reset}"
