@@ -24,7 +24,7 @@
     ll = log --date=short --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d' --all --graph
     merge = merge --no-ff
     pull = pull --no-ff
-    st = status -sb
+    st = !git status -sb && git diff --stat
     t = log --oneline --color --decorate --all --graph
     tt = log --color --decorate --all --graph
     undo = reset HEAD^ --mixed
