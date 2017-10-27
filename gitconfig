@@ -28,7 +28,7 @@
     t = log --oneline --color --decorate --all --graph
     tt = log --color --decorate --all --graph
     undo = reset HEAD^ --mixed
-    save = !git add . -A && git commit -m 'WIP'
+    save = !git add . -A && git commit -m 'savepoint'
 
 [core]
     editor = /usr/bin/vim
