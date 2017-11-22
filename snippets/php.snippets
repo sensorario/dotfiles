@@ -82,10 +82,8 @@ snippet dump
 	var_dump(\$${1});
 snippet try
 	try {
-		${1}
-		exit 0;
+		${1};
 	} catch(\RuntimeException $exception) {
-		exit 1;
 	}
 snippet logger
 	$this->logger->info('${1}');
