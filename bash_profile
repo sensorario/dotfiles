@@ -21,7 +21,7 @@ export PATH="/usr/local/mysql/bin:$PATH"
 export GOPATH="$HOME/work"
 
 # Composer
-PATH=$PATH:$HOME/.composer/vendor/bin
+PATH=$PATH:$GOPATH/bin:$HOME/.composer/vendor/bin
 
 # Python
 export PYTHONPATH=$PYTHONPATH:/usr/local/bin/
