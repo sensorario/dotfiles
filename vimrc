@@ -331,3 +331,5 @@ func! CustomComplete()
     call complete(col('.'), l:methods)
     return ''
 endfunc
+
+let g:go_version_warning = 0
