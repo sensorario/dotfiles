@@ -10,6 +10,12 @@ if [ ! -d ~/.vim/bundle/vundle ]; then
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
+
+// more themes
+rm -rf ~/.vim/colors/despacio.vim
+git clone https://github.com/AlessandroYorba/Despacio.git && cd despacio.git/colors/ && mv despacio.vim ~/.vim/colors/despacio.git/colors/despacio.vim 
+
+
 cp -f $PWD/gitignore_global ~/.gitignore_global;
 
 . ./update-gitconfig.sh
