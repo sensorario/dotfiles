@@ -22,15 +22,6 @@ snippet stafun
 	{
 		return ${3};
 	}
-snippet ensure
-	private function ensure${1}IsDefined() : void
-	{
-		if (!\$this->${2}) {
-			throw new \RuntimeException(
-				'Oops! ${3}'
-			);
-		}
-	}
 snippet accessors
 	public function set${1}($value)
 	{
@@ -74,7 +65,7 @@ snippet expext
 	$this->${1}->expects($this->${2}())
 		->method('${3}')
 		->with(${4})
-		->willRreturn(${5}));
+		->willReturn(${5});
 snippet comment
 	/** ${1} */
 snippet mock
@@ -106,7 +97,7 @@ snippet @dat
 	@dataProvider ${1}
 snippet @dep
 	@deprecate since version ${1}.${2}.${3}
-snippet @t
+snippet todo
 	@todo ${1}
 snippet @w
 	@warning ${1}
