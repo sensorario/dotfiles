@@ -15,6 +15,7 @@
     ba = branch -a --color
     check-whitespace = git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
     ck = checkout
+    clean = !git add . && git reset --hard
     co = commit -v
     cob = checkout -b
     d = diff --color
@@ -24,11 +25,11 @@
     ll = log --date=short --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d' --all --graph
     merge = merge --no-ff
     pull = pull --no-ff
+    save = !git add . -A && git commit -m 'savepoint'
     st = !git status -sb && git diff --stat
     t = log --oneline --color --decorate --all --graph
     tt = log --color --decorate --all --graph
     undo = reset HEAD^ --mixed
-    save = !git add . -A && git commit -m 'savepoint'
 
 [core]
     editor = /usr/bin/vim

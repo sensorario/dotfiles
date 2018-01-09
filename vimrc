@@ -207,7 +207,7 @@ function! g:RepeatLastTestFunction()
 endfunction
 
 " Run phpunit test for current file
-nnoremap <expr> <leader>u RunPHPUnitTests()
+autocmd FileType php nnoremap <expr> <leader>u RunPHPUnitTests()
 command! RunUnitTestsCommand :call RunPHPUnitTests()
 function! RunPHPUnitTests()
     let l:filename = expand('%')
@@ -233,10 +233,18 @@ function! GoTest()
 endfunction
 
 " Javascript files configuration
-autocmd FileType javascript nnoremap<buffer> <Leader>t :call JsTest()<cr>
-function! JsTest()
+autocmd FileType javascript nnoremap <expr> <leader>t RunCompleteTestSuite()
+command! RunCompleteTestSuiteCommand :call RunCompleteTestSuite()
+function! RunCompleteTestSuite()
     exec ':!npm test'
 endfunction
+
+autocmd FileType javascript nnoremap <expr> <leader>u RunCurrentTestFile()
+command! RunCurrentTestFileCommand :call RunCurrentTestFile()
+function! RunCurrentTestFile()
+    exec ':!npm test %'
+endfunction
+
 
 " Run complete test suite
 nnoremap <Leader>e :!php -d display_errors %<CR>
@@ -291,7 +299,7 @@ let NERDTreeShowBookmarks=1
 "autocmd VimEnter * NERDTree
 
 " color limit column
-set colorcolumn=121
+set colorcolumn=81
 hi colorcolumn ctermbg=10
 
 " code fixer
