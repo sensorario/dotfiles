@@ -245,6 +245,12 @@ function! RunCurrentTestFile()
     exec ':!npm test %'
 endfunction
 
+" Behat
+autocmd FileType cucumber nnoremap <expr> <leader>u RunCurrentBehatTest()
+command! RunBehatTestCommand :call RunCurrentBehatTest()
+function! RunCurrentBehatTest()
+    exec ':!./bin/behat %'
+endfunction
 
 " Run complete test suite
 nnoremap <Leader>e :!php -d display_errors %<CR>
