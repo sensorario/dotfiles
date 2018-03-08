@@ -27,7 +27,7 @@ cp -f $PWD/gitignore_global ~/.gitignore_global;
 
 vim -c 'PluginInstall' -c 'qa!';
 
-cd ~/.vim/bundle/vim-create; git checkout 1.0.0; cd -;
+cd ~/.vim/bundle/vim-create; git checkout 1.0.2; cd -;
 
 cp -f $PWD/tmux.conf ~/.tmux.conf;
 
