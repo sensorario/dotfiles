@@ -43,6 +43,11 @@ autocmd FileType php set shiftwidth=2
 autocmd FileType php set softtabstop=4
 autocmd FileType php set tabstop=4
 
+autocmd FileType sh set list listchars=tab:»·,trail:·
+autocmd FileType sh set shiftwidth=2
+autocmd FileType sh set softtabstop=2
+autocmd FileType sh set tabstop=2
+
 syntax on                 " turn syntax highlighting on by default
 filetype on               " detect type of file
 filetype indent on        " load indent file for specific file type
