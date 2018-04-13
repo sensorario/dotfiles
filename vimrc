@@ -22,21 +22,26 @@ set ruler               " show the current row and column
 set runtimepath=$VIMRUNTIME     " turn off user scripts, https://github.com/igrigorik/vimgolf/issues/129
 set scrolloff=3         " keep 3 lines when scrolling
 set secure
-set shiftwidth=4
 set showbreak=↪
 set showcmd             " display incomplete commands
 set showmatch           " jump to matches when entering regexp
 set smartcase           " no ignorecase if Uppercase char present
 set smartindent
-set softtabstop=4
-set tabstop=4
 set visualbell t_vb=    " turn off error beep/flash
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " show tabs and tailing spaces
-autocmd FileType php set list listchars=tab:»·,trail:·
 autocmd FileType go set list listchars=tab:»·,trail:·
+
+autocmd FileType javascript set shiftwidth=2
+autocmd FileType javascript set softtabstop=2
+autocmd FileType javascript set tabstop=2
+
+autocmd FileType php set list listchars=tab:»·,trail:·
+autocmd FileType php set shiftwidth=2
+autocmd FileType php set softtabstop=4
+autocmd FileType php set tabstop=4
 
 syntax on                 " turn syntax highlighting on by default
 filetype on               " detect type of file
@@ -68,7 +73,7 @@ Plugin 'valloric/MatchTagAlways'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'craigemery/vim-autotag'
+"Plugin 'craigemery/vim-autotag'
 Bundle 'stephpy/vim-php-cs-fixer'
 call vundle#end()
 
@@ -147,7 +152,7 @@ endfunction
 
 " ctrlp configuraation
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|node_modules|web)$',
+    \ 'dir': '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|web|node_modules)$',
     \ 'file': '\v\.(exe|so|dll)$',
     \ 'doc': '\v\.(md|rst)$',
     \ 'coverage': '\v[\/](html)$',
@@ -255,9 +260,9 @@ endfunction
 " Run complete test suite
 nnoremap <Leader>e :!php -d display_errors %<CR>
 
-command! DeleteAllMergedBranch :call DeleteAllMergedBranchFunction()
-function! DeleteAllMergedBranchFunction()
-    exec ':!git checkout testing | git branch --merged | grep -v testing | xargs -n 1 git branch -d'
+command! DeleteMergedBranches :call DeleteMergedBranchesFunction()
+function! DeleteMergedBranchesFunction()
+    exec ':!git checkout master | git branch --merged | grep feature | xargs -n 1 git branch -d'
     exec ':!git fetch -a --prune'
 endfunction
 
