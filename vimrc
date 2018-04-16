@@ -357,3 +357,9 @@ func! CustomComplete()
 endfunc
 
 let g:go_version_warning = 0
+
+""" Node
+command! Node :call NodeFunction()
+function! NodeFunction()
+    exec ':!node %'
+endfunction
