@@ -39,7 +39,7 @@ autocmd FileType javascript set softtabstop=2
 autocmd FileType javascript set tabstop=2
 
 autocmd FileType php set list listchars=tab:»·,trail:·
-autocmd FileType php set shiftwidth=2
+autocmd FileType php set shiftwidth=4
 autocmd FileType php set softtabstop=4
 autocmd FileType php set tabstop=4
 
