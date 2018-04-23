@@ -8,15 +8,27 @@ committerName() {
     git config user.email
 }
 
+open() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \(/'
+}
+
+close() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\)/'
+}
+
 branchName() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 unstaged() {
-  [[ $(git status 2> /dev/null | grep "Changes not staged for commit":) != "" ]] && echo "/*)"
+  [[ $(git status 2> /dev/null | grep "Changes not staged for commit":) != "" ]] && echo "/m"
 }
 
-export PS1="\[\e[0;34m\]\$(committerName)\[\033[00m\] \[\033[32m\]\W\[\033[33m\]\$(branchName)\[\033[00m\]\[\033[33m\]\$(unstaged)\[\033[00m\] $ "
+untracked() {
+  [[ $(git status 2> /dev/null | grep "Untracked files":) != "" ]] && echo "/u"
+}
+
+export PS1="\[\e[0;34m\]\$(committerName)\[\033[00m\] \[\033[32m\]\W\[\033[00m\]\$(open)\[\033[33m\]\$(branchName)\[\033[00m\]\[\033[33m\]\$(untracked)\[\033[00m\]\[\033[33m\]\$(unstaged)\[\033[00m\]\$(close) $ "
 
 export PATH="/usr/local/mysql/bin:$PATH"
 
@@ -31,3 +43,4 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/bin/
 
 # Makefile completion
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
+export HISTTIMEFORMAT="%Y "
