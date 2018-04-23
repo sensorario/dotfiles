@@ -3,17 +3,20 @@ source ~/.bash_aliases
 
 # Automcomplete git commands
 source ~/.git-completion.bash
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
 
-parse_committer_name() {
+committerName() {
     git config user.email
 }
 
-# Show branch name and other info
-# export PS1="\u@ \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-export PS1="\[\e[0;34m\]\$(parse_committer_name)\[\033[00m\] \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+branchName() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1/'
+}
+
+unstaged() {
+  [[ $(git status 2> /dev/null | grep "Changes not staged for commit":) != "" ]] && echo "/*)"
+}
+
+export PS1="\[\e[0;34m\]\$(committerName)\[\033[00m\] \[\033[32m\]\W\[\033[33m\]\$(branchName)\[\033[00m\]\[\033[33m\]\$(unstaged)\[\033[00m\] $ "
 
 export PATH="/usr/local/mysql/bin:$PATH"
 
