@@ -57,63 +57,29 @@ filetype plugin on        " required for nerdcommenter
 " Vundle plugins
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
-
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'evidens/vim-twig'
-" Plugin 'othree/html5.vim'
-" Plugin 'valloric/MatchTagAlways'
-
-" Vundle ...
 Plugin 'gmarik/Vundle.vim'
-
-" Search files 
 Plugin 'kien/ctrlp.vim'
-
-" Git wrapper
 Plugin 'fugitive.vim'
-
-" Snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-
-" Files and Folder
 Plugin 'scrooloose/nerdtree'
-
-" Align equals ...
 Plugin 'tommcdo/vim-lion'
-
-" Composer wrapper
 Bundle 'vim-php/vim-composer'
-
-" Status bar
 Plugin 'bling/vim-airline'
-
-" Project starter
 Plugin 'vim-php/vim-create'
-
-" Git flow wrapper
 Plugin 'sensorario/vim-flow'
-
-" Pencil for writing
 Plugin 'reedes/vim-pencil'
-
-" Multiple cursor
 Bundle 'kristijanhusak/vim-multiple-cursors'
-
-" Go
+Plugin 'evidens/vim-twig'
 Plugin 'fatih/vim-go'
-
-" Markdown
+Plugin 'othree/html5.vim'
+Plugin 'valloric/MatchTagAlways'
 Plugin 'gabrielelana/vim-markdown'
-
-" Git diff
 Plugin 'airblade/vim-gitgutter'
-
-" Comments
 Plugin 'scrooloose/nerdcommenter'
-
+"Plugin 'craigemery/vim-autotag'
 Bundle 'stephpy/vim-php-cs-fixer'
-
 call vundle#end()
 
 " Open vimrc file ...

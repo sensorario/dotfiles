@@ -8,14 +8,6 @@ committerName() {
     git config user.email
 }
 
-open() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \(/'
-}
-
-close() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\)/'
-}
-
 branchName() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/⎇ \1/'
 }
@@ -28,7 +20,7 @@ untracked() {
   [[ $(git status 2> /dev/null | grep "Untracked files":) != "" ]] && echo "/u"
 }
 
-export PS1="\[\e[0;34m\]\$(committerName)\[\033[00m\] \[\033[32m\]\W\[\033[00m\]\$(open)\[\033[33m\]\$(branchName)\[\033[00m\]\[\033[33m\]\$(untracked)\[\033[00m\]\[\033[33m\]\$(unstaged)\[\033[00m\]\$(close) ▶ "
+export PS1="\[\e[7;34m\]\$(committerName)\[\e[0;34m\] \W \[\e[7;33m\] \$(branchName)\$(untracked)\$(unstaged) \[\e[0;33m\] \[\e[0m\]"
 
 export PATH="/usr/local/mysql/bin:$PATH"
 
