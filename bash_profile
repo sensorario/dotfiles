@@ -28,7 +28,7 @@ untracked() {
   [[ $(git status 2> /dev/null | grep "Untracked files":) != "" ]] && echo "/u"
 }
 
-export PS1="\[\e[0;34m\]\$(committerName)\[\033[00m\] \[\033[32m\]\W\[\033[00m\]\$(open)\[\033[33m\]\$(branchName)\[\033[00m\]\[\033[33m\]\$(untracked)\[\033[00m\]\[\033[33m\]\$(unstaged)\[\033[00m\]\$(close) $ "
+export PS1="\[\e[0;34m\]\$(committerName)\[\033[00m\] \[\033[32m\]\W\[\033[00m\]\$(open)\[\033[33m\]\$(branchName)\[\033[00m\]\[\033[33m\]\$(untracked)\[\033[00m\]\[\033[33m\]\$(unstaged)\[\033[00m\]\$(close) ▶ "
 
 export PATH="/usr/local/mysql/bin:$PATH"
 
