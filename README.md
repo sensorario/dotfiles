@@ -1,4 +1,12 @@
 Dotfiles!
 =========
 
-![my dotfiles](dotfiles.png)
+folder view
+-----------
+
+![home](dotfiles-folder.png)
+
+repository folder
+-----------------
+
+![repository folder](dotfiles-repository.png)
