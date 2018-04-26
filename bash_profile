@@ -24,13 +24,14 @@ uncommitted() {
   [[ $(git status 2> /dev/null | grep "Changes to be committed":) != "" ]] && echo "*"
 }
 
-prompt="\[\e[7;34m\] "
+prompt=""
+prompt+="\[\e[7;34m\] "
 prompt+="\$(committerName) "
-prompt+="\[\e[0;34m\] "
-prompt+="\W \[\e[7;33m\] "
-prompt+="\$(branchName) "
+prompt+="\[\e[0;34m\]"
+prompt+=" \W \[\e[7;36m\]"
+prompt+=" \$(branchName) "
 prompt+="\$(untracked)\$(unstaged)\$(uncommitted) "
-prompt+="\[\e[0;33m\] "
+prompt+="\[\e[0;36m\] "
 prompt+="\[\e[0m\]"
 
 export PS1=$prompt
