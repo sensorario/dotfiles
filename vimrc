@@ -43,6 +43,11 @@ autocmd FileType php set shiftwidth=4
 autocmd FileType php set softtabstop=4
 autocmd FileType php set tabstop=4
 
+autocmd FileType conf set list listchars=tab:»·,trail:·
+autocmd FileType conf set shiftwidth=2
+autocmd FileType conf set softtabstop=2
+autocmd FileType conf set tabstop=2
+
 autocmd FileType sh set list listchars=tab:»·,trail:·
 autocmd FileType sh set shiftwidth=2
 autocmd FileType sh set softtabstop=2
