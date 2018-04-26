@@ -20,7 +20,19 @@ untracked() {
   [[ $(git status 2> /dev/null | grep "Untracked files":) != "" ]] && echo "/u"
 }
 
-export PS1="\[\e[7;34m\] \$(committerName) \[\e[0;34m\] \W \[\e[7;33m\] \$(branchName)\$(untracked)\$(unstaged) \[\e[0;33m\] \[\e[0m\]"
+prompt="\[\e[7;34m\] "                             # start with blue
+prompt+="\$(committerName) "                       # show committer name
+
+prompt+="\[\e[0;34m\] "                           # start black backround
+prompt+="\W "                                      # show folder name
+
+prompt+="\[\e[7;33m\] "                           # start green backround
+prompt+="\$(branchName)\$(untracked)\$(unstaged) " # show branch info
+
+prompt+="\[\e[0;33m\] "                           # start black backround
+prompt+="\[\e[0m\]"                                # show prompt
+
+export PS1=$prompt
 
 export PATH="/usr/local/mysql/bin:$PATH"
 
