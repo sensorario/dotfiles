@@ -1,12 +1,16 @@
 Dotfiles!
 =========
 
-folder view
------------
+homepage
+------
 
-![home](dotfiles-folder.png)
+![home](dotfiles-home.png)
 
-repository folder
------------------
+git status
+----------
 
-![repository folder](dotfiles-repository.png)
+ - `+` new files
+ - `~` unstaged
+ - `*` staged
+
+![repository folder](dotfiles-status.png)
