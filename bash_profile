@@ -24,7 +24,16 @@ uncommitted() {
   [[ $(git status 2> /dev/null | grep "Changes to be committed":) != "" ]] && echo "*"
 }
 
-export PS1="\[\e[7;34m\] \$(committerName) \[\e[0;34m\] \W \[\e[7;33m\] \$(branchName) \$(untracked)\$(unstaged)\$(uncommitted) \[\e[0;33m\] \[\e[0m\]"
+prompt="\[\e[7;34m\] "
+prompt+="\$(committerName) "
+prompt+="\[\e[0;34m\] "
+prompt+="\W \[\e[7;33m\] "
+prompt+="\$(branchName) "
+prompt+="\$(untracked)\$(unstaged)\$(uncommitted) "
+prompt+="\[\e[0;33m\] "
+prompt+="\[\e[0m\]"
+
+export PS1=$prompt
 
 export PATH="/usr/local/mysql/bin:$PATH"
 
