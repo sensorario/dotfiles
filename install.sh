@@ -4,6 +4,16 @@ cd "$(dirname "$0")"
 clear
 figlet install
 
+
+# Build custom giconfig file
+echo What is your name?
+read committer_user
+echo What is your email?
+read committer_email
+sed "s/{{committer_user}}/$committer_user/g" <./gitconfig.dist >./temp
+sed "s/{{committer_email}}/$committer_email/g" <./temp >./gitconfig
+
+
 rm -rf ~/.vim;
 
 if [ ! -d ~/.vim/bundle/vundle ]; then

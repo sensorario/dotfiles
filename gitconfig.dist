@@ -1,6 +1,6 @@
 [user]
-    name = "Simone Gentili"
-    email = sensorario@gmail.com
+    name = "{{committer_user}}"
+    email = {{committer_email}}
 
 [color]
     status = auto
