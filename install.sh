@@ -26,8 +26,7 @@ fi
 rm -rf ~/.vim/colors/despacio.vim
 git clone https://github.com/AlessandroYorba/Despacio.git && cd despacio.git/colors/ && mv despacio.vim ~/.vim/colors/despacio.git/colors/despacio.vim 
 
-
-cp -f $PWD/gitignore_global ~/.gitignore_global;
+cp -f $PWD/gitignore ~/.gitignore;
 
 . ./update-vimrc.sh
 . ./update-snippets.sh
