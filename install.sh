@@ -4,30 +4,15 @@ cd "$(dirname "$0")"
 clear
 figlet install
 
-
-if [ $# -eq 0 ]
-  then
-    echo "Install starts ..."
-  else
-    echo $1
-    if [ $1 == "--gitconfig" ]
-    then
-      # Build custom giconfig file
-      echo What is your name?
-      read committer_user
-      echo What is your email?
-      read committer_email
-      sed "s/{{committer_user}}/$committer_user/g" <./gitconfig.dist >./temp
-      sed "s/{{committer_email}}/$committer_email/g" <./temp >./gitconfig
-      . ./update-gitconfig.sh
-    else
-      echo "Wrong parameter value"
-      echo "Available ones:"
-      echo ""
-      echo "--gitconfig"
-      echo ""
-      exit
-    fi
+if [ $1 == "--gitconfig" ] || [ ! -f ~/.gitconfig ]
+then
+  echo What is your name?
+  read committer_user
+  echo What is your email?
+  read committer_email
+  sed "s/{{committer_user}}/$committer_user/g" <./gitconfig.dist >./temp
+  sed "s/{{committer_email}}/$committer_email/g" <./temp >./gitconfig
+  . ./update-gitconfig.sh
 fi
 
 rm -rf ~/.vim;
