@@ -18,7 +18,7 @@ fi
 
 // more themes
 rm -rf ~/.vim/colors/despacio.vim
-git clone https://github.com/AlessandroYorba/Despacio.git && cd despacio.git/colors/ && mv despacio.vim ~/.vim/colors/despacio.git/colors/despacio.vim 
+git clone https://github.com/AlessandroYorba/Despacio.git && cd despacio.git/colors/ && mv despacio.vim ~/.vim/colors/despacio.git/colors/despacio.vim
 
 . ./update-vimrc.sh
 . ./update-snippets.sh
