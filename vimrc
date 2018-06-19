@@ -33,6 +33,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " show tabs and tailing spaces
 autocmd FileType go set list listchars=tab:»·,trail:·
+autocmd FileType go set shiftwidth=2
+autocmd FileType go set softtabstop=2
+autocmd FileType go set tabstop=2
 
 autocmd FileType javascript set shiftwidth=2
 autocmd FileType javascript set softtabstop=2
@@ -42,6 +45,26 @@ autocmd FileType php set list listchars=tab:»·,trail:·
 autocmd FileType php set shiftwidth=4
 autocmd FileType php set softtabstop=4
 autocmd FileType php set tabstop=4
+
+autocmd FileType xml set list listchars=tab:»·,trail:·
+autocmd FileType xml set shiftwidth=2
+autocmd FileType xml set softtabstop=2
+autocmd FileType xml set tabstop=2
+
+autocmd FileType yaml set list listchars=tab:»·,trail:·
+autocmd FileType yaml set shiftwidth=4
+autocmd FileType yaml set softtabstop=4
+autocmd FileType yaml set tabstop=4
+
+autocmd FileType cucumber set list listchars=tab:»·,trail:·
+autocmd FileType cucumber set shiftwidth=4
+autocmd FileType cucumber set softtabstop=4
+autocmd FileType cucumber set tabstop=4
+
+autocmd FileType html set list listchars=tab:»·,trail:·
+autocmd FileType html set shiftwidth=2
+autocmd FileType html set softtabstop=2
+autocmd FileType html set tabstop=2
 
 autocmd FileType json set list listchars=tab:»·,trail:·
 autocmd FileType json set shiftwidth=4
