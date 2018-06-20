@@ -34,3 +34,8 @@
 [core]
     editor = /usr/bin/vim
     excludesfile = /Users/sensorario/.gitignore_global
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

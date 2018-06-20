@@ -113,6 +113,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
 "Plugin 'craigemery/vim-autotag'
 Bundle 'stephpy/vim-php-cs-fixer'
+Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 
 " Open vimrc file ...
@@ -200,7 +201,7 @@ let g:ctrlp_custom_ignore = {
 " alwais show status line on all windows
 set laststatus=2
 let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
+set encoding=utf8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 if !exists('g:airline_symbols')
@@ -396,3 +397,10 @@ command! Node :call NodeFunction()
 function! NodeFunction()
     exec ':!node %'
 endfunction
+
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+set guifont=DroidSansMono_Nerd_Font:h11
