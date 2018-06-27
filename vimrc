@@ -90,6 +90,7 @@ filetype plugin on        " required for nerdcommenter
 " Vundle plugins
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'fugitive.vim'
