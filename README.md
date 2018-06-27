@@ -1,6 +1,8 @@
 Dotfiles!
 =========
 
+![dotfiles](dotfiles-preview.png)
+
 Install
 -------
 
