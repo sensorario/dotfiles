@@ -176,7 +176,7 @@ endfunction
 " Show method names to verify the newspaper metaphore
 command! Newspaper :call NewspaperMetaphore()<CR>
 function! NewspaperMetaphore()
-    let newspaper_command = ":!clear; cat % | grep class; echo ''; echo 'METHODS:'; echo ''; awk '/function/,/\\)/' %"
+    let newspaper_command = ":!clear; awk '/^class/' % | awk '{print $2}'; echo ''; echo 'METHODS:'; echo ''; awk '/function/,/\\)/' %"
     exe newspaper_command
 endfunction
 
