@@ -92,7 +92,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fugitive.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -191,6 +191,7 @@ function! ShowMeTodoInCurrentFile()
     exec '!clear; grep -nR "@todo" % --color'
 endfunction
 
+
 " ctrlp configuraation
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|web|node_modules)$',
@@ -199,6 +200,10 @@ let g:ctrlp_custom_ignore = {
     \ 'coverage': '\v[\/](html)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
+
+" ignore .gitignore files
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
 
 " alwais show status line on all windows
 set laststatus=2
