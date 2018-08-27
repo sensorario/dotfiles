@@ -117,6 +117,9 @@ Bundle 'stephpy/vim-php-cs-fixer'
 Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 
+" indent everything
+nnoremap <Leader><tab> <esc>gg=G<C-o><C-o>zz
+
 " Open vimrc file ...
 nnoremap <Leader><Leader> :tabe ~/.vimrc
 
