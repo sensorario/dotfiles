@@ -115,6 +115,7 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'craigemery/vim-autotag'
 Bundle 'stephpy/vim-php-cs-fixer'
 Plugin 'ryanoasis/vim-devicons'
+"Plugin 'kshenoy/vim-signature'
 call vundle#end()
 
 " indent everything
@@ -211,7 +212,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " alwais show status line on all windows
 set laststatus=2
 let g:Powerline_symbols = 'fancy'
-set encoding=utf8
+"set encoding=utf8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 if !exists('g:airline_symbols')
@@ -228,8 +229,13 @@ let g:airline#extensions#tabline#enabled=1
 " Run Behat
 command! RunBehat :call RunBehatFunction()
 function! RunBehatFunction()
-    exec 'pwd'
-    exec ':!php ./bin/behat' . "\<CR>"
+    "exec 'pwd'
+    "exec ':!php ./bin/behat' . "\<CR>"
+    if filereadable('./bin/behat')
+        exec ':!./bin/behat'
+    else
+        exec ':!./vendor/bin/behat'
+    endif
 endfunction
 
 " Php files configuration
@@ -252,7 +258,7 @@ function! g:TestOnlyCurrenfFunction()
         let g:lastExecutedTest = ':!php ./vendor/bin/phpunit --filter=' . g:currentWord . ' --stop-on-failure'
     endif
     exec g:lastExecutedTest
-    exec 'normal <c-o>'
+    exec 'normal <c-o><c-o>zz'
 endfunction
 
 nnoremap <Leader>l :call g:RepeatLastTestFunction()<CR>
@@ -270,9 +276,9 @@ function! RunPHPUnitTests()
         let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
     endif
     if filereadable('./bin/phpunit')
-        return ':!clear; php ./bin/phpunit --color ' . l:filename . " --testdox\<CR>"
+        return ':!clear; php ./bin/phpunit --color --stop-on-failure ' . l:filename . " --testdox\<CR>"
     else
-        return ':!clear; php ./vendor/bin/phpunit --color ' . l:filename . " --testdox\<CR>"
+        return ':!clear; php ./vendor/bin/phpunit --color --stop-on-failure ' . l:filename . " --testdox\<CR>"
     endif
 endfunction
 
