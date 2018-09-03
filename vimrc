@@ -17,7 +17,7 @@ set nocompatible        " use vim defaults
 set novisualbell        " turn off visual bell
 set nu
 set number              " show line numbers
-set rnu
+set rnu                 " show numbers from current row
 set ruler               " show the current row and column
 set runtimepath=$VIMRUNTIME     " turn off user scripts, https://github.com/igrigorik/vimgolf/issues/129
 set scrolloff=3         " keep 3 lines when scrolling
