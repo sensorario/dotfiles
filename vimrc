@@ -115,7 +115,7 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'craigemery/vim-autotag'
 Bundle 'stephpy/vim-php-cs-fixer'
 Plugin 'ryanoasis/vim-devicons'
-"Plugin 'kshenoy/vim-signature'
+Plugin 'kshenoy/vim-signature'
 call vundle#end()
 
 " indent everything
