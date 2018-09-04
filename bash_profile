@@ -4,23 +4,23 @@ source ~/.bash_aliases
 # Automcomplete git commands
 source ~/.git-completion.bash
 
-committerName() {
+function committerName() {
     git config user.email
 }
 
-branchName() {
+function branchName() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/⎇ \1/'
 }
 
-unstaged() {
+function unstaged() {
   [[ $(git status 2> /dev/null | grep "Changes not staged for commit":) != "" ]] && echo "~"
 }
 
-untracked() {
+function untracked() {
   [[ $(git status 2> /dev/null | grep "Untracked files":) != "" ]] && echo "+"
 }
 
-uncommitted() {
+function uncommitted() {
   [[ $(git status 2> /dev/null | grep "Changes to be committed":) != "" ]] && echo "*"
 }
 
