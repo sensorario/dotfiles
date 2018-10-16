@@ -275,7 +275,7 @@ function! RunPHPUnitTests()
         let l:filename=substitute(l:filename, 'src', 'tests', '') " symfony3 folder
         let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
         if !filereadable(l:filename)
-            let l:filename=substitute(l:filename, 'tests', 'tests/unit/', '') " my folder ...
+            let l:filename=substitute(l:filename, 'tests', 'tests/unit', '') " my folder ...
         endif
     endif
     if filereadable('./bin/phpunit')
