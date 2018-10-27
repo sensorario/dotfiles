@@ -271,15 +271,15 @@ autocmd FileType php nnoremap <expr> <leader>u RunPHPUnitTests()
 command! RunUnitTestsCommand :call RunPHPUnitTests()
 function! RunPHPUnitTests()
     let l:filename = expand('%')
-    if -1 == match(l:filename,'Test\.php')
-        let l:filename=substitute(l:filename, 'src', 'tests', '') " symfony3 folder
-        let l:filename=substitute(l:filename, '\.php', 'Test\.php', '')
-        if !filereadable(l:filename)
-            let l:filename=substitute(l:filename, 'tests', 'tests/unit', '') " my folder ...
-        endif
+
+    if -1 == match(l:filename,'Should\.php')
+        let l:filename = expand('%')
+        let l:filename=substitute(l:filename, 'src/', 'tests/unit/', '')
+        let l:filename=substitute(l:filename, '\.php', 'Should\.php', '')
     endif
+
     if filereadable('./bin/phpunit')
-        return ':!clear; php ./bin/phpunit --color --stop-on-failure ' . l:filename . " --testdox\<CR>"
+        return ':!clear; php ./bin/phpunit --color --stop-on-failure ' .  l:filename . " --testdox\<CR>"
     else
         return ':!clear; php ./vendor/bin/phpunit --color --stop-on-failure ' . l:filename . " --testdox\<CR>"
     endif
