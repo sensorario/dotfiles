@@ -1,5 +1,5 @@
-set ai                  " set auto-indenting on for programming
-set backspace=indent,eol,start  " make that backspace key work the way it should
+set ai                                       " set auto-indenting on for programming
+set backspace=indent,eol,start               " make that backspace key work the way it should
 set cursorline
 set cursorcolumn
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
@@ -7,79 +7,35 @@ set expandtab
 set exrc
 set foldlevel=20
 set foldmethod=indent
-set hlsearch            " highlight searches
-set ignorecase          " ignore case when searching
-set incsearch           " do incremental searching
+set hlsearch                                 " highlight searches
+set ignorecase                               " ignore case when searching
+set incsearch                                " do incremental searching
 set linespace=0
 set mouse=a
-set nobackup            " do not keep a backup file
-set nocompatible        " use vim defaults
-set novisualbell        " turn off visual bell
+set nobackup                                 " do not keep a backup file
+set nocompatible                             " use vim defaults
+set novisualbell                             " turn off visual bell
 set nu
-set number              " show line numbers
-set rnu                 " show numbers from current row
-set ruler               " show the current row and column
-set runtimepath=$VIMRUNTIME     " turn off user scripts, https://github.com/igrigorik/vimgolf/issues/129
-set scrolloff=3         " keep 3 lines when scrolling
+set number                                   " show line numbers
+set rnu                                      " show numbers from current row
+set ruler                                    " show the current row and column
+set runtimepath=$VIMRUNTIME                  " turn off user scripts, https://github.com/igrigorik/vimgolf/issues/129
+set scrolloff=3                              " keep 3 lines when scrolling
 set secure
 set showbreak=↪
-set showcmd             " display incomplete commands
-set showmatch           " jump to matches when entering regexp
-set smartcase           " no ignorecase if Uppercase char present
+set showcmd                                  " display incomplete commands
+set showmatch                                " jump to matches when entering regexp
+set smartcase                                " no ignorecase if Uppercase char present
 set smartindent
-set visualbell t_vb=    " turn off error beep/flash
+set visualbell t_vb=                         " turn off error beep/flash
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " show tabs and tailing spaces
-autocmd FileType go set list listchars=tab:»·,trail:·
-autocmd FileType go set shiftwidth=2
-autocmd FileType go set softtabstop=2
-autocmd FileType go set tabstop=2
-
-autocmd FileType javascript set shiftwidth=2
-autocmd FileType javascript set softtabstop=2
-autocmd FileType javascript set tabstop=2
-
-autocmd FileType php set list listchars=tab:»·,trail:·
-autocmd FileType php set shiftwidth=4
-autocmd FileType php set softtabstop=4
-autocmd FileType php set tabstop=4
-
-autocmd FileType xml set list listchars=tab:»·,trail:·
-autocmd FileType xml set shiftwidth=2
-autocmd FileType xml set softtabstop=2
-autocmd FileType xml set tabstop=2
-
-autocmd FileType yaml set list listchars=tab:»·,trail:·
-autocmd FileType yaml set shiftwidth=4
-autocmd FileType yaml set softtabstop=4
-autocmd FileType yaml set tabstop=4
-
-autocmd FileType cucumber set list listchars=tab:»·,trail:·
-autocmd FileType cucumber set shiftwidth=4
-autocmd FileType cucumber set softtabstop=4
-autocmd FileType cucumber set tabstop=4
-
-autocmd FileType html set list listchars=tab:»·,trail:·
-autocmd FileType html set shiftwidth=2
-autocmd FileType html set softtabstop=2
-autocmd FileType html set tabstop=2
-
-autocmd FileType json set list listchars=tab:»·,trail:·
-autocmd FileType json set shiftwidth=4
-autocmd FileType json set softtabstop=4
-autocmd FileType json set tabstop=4
-
-autocmd FileType conf set list listchars=tab:»·,trail:·
-autocmd FileType conf set shiftwidth=2
-autocmd FileType conf set softtabstop=2
-autocmd FileType conf set tabstop=2
-
-autocmd FileType sh set list listchars=tab:»·,trail:·
-autocmd FileType sh set shiftwidth=2
-autocmd FileType sh set softtabstop=2
-autocmd FileType sh set tabstop=2
+set list listchars=tab:»·,trail:·
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 syntax on                 " turn syntax highlighting on by default
 filetype on               " detect type of file
@@ -87,12 +43,12 @@ filetype indent on        " load indent file for specific file type
 filetype plugin indent on " required
 filetype plugin on        " required for nerdcommenter
 
-" Vundle plugins
+" plugins
+set rtp+=~/.fzf
 set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fugitive.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -105,33 +61,32 @@ Plugin 'vim-php/vim-create'
 Plugin 'sensorario/vim-flow'
 Plugin 'reedes/vim-pencil'
 Bundle 'kristijanhusak/vim-multiple-cursors'
-Plugin 'evidens/vim-twig'
 Plugin 'fatih/vim-go'
-Plugin 'othree/html5.vim'
-Plugin 'valloric/MatchTagAlways'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'craigemery/vim-autotag'
-Bundle 'stephpy/vim-php-cs-fixer'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'kshenoy/vim-signature'
 call vundle#end()
 
 " indent everything
-nnoremap <Leader><tab> <esc>gg=G<C-o><C-o>zz
+nnoremap <Leader>i <esc>gg=G<C-o><C-o>zz
 
 " Open vimrc file ...
-nnoremap <Leader><Leader> :tabe ~/.vimrc
-
-" function keyboard mapping
-nnoremap <Leader>p :call g:ComposerKnowWhereCurrentFileIs()<CR>
-
-" Sort all uses
-map <F3> :call SortAllUseStatements()<CR>
+nnoremap <Leader><Leader>o :tabe ~/.vimrc
+nnoremap <Leader><Leader>s :source ~/.vimrc
 
 " Replace
 nnoremap <F2> :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+" Sort all uses
+nnoremap <F3> :call SortAllUseStatements()<CR>
+
+" Open Fuzzy Finder
+nnoremap <F4> :FZF<CR>
+
+" Keep methods in order
+nnoremap <F12>     :call NewspaperMetaphore()<CR>
 
 " Replace with confirmation
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left>
@@ -158,8 +113,6 @@ nnoremap T :bprevious<CR>
 " Go to next buffer
 nnoremap t :bnext<CR>
 
-map      <F12>     :call NewspaperMetaphore()<CR>
-
 " Disable arrows in normal mode
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -171,11 +124,6 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
-
-" ComposerKnowWhereCurrentFileIs
-function! g:VimComposerCustomBehavior(currentWord)
-    exec "normal \<c-p>" . a:currentWord
-endfunction
 
 " Show method names to verify the newspaper metaphore
 command! Newspaper :call NewspaperMetaphore()<CR>
@@ -195,21 +143,7 @@ function! ShowMeTodoInCurrentFile()
     exec '!clear; grep -nR "@todo" % --color'
 endfunction
 
-
-" ctrlp configuraation
-let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](\.git|\.hg|\.svn|output|var|sass|bin|web|node_modules)$',
-    \ 'file': '\v\.(exe|so|dll)$',
-    \ 'doc': '\v\.(md|rst)$',
-    \ 'coverage': '\v[\/](html)$',
-    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-    \ }
-
-" ignore .gitignore files
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-
-" alwais show status line on all windows
+" always show status line on all windows
 set laststatus=2
 let g:Powerline_symbols = 'fancy'
 "set encoding=utf8
@@ -237,6 +171,7 @@ function! RunBehatFunction()
         exec ':!./vendor/bin/behat'
     endif
 endfunction
+
 
 " Php files configuration
 autocmd FileType php nnoremap<buffer> <Leader>t :call PhpTests()<cr>
@@ -271,18 +206,25 @@ autocmd FileType php nnoremap <expr> <leader>u RunPHPUnitTests()
 command! RunUnitTestsCommand :call RunPHPUnitTests()
 function! RunPHPUnitTests()
     let l:filename = expand('%')
+    return ":! ./bin/phpunit --color " . l:filename . " --testdox\<CR>"
 
-    if -1 == match(l:filename,'Should\.php')
-        let l:filename = expand('%')
-        let l:filename=substitute(l:filename, 'src/', 'tests/unit/', '')
-        let l:filename=substitute(l:filename, '\.php', 'Should\.php', '')
-    endif
+    "if -1 == match(l:filename,'Should\.php')
+        "let l:filename = expand('%')
+        "let l:filename=substitute(l:filename, 'src/', 'tests/unit/', '')
+        "let l:filename=substitute(l:filename, '\.php', 'Should\.php', '')
+        "return l:filename
+    "endif
 
-    if filereadable('./bin/phpunit')
-        return ':!clear; php ./bin/phpunit --color --stop-on-failure ' .  l:filename . " --testdox\<CR>"
-    else
-        return ':!clear; php ./vendor/bin/phpunit --color --stop-on-failure ' . l:filename . " --testdox\<CR>"
-    endif
+    "if -1 == match(l:filename,'Test\.php')
+    "else
+        "return ':!clear; php ./bin/phpunit --color --stop-on-failure ' .  l:filename . " --testdox\<CR>"
+    "endif
+
+    "if filereadable('./bin/phpunit')
+        "return ':!clear; php ./bin/phpunit --color --stop-on-failure ' .  l:filename . " --testdox\<CR>"
+    "else
+        "return ':!clear; php ./vendor/bin/phpunit --color --stop-on-failure ' . l:filename . " --testdox\<CR>"
+    "endif
 endfunction
 
 " Go files configurations
@@ -293,6 +235,10 @@ endfunction
 autocmd FileType go nnoremap<buffer> <Leader>t :call GoTest()<cr>
 function! GoTest()
     exec ':GoTest'
+endfunction
+autocmd FileType go nnoremap<buffer> <Leader>e :call GoRun()<cr>
+function! GoRun()
+    exec ':GoRun'
 endfunction
 
 " Javascript files configuration
