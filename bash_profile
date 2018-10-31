@@ -4,24 +4,12 @@ source ~/.bash_aliases
 # Automcomplete git commands
 source ~/.git-completion.bash
 
-committerName() {
-    git config user.email
-}
-
-branchName() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/⎇ \1/'
-}
-
-unstaged() {
-  [[ $(git status 2> /dev/null | grep "Changes not staged for commit":) != "" ]] && echo "~"
-}
-
-untracked() {
-  [[ $(git status 2> /dev/null | grep "Untracked files":) != "" ]] && echo "+"
-}
-
-uncommitted() {
-  [[ $(git status 2> /dev/null | grep "Changes to be committed":) != "" ]] && echo "*"
+gitprompt() {
+        git status | grep -E 'Untracked|Changes to|On branch|Changes not' | \
+            sed 's/Changes to be committed:/*/; s/Untracked files:/+/; s/On branch //; s/Changes not staged for commit:/~/' | \
+            paste -sd "_" - | \
+            sed 's/\_/ /;' | \
+            sed 's/\_//g;'
 }
 
 prompt=""
@@ -29,8 +17,7 @@ prompt+="\[\e[7;34m\] "
 prompt+="\$(committerName) "
 prompt+="\[\e[0;34m\]"
 prompt+=" \W \[\e[7;33m\]"
-prompt+=" \$(branchName) "
-prompt+="\$(untracked)\$(unstaged)\$(uncommitted) "
+prompt+=" \$(gitprompt) "
 prompt+="\[\e[0;33m\] "
 prompt+="\[\e[0m\]"
 
