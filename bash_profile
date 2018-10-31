@@ -7,9 +7,9 @@ source ~/.git-completion.bash
 gitprompt() {
         git status | grep -E 'Untracked|Changes to|On branch|Changes not' | \
             sed 's/Changes to be committed:/*/; s/Untracked files:/+/; s/On branch //; s/Changes not staged for commit:/~/' | \
-            paste -sd "_" - | \
-            sed 's/\_/ /;' | \
-            sed 's/\_//g;'
+            paste -sd "±" - | \
+            sed 's/±/ /; ' | \
+            sed 's/±//g;'
 }
 
 prompt=""
