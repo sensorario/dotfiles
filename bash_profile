@@ -5,11 +5,13 @@ source ~/.bash_aliases
 source ~/.git-completion.bash
 
 gitprompt() {
+    if [ -f $PWD/.git/config ]; then
         git status | grep -E 'Untracked|Changes to|On branch|Changes not' | \
             sed 's/Changes to be committed:/*/; s/Untracked files:/+/; s/On branch //; s/Changes not staged for commit:/~/' | \
             paste -sd "±" - | \
             sed 's/±/ /; ' | \
             sed 's/±//g;'
+    fi;
 }
 
 prompt=""
