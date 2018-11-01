@@ -33,9 +33,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " show tabs and tailing spaces
 set list listchars=tab:»·,trail:·
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 syntax on                 " turn syntax highlighting on by default
 filetype on               " detect type of file
@@ -313,10 +313,6 @@ set tags=tags
 let NERDTreeShowBookmarks=1
 "autocmd VimEnter * NERDTree
 
-" color limit column
-set colorcolumn=81
-hi colorcolumn ctermbg=10
-
 " code fixer
 let g:php_cs_fixer_config = "default"         " options: --config
 let g:php_cs_fixer_dry_run = 0                " Call command with dry-run option
@@ -369,3 +365,8 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 set guifont=DroidSansMono_Nerd_Font:h11
+
+" color limit column
+set colorcolumn=119
+hi colorcolumn ctermbg=10
+set tw=119

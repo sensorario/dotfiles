@@ -15,12 +15,13 @@ gitprompt() {
 }
 
 prompt=""
-prompt+="\[\e[7;34m\] "
-prompt+="\$(committerName) "
-prompt+="\[\e[0;34m\]"
-prompt+=" \W \[\e[7;33m\]"
+prompt+=" \w \[\e[7;34m\]"
 prompt+=" \$(gitprompt) "
-prompt+="\[\e[0;33m\] "
+prompt+="\[\e[0;34m\]"
+prompt+=" \[\e[7;39m\]"
+prompt+=" \$(committerName) "
+prompt+="\[\e[0;39m\] "
+
 prompt+="\[\e[0m\]"
 
 export PS1=$prompt
