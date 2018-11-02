@@ -26,6 +26,7 @@ prompt+="\[\e[0m\]"
 
 export PS1=$prompt
 
+# MySQL
 export PATH="/usr/local/mysql/bin:$PATH"
 
 # Golang configuration
@@ -41,7 +42,10 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/bin/
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 export HISTTIMEFORMAT="%Y "
 
+# Nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Jolie
 export JOLIE_HOME="/usr/local/lib/jolie"
