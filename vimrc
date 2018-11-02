@@ -278,8 +278,6 @@ augroup pencil
     autocmd FileType text call pencil#init()
 augroup END
 
-colorscheme mustang
-
 " Plugin 'valloric/MatchTagAlways' Configuration
 let g:mta_filetypes = {
     \ 'html' : 1,
