@@ -37,6 +37,9 @@ PATH=$PATH:$GOPATH/bin:$HOME/.composer/vendor/bin
 # Python
 export PYTHONPATH=$PYTHONPATH:/usr/local/bin/
 
+# Php / xdebug
+export XDEBUG_CONFIG="idekey=xdebug"
+
 # Makefile completion
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 export HISTTIMEFORMAT="%Y "

@@ -67,6 +67,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'kshenoy/vim-signature'
+Plugin 'vim-vdebug/vdebug'
+Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 
 " indent everything
@@ -182,6 +184,7 @@ function! PhpTests()
         exec ':!./vendor/bin/phpunit --stop-on-failure'
     endif
 endfunction
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 nnoremap <Leader>f :call g:TestOnlyCurrenfFunction()<CR>
 function! g:TestOnlyCurrenfFunction()
@@ -368,3 +371,5 @@ set guifont=DroidSansMono_Nerd_Font:h11
 set colorcolumn=119
 hi colorcolumn ctermbg=10
 set tw=119
+
+colorscheme mustang
