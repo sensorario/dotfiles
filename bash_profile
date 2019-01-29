@@ -48,3 +48,4 @@ export JOLIE_HOME="/usr/local/lib/jolie"
 
 # autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+eval "$(jump shell --bind=j)"
