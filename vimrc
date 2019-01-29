@@ -66,9 +66,9 @@ Plugin 'gabrielelana/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'kshenoy/vim-signature'
 Plugin 'vim-vdebug/vdebug'
-Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 
 " indent everything

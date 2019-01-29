@@ -42,6 +42,14 @@ snippet accessors
 	}
 snippet assertEquals
 	\$this->assertEquals(${1}, ${2});
+snippet Test
+	class ${1}Test extends \PHPUnit\Framework\TestCase
+	{
+		public function test${2}()
+		{
+			${3}
+		}
+	}
 snippet test
 	public function test${1}()
 	{
@@ -51,15 +59,9 @@ snippet const
 	const ${1} = '${2}';
 snippet export
 	var_export($${1});
-snippet phplog
-	error_log(var_export(${1}, true));
 snippet runtime
 	throw new \RuntimeException(
 		'Oops! ${1}'
-	);
-snippet logic
-	throw new \LogicException(
-		'Mmm! ${1}'
 	);
 snippet expext
 	$this->${1}->expects($this->${2}())
@@ -95,15 +97,11 @@ snippet this
 # Annotations
 snippet @dat
 	@dataProvider ${1}
-snippet @dep
-	@deprecate since version ${1}.${2}.${3}
-snippet todo
-	/**
-		@todo ${1}
-	*/
-snippet @w
-	@warning ${1}
-snippet @r
-	@return ${1}
-snippet @v
-	@var ${1}
+snippet @todo
+	/** @todo ${1} */
+snippet log
+	file_put_contents(
+		__DIR__ . '/../../../dev.log',
+		'[' . (new \DateTime())->format('Y-m-d H:i:s') . '] - ' .
+		${1}
+	);

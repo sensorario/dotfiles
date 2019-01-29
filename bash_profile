@@ -37,9 +37,6 @@ PATH=$PATH:$GOPATH/bin:$HOME/.composer/vendor/bin
 # Python
 export PYTHONPATH=$PYTHONPATH:/usr/local/bin/
 
-# Php / xdebug
-export XDEBUG_CONFIG="idekey=xdebug"
-
 # Makefile completion
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
 export HISTTIMEFORMAT="%Y "
@@ -48,3 +45,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export JOLIE_HOME="/usr/local/lib/jolie"
+
+# autojump
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
