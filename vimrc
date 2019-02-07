@@ -135,15 +135,18 @@ function! NewspaperMetaphore()
     exe newspaper_command
 endfunction
 
+" Sort uses in file
 command! SortUseStatements :call SortAllUseStatements()<CR>
 function! SortAllUseStatements()
     exec ':0;/^use /;/^\(use \)\@!/-1:sort'
 endfunction
 
+" Show todos
 command! Todo :call ShowMeTodoInCurrentFile()<CR>
 function! ShowMeTodoInCurrentFile()
     exec '!clear; grep -nR "@todo" % --color'
 endfunction
+
 
 " always show status line on all windows
 set laststatus=2
@@ -174,8 +177,34 @@ function! RunBehatFunction()
     endif
 endfunction
 
+autocmd FileType cucumber nnoremap <expr> <leader>u RunCurrentBehatTest()
+command! RunBehatTestCommand :call RunCurrentBehatTest()
+function! RunCurrentBehatTest()
+    exec ':!./bin/behat %'
+endfunction
+
+
 
 " Php files configuration
+vnoremap <Leader>r :call ExtractMethod()<cr>
+function! s:get_visual_selection()
+    let [lnum1, col1] = getpos("'<")[1:2]
+    let [lnum2, col2] = getpos("'>")[1:2]
+    let lines = getline(lnum1, lnum2)
+    let lines[-1] = lines[-1][: col2 - 2]
+    let lines[0] = lines[0][col1 - 1:]
+    return join(lines, "\n")
+endfunction
+fun! ExtractMethod() range
+    let g:selection = s:get_visual_selection()
+    exec ":normal! Gko\<esc>o\<esc>Spublic function ()\<esc>"
+    exec ":normal! o{\<esc>"
+    exec ":set paste"
+    exec ":normal! o" . g:selection . "\<esc>"
+    exec ":set nopaste"
+    exec ":normal! o}\<esc>%k2w"
+endfun
+
 autocmd FileType php nnoremap<buffer> <Leader>t :call PhpTests()<cr>
 function! PhpTests()
     if filereadable('./bin/phpunit')
@@ -204,6 +233,9 @@ function! g:RepeatLastTestFunction()
     exec g:lastExecutedTest
 endfunction
 
+" Exec current php file
+nnoremap <Leader>e :!php -d display_errors %<CR>
+
 " Run phpunit test for current file
 autocmd FileType php nnoremap <expr> <leader>u RunPHPUnitTests()
 command! RunUnitTestsCommand :call RunPHPUnitTests()
@@ -230,6 +262,7 @@ function! RunPHPUnitTests()
     "endif
 endfunction
 
+
 " Go files configurations
 autocmd FileType go nnoremap<buffer> <Leader>b :call GoBuild()<cr>
 function! GoBuild()
@@ -244,6 +277,7 @@ function! GoRun()
     exec ':GoRun'
 endfunction
 
+
 " Javascript files configuration
 autocmd FileType javascript nnoremap <expr> <leader>t RunCompleteTestSuite()
 command! RunCompleteTestSuiteCommand :call RunCompleteTestSuite()
@@ -257,16 +291,8 @@ function! RunCurrentTestFile()
     exec ':!npm test %'
 endfunction
 
-" Behat
-autocmd FileType cucumber nnoremap <expr> <leader>u RunCurrentBehatTest()
-command! RunBehatTestCommand :call RunCurrentBehatTest()
-function! RunCurrentBehatTest()
-    exec ':!./bin/behat %'
-endfunction
 
-" Run complete test suite
-nnoremap <Leader>e :!php -d display_errors %<CR>
-
+" Git stuffs
 command! DeleteMergedBranches :call DeleteMergedBranchesFunction()
 function! DeleteMergedBranchesFunction()
     exec ':!git checkout master | git branch --merged | grep feature | xargs -n 1 git branch -d'
@@ -281,20 +307,16 @@ augroup pencil
     autocmd FileType text call pencil#init()
 augroup END
 
-" Plugin 'valloric/MatchTagAlways' Configuration
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'tmpl' : 1,
-    \}
 
-" Enable mouse
+" Mouse configuration
+" Enable
 command! EnableMouse :call EnableMouseFunction()
 function! EnableMouseFunction()
     let command = ":set mouse=a"
     exe command
 endfunction
 
-" Disable mouse
+" Disable
 command! DisableMouse :call DisableMouseFunction()
 function! DisableMouseFunction()
     let command = ":set mouse="
@@ -314,6 +336,7 @@ set tags=tags
 let NERDTreeShowBookmarks=1
 "autocmd VimEnter * NERDTree
 
+
 " code fixer
 let g:php_cs_fixer_config = "default"         " options: --config
 let g:php_cs_fixer_dry_run = 0                " Call command with dry-run option
@@ -323,24 +346,8 @@ let g:php_cs_fixer_php_path = "php"           " Path to PHP
 let g:php_cs_fixer_rules = "@PSR2"            " options: --rules (default:@PSR2)
 let g:php_cs_fixer_verbose = 0                " Return the output of command if 1, else an inline information.
 
-fun! ExtractMethod() range
-    let g:selection = s:get_visual_selection()
-    exec ":normal! Gko\<esc>o\<esc>Spublic function ()\<esc>"
-    exec ":normal! o{\<esc>"
-    exec ":set paste"
-    exec ":normal! o" . g:selection . "\<esc>"
-    exec ":set nopaste"
-    exec ":normal! o}\<esc>%k2w"
-endfun
-function! s:get_visual_selection()
-    let [lnum1, col1] = getpos("'<")[1:2]
-    let [lnum2, col2] = getpos("'>")[1:2]
-    let lines = getline(lnum1, lnum2)
-    let lines[-1] = lines[-1][: col2 - 2]
-    let lines[0] = lines[0][col1 - 1:]
-    return join(lines, "\n")
-endfunction
-vnoremap <Leader>r :call ExtractMethod()<cr>
+
+
 
 inoremap <F5> <C-R>=CustomComplete()<CR>
 func! CustomComplete()
