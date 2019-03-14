@@ -71,7 +71,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'kshenoy/vim-signature'
-Plugin 'vim-vdebug/vdebug'
+" Plugin 'vim-vdebug/vdebug'
 call vundle#end()
 
 " indent everything
