@@ -1,5 +1,5 @@
-Dotfiles!
-=========
+Dotfiles 1.0!
+=============
 
 ![dotfiles](dotfiles-preview.png)
 
