@@ -12,5 +12,5 @@ ln -s $PWD/vimrc ~/.config/nvim/init.vim
 ln -s $PWD/snippets ~/.config/nvim/snippets/
 
 # install deoplete plugin
-git clone git@github.com:Shougo/deoplete.nvim.git ~/.config/nvim/deoplete.vim
+git clone https://github.com/Shougo/deoplete.nvim.git ~/.config/nvim/deoplete.vim
 vim -c ':UpdateRemotePlugins' -c qa

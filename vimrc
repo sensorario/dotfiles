@@ -47,8 +47,9 @@ filetype plugin indent on " required
 filetype plugin on        " required for nerdcommenter
 
 " plugins
-set rtp+=~/.fzf
+set rtp+=~/.fzf " installed via git
 set rtp+=~/.vim/bundle/vundle
+
 call vundle#begin()
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'gmarik/Vundle.vim'
@@ -373,9 +374,10 @@ endfunction
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-set guifont=DroidSansMono_Nerd_Font:h11
+set guifont=DroidSansMono_Nerd_Font:h26
 
 " color limit column
 set colorcolumn=119
