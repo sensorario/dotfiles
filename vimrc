@@ -48,32 +48,6 @@ filetype plugin on        " required for nerdcommenter
 
 " plugins
 set rtp+=~/.fzf " installed via git
-set rtp+=~/.vim/bundle/vundle
-
-call vundle#begin()
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'fugitive.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tommcdo/vim-lion'
-Bundle 'vim-php/vim-composer'
-Plugin 'bling/vim-airline'
-Plugin 'vim-php/vim-create'
-Plugin 'sensorario/vim-flow'
-Plugin 'reedes/vim-pencil'
-Bundle 'kristijanhusak/vim-multiple-cursors'
-Plugin 'fatih/vim-go'
-Plugin 'gabrielelana/vim-markdown'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'kshenoy/vim-signature'
-" Plugin 'vim-vdebug/vdebug'
-call vundle#end()
 
 " indent everything
 nnoremap <Leader>i <esc>gg=G<C-o><C-o>zz
@@ -350,9 +324,6 @@ let g:php_cs_fixer_php_path = "php"           " Path to PHP
 let g:php_cs_fixer_rules = "@PSR2"            " options: --rules (default:@PSR2)
 let g:php_cs_fixer_verbose = 0                " Return the output of command if 1, else an inline information.
 
-
-
-
 inoremap <F5> <C-R>=CustomComplete()<CR>
 func! CustomComplete()
     let l:methods = split(
@@ -383,5 +354,3 @@ set guifont=DroidSansMono_Nerd_Font:h26
 set colorcolumn=119
 hi colorcolumn ctermbg=10
 set tw=119
-
-colorscheme mustang

@@ -1,5 +1,5 @@
 #!/bin/bash
-# @todo add colors
+
 echo ""
 echo "Overriding vimrc"
 
