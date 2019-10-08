@@ -345,7 +345,7 @@ endfunction
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 set guifont=DroidSansMono_Nerd_Font:h26
@@ -357,3 +357,5 @@ endif
 set colorcolumn=119
 hi colorcolumn ctermbg=10
 set tw=119
+
+colorscheme murphy
