@@ -52,5 +52,5 @@ export JOLIE_HOME="/usr/local/lib/jolie"
 
 _ff='commit complete feature help hotfix bugfix publish refactor reset status' && complete -W "${_ff}" 'ff'
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
