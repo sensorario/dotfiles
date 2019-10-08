@@ -349,6 +349,9 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 set guifont=DroidSansMono_Nerd_Font:h26
+if exists("g:loaded_webdevicons")
+	call webdevicons#refresh()
+endif
 
 " color limit column
 set colorcolumn=119
