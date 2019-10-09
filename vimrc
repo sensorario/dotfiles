@@ -358,4 +358,4 @@ set colorcolumn=119
 hi colorcolumn ctermbg=10
 set tw=119
 
-colorscheme murphy
+colorscheme odyssey

@@ -8,9 +8,8 @@ fi
 
 rm -rf ~/.vim;
 
-. ./update-vimrc.sh
-
-cp -f $PWD/tmux.conf ~/.tmux.conf;
+# colorscheme
+mkdir -p ~/.vim/pack && cd ~/.vim/pack/ && mkdir -p vim-odyssey/start/ && cd vim-odyssey/start/ && git clone https://github.com/ludokng/vim-odyssey.git vim-odyssey/
 
 # vim 8
 git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/default/start/typescript-vim
@@ -34,3 +33,7 @@ git clone https://github.com/scrooloose/nerdcommenter ~/.vim/pack/default/start/
 git clone https://github.com/ryanoasis/vim-devicons ~/.vim/pack/default/start/vim-devicons
 git clone https://github.com/vim-syntastic/syntastic ~/.vim/pack/default/start/syntastic
 git clone https://github.com/kshenoy/vim-signature ~/.vim/pack/default/start/vim-signature
+
+. ./update-vimrc.sh
+
+cp -f tmux.conf ~/.tmux.conf 2> /dev/null
