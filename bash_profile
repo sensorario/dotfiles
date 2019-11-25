@@ -5,13 +5,14 @@ source ~/.bash_aliases
 source ~/.git-completion.bash
 
 gitprompt() {
-    if [ -f $PWD/.git/config ]; then
+    inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+    if [ "$inside_git_repo" ]; then
         git status | grep -E 'Untracked|Changes to|On branch|Changes not' | \
             sed 's/Changes to be committed:/*/; s/Untracked files:/+/; s/On branch //; s/Changes not staged for commit:/~/' | \
             paste -sd "±" - | \
             sed 's/±/ /; ' | \
             sed 's/±//g;'
-    fi;
+    fi
 }
 
 prompt=""
