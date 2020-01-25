@@ -55,3 +55,4 @@ _ff='commit complete feature help hotfix bugfix publish refactor reset status' &
 
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
+export PATH="$HOME/.symfony/bin:$PATH"
