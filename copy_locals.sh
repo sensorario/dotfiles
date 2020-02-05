@@ -20,7 +20,7 @@ printf "\nCopying profile"
 cp ~/.profile profile
 cp ~/.bash_profile bash_profile
 
-printf "\nCopying snippets"
-cp -Rf ~/.vim/snippets/* ./snippets/
+printf "\nCopying neovim configurations"
+cp -r ~/.config/nvim/init.vim nvim/init.vim
 
 printf "\n\n"

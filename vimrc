@@ -3,7 +3,6 @@ set backspace=indent,eol,start               " make that backspace key work the 
 set cursorline
 set cursorcolumn
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
-set expandtab
 set exrc
 set foldlevel=20
 set foldmethod=indent
@@ -32,8 +31,10 @@ set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " show tabs and tailing spaces
+set expandtab
 set list listchars=tab:»·,trail:·
 set shiftwidth=4
+set smarttab
 set softtabstop=4
 set tabstop=4
 

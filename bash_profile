@@ -5,18 +5,17 @@ source ~/.bash_aliases
 source ~/.git-completion.bash
 
 gitprompt() {
-    inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
-    if [ "$inside_git_repo" ]; then
+    if [ -f $PWD/.git/config ]; then
         git status | grep -E 'Untracked|Changes to|On branch|Changes not' | \
             sed 's/Changes to be committed:/*/; s/Untracked files:/+/; s/On branch //; s/Changes not staged for commit:/~/' | \
             paste -sd "±" - | \
             sed 's/±/ /; ' | \
             sed 's/±//g;'
-    fi
+    fi;
 }
 
 prompt=""
-prompt+=" \W \[\e[7;34m\]"
+prompt+=" \A \W \[\e[7;34m\]"
 prompt+=" \$(gitprompt) "
 prompt+="\[\e[0;34m\]"
 prompt+=" \[\e[7;39m\]"
@@ -55,4 +54,3 @@ _ff='commit complete feature help hotfix bugfix publish refactor reset status' &
 
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
-export PATH="$HOME/.symfony/bin:$PATH"
