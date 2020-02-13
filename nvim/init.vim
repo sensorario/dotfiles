@@ -1,15 +1,29 @@
-" load vim configuration
-" set runtimepath^=~/.vim runtimepath+=~/.vim/after
-" let &packpath = &runtimepath
-" source ~/.vimrc
-
+" Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
+colorscheme morning
+
+" Config
+set number " Display row number on the left side
+set ignorecase " Innore command case
+set cursorline
+set cursorbind
+
 " FZF bindings
-nnoremap <silent> <Leader>s :call fzf#run({
-\   'down': '40%',
-\   'sink': 'botright split' })<CR>
+nnoremap <silent> <Leader>s :call fzf#run({ 'sink': 'edit' })<CR>
+let $FZF_DEFAULT_OPTS=" --preview='cat' --border --height=40% --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4"
+let g:fzf_buffers_jump = 66
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+  call nvim_open_win(buf, v:true, {})
+endfunction
+
+" Airline
+let g:airline_powerline_fonts = 1
