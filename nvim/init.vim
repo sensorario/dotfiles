@@ -6,7 +6,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'vim-airline/vim-airline'
 call plug#end()
 
-colorscheme morning
+colorscheme murphy
 
 " Config
 set number     " Display row number on the left side
