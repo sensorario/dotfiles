@@ -9,10 +9,11 @@ call plug#end()
 colorscheme morning
 
 " Config
-set number " Display row number on the left side
+set number     " Display row number on the left side
 set ignorecase " Innore command case
 set cursorline
 set cursorbind
+set expandtab
 
 " FZF bindings
 nnoremap <silent> <Leader>s :call fzf#run({ 'sink': 'edit' })<CR>
