@@ -4,15 +4,21 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'vim-airline/vim-airline'
+Plug 'itchyny/vim-cursorword'
 call plug#end()
-
-colorscheme pablo
 
 " Config
 set number " Display row number on the left side
 set ignorecase " Innore command case
 set cursorline
 set cursorbind
+
+" Tabs and spaces
+set expandtab
+set shiftwidth=4
+set smarttab
+set softtabstop=4
+set tabstop=4
 
 " FZF bindings
 nnoremap <silent> <Leader>s :call fzf#run({ 'sink': 'edit' })<CR>
