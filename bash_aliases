@@ -15,7 +15,7 @@ alias clean='git clean -f && git reset --hard'
 alias todo='grep -Ri todo src --color'
 
 # vim
-alias vmod='vim -p `git diff --name-only `'
+alias vmod='nvim -p `git diff --name-only `'
 
 # git
 alias ga='git add .'
