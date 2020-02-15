@@ -1,9 +1,9 @@
 #!/bin/bash
 
+clear
+
 echo "Defining colors ..."
 information=`tput setaf 2`
-question=`tput setaf 3`
-alert=`tput setaf 1`
 reset=`tput sgr0`
 echo "${information}Colors defined ...${reset}"
 
