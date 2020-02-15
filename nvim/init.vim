@@ -33,3 +33,7 @@ endfunction
 
 " Airline
 let g:airline_powerline_fonts = 1
+
+" NERDTree
+let NERDTreeShowBookmarks=1
+autocmd VimEnter * NERDTree
