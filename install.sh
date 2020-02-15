@@ -8,8 +8,13 @@ fi
 
 rm -rf ~/.vim;
 
-# colorscheme
-mkdir -p ~/.vim/pack && cd ~/.vim/pack/ && mkdir -p vim-odyssey/start/ && cd vim-odyssey/start/ && git clone https://github.com/ludokng/vim-odyssey.git vim-odyssey/
+mkdir -p ~/.config/nvim/colors && \
+	cp nvim/init.vim ~/.config/nvim/init.vim && \
+	cp vim/colors/mustang.vim ~/.config/nvim/colors/mustang.vim && \
+        mkdir -p ~/.vim/pack && cd ~/.vim/pack/ && \
+        mkdir -p vim-odyssey/start/ && cd vim-odyssey/start/ && \
+        mkdir -p ~/.config/nvim/colors && \
+        git clone https://github.com/ludokng/vim-odyssey.git vim-odyssey/
 
 # vim 8
 git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/default/start/typescript-vim
