@@ -1,11 +1,14 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'vim-airline/vim-airline'
 Plug 'itchyny/vim-cursorword'
 call plug#end()
+
+" Colorscheme
+colorscheme mustang
 
 " Config
 set number " Display row number on the left side
