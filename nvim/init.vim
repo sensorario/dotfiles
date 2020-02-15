@@ -24,9 +24,12 @@ set softtabstop=4
 set tabstop=4
 
 " FZF bindings
-nnoremap <silent> <Leader>s :call fzf#run({ 'sink': 'edit' })<CR>
+nnoremap <silent> <Leader>s :call fzf#run({
+            \   'sink':    'tabedit',
+            \ })<CR>
+
 let $FZF_DEFAULT_OPTS=" --border --height=40% --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4"
-let g:fzf_buffers_jump = 66
+let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
@@ -34,9 +37,15 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, {})
 endfunction
 
+
+" FZF color scheme selection
+nnoremap <silent> <Leader>c :call fzf#run({
+            \   'source': map(split(globpath(&rtp, "colors/*.vim"), "\n"),
+            \   "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
+            \   'sink':    'colo',
+            \   'options': '+m',
+            \   'left':    30
+            \ })<CR>
+
 " Airline
 let g:airline_powerline_fonts = 1
-
-" NERDTree
-let NERDTreeShowBookmarks=1
-autocmd VimEnter * NERDTree
