@@ -16,6 +16,9 @@ set ignorecase " Innore command case
 set cursorline
 set cursorbind
 
+" Mouse enabled
+set mouse=a
+
 " Tabs and spaces
 set expandtab
 set shiftwidth=4
