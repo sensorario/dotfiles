@@ -17,8 +17,5 @@ then
   . ./update-gitconfig.sh
 fi
 
-echo "${information}Copy tmux configuration${reset}"
-cp -f tmux.conf ~/.tmux.conf 2> /dev/null
-
 echo "${information}Update neovim${reset}"
 . ./update-nvim.sh
