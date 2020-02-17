@@ -1,8 +1,5 @@
 #!/bin/bash
 
-printf "\nCopying tmux configuration"
-cp ~/.tmux.conf tmux.conf
-
 printf "\nCopying git configuration"
 cp ~/.gitconfig gitconfig
 
