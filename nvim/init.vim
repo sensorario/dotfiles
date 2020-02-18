@@ -46,3 +46,6 @@ nnoremap <silent> <Leader>c :call fzf#run({
 
 " Airline
 let g:airline_powerline_fonts = 1
+
+" Nerdtree
+let NERDTreeShowBookmarks = 1
