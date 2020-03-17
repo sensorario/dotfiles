@@ -34,3 +34,5 @@
 [core]
     editor = /usr/bin/vim
     excludesfile = /Users/sensorario/.gitignore_global
+[push]
+	followTags = true
