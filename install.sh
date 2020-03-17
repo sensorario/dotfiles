@@ -3,6 +3,7 @@
 clear
 
 echo "Defining colors ..."
+echo
 information=`tput setaf 2`
 reset=`tput sgr0`
 echo "${information}Colors defined ...${reset}"
@@ -22,3 +23,5 @@ echo "${information}Update neovim${reset}"
 
 echo "${information}Update bash${reset}"
 . ./update-bash.sh
+
+echo
