@@ -2,6 +2,12 @@
 
 ## v2.2
 
+### Fixed
+
+ - Localization for zsh
+ - nvm configuration for zsh
+ - fzf configuration for zsh
+
 ### Removed
 
  - any tmux configuration files
