@@ -19,3 +19,6 @@ fi
 
 echo "${information}Update neovim${reset}"
 . ./update-nvim.sh
+
+echo "${information}Update bash${reset}"
+. ./update-bash.sh
