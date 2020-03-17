@@ -1,2 +1,2 @@
-Dotfiles 2.1!
+Dotfiles 2.2!
 =============
