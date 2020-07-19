@@ -49,3 +49,10 @@ let g:airline_powerline_fonts = 1
 
 " Nerdtree
 let NERDTreeShowBookmarks = 1
+
+
+""""""""""""""""""
+" Custom functions
+function! CloseAllbufferButCurrent()
+:%bd|e#
+endfunction
