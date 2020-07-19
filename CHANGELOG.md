@@ -17,3 +17,4 @@
 
  - integration with catalina's zsh default shell;
  - zshrc file
+ - add custom function to close all buffer but the current;
