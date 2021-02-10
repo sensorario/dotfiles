@@ -5,6 +5,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'vim-airline/vim-airline'
 Plug 'itchyny/vim-cursorword'
+Plug 'APZelos/blamer.nvim'
 call plug#end()
 
 " Colorscheme
@@ -51,8 +52,21 @@ let g:airline_powerline_fonts = 1
 let NERDTreeShowBookmarks = 1
 
 
+" Blamer
+let g:blamer_enabled = 1
+let g:blamer_prefix = ' > '
+let g:blamer_show_in_insert_modes = 1
+let g:blamer_show_in_visual_modes = 1
+let g:blamer_template = '<committer> <summary>'
+let g:blamer_date_format = '%d/%m/%y'
+let g:blamer_relative_time = 1
+let g:blamer_delay = 0
+highlight Blamer guifg=lightgrey
+
+
 """"""""""""""""""
 " Custom functions
 function! CloseAllbufferButCurrent()
 :%bd|e#
 endfunction
+
