@@ -5,7 +5,6 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'vim-airline/vim-airline'
 Plug 'itchyny/vim-cursorword'
-Plug 'APZelos/blamer.nvim'
 call plug#end()
 
 " Colorscheme
@@ -15,6 +14,7 @@ colorscheme mustang
 set number " Display row number on the left side
 set ignorecase " Innore command case
 set cursorline
+set cursorcolumn
 set cursorbind
 
 " Mouse enabled
